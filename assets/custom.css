@@ -247,3 +247,42 @@ body {
   }
 }
 
+/* Dark Mode Overrides */
+html.dark body {
+  background-color: #0b0b0c;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  color: #f4f4f5;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0b0b0c;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html.dark .floating-nav {
+  background: rgba(11, 11, 12, 0.85);
+  border-color: rgba(39, 39, 42, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+html.dark #mobileMenu {
+  background: rgba(11, 11, 12, 0.96);
+  border-color: rgba(39, 39, 42, 0.8);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transition for theme switching */
+body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h3, h4 {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
