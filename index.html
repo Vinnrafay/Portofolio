@@ -73,17 +73,39 @@
 
     <!-- Desktop Nav Links -->
     <nav class="hidden md:flex items-center gap-6 font-sans font-semibold text-[11px] text-zinc-500 tracking-wide">
-      <a href="#home" class="hover:text-black transition-colors">Home</a>
-      <a href="#about" class="hover:text-black transition-colors">About</a>
-      <a href="#projects" class="hover:text-black transition-colors">Projects</a>
-      <a href="#certs" class="hover:text-black transition-colors">Certificates</a>
-      <a href="#contact" class="hover:text-black transition-colors">Contact</a>
+      <a href="#home" class="hover:text-black transition-colors">
+        <span data-lang="id">Beranda</span>
+        <span data-lang="en" class="hidden">Home</span>
+      </a>
+      <a href="#about" class="hover:text-black transition-colors">
+        <span data-lang="id">Tentang</span>
+        <span data-lang="en" class="hidden">About</span>
+      </a>
+      <a href="#projects" class="hover:text-black transition-colors">
+        <span data-lang="id">Proyek</span>
+        <span data-lang="en" class="hidden">Projects</span>
+      </a>
+      <a href="#certs" class="hover:text-black transition-colors">
+        <span data-lang="id">Sertifikat</span>
+        <span data-lang="en" class="hidden">Certificates</span>
+      </a>
+      <a href="#contact" class="hover:text-black transition-colors">
+        <span data-lang="id">Kontak</span>
+        <span data-lang="en" class="hidden">Contact</span>
+      </a>
     </nav>
 
     <!-- Header Actions -->
     <div class="flex items-center gap-2">
+      <!-- Language Switcher Pill -->
+      <div class="inline-flex p-0.5 rounded-full bg-zinc-200/40 backdrop-blur-sm border border-zinc-200/80 text-[10px] font-sans font-semibold select-none shadow-inner">
+        <button id="lang-id" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold" onclick="setLanguage('id')">ID</button>
+        <button id="lang-en" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold" onclick="setLanguage('en')">EN</button>
+      </div>
+
       <a href="https://wa.me/6287797895571" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all select-none shadow-sm">
-        Hubungi
+        <span data-lang="id">Hubungi</span>
+        <span data-lang="en" class="hidden">Contact Me</span>
       </a>
       <button class="md:hidden w-8 h-8 border border-zinc-200 hover:bg-zinc-100 rounded-full text-black flex items-center justify-center cursor-pointer transition-all" id="menuBtn" aria-label="Toggle Menu">
         <div class="w-3.5 h-2.5 flex flex-col justify-between relative" id="hamburgerIcon">
@@ -98,14 +120,30 @@
   <!-- Mobile Navigation Menu Drawer -->
   <div id="mobileMenu" class="fixed z-40 hidden flex-col px-6 py-6 border border-zinc-200/50 gap-4">
     <nav class="flex flex-col gap-4 font-sans font-semibold text-sm text-zinc-500 tracking-wide">
-      <a href="#home" class="hover:text-black transition-colors">Home</a>
-      <a href="#about" class="hover:text-black transition-colors">About</a>
-      <a href="#projects" class="hover:text-black transition-colors">Projects</a>
-      <a href="#certs" class="hover:text-black transition-colors">Certificates</a>
-      <a href="#contact" class="hover:text-black transition-colors">Contact</a>
+      <a href="#home" class="hover:text-black transition-colors">
+        <span data-lang="id">Beranda</span>
+        <span data-lang="en" class="hidden">Home</span>
+      </a>
+      <a href="#about" class="hover:text-black transition-colors">
+        <span data-lang="id">Tentang</span>
+        <span data-lang="en" class="hidden">About</span>
+      </a>
+      <a href="#projects" class="hover:text-black transition-colors">
+        <span data-lang="id">Proyek</span>
+        <span data-lang="en" class="hidden">Projects</span>
+      </a>
+      <a href="#certs" class="hover:text-black transition-colors">
+        <span data-lang="id">Sertifikat</span>
+        <span data-lang="en" class="hidden">Certificates</span>
+      </a>
+      <a href="#contact" class="hover:text-black transition-colors">
+        <span data-lang="id">Kontak</span>
+        <span data-lang="en" class="hidden">Contact</span>
+      </a>
     </nav>
     <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all">
-      Hubungi
+      <span data-lang="id">Hubungi</span>
+      <span data-lang="en" class="hidden">Contact Me</span>
     </a>
   </div>
 
@@ -125,36 +163,59 @@
         </div>
 
         <h1 data-aos="fade-up" data-aos-delay="100" class="font-sans font-semibold text-[35px] sm:text-[48px] md:text-[58px] leading-[1.12] tracking-tight mb-8 text-black">
-          Web yang <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 typewriter-cursor font-bold">rapi</span><br>dan mudah dipahami.
+          <span data-lang="id">Web yang </span>
+          <span data-lang="en" class="hidden">Websites that are </span>
+          <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 typewriter-cursor font-bold">rapi</span>
+          <br>
+          <span data-lang="id">dan mudah dipahami.</span>
+          <span data-lang="en" class="hidden">and easy to understand.</span>
         </h1>
 
         <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-500 text-sm sm:text-base leading-relaxed max-w-[550px] mb-10 font-medium">
-          Saya siswa RPL yang fokus membangun website bersih, responsif, dan optimal. Konsep saya sederhana: visual teratur, alur jelas, dan kode terstruktur.
+          <span data-lang="id">Saya siswa RPL yang fokus membangun website bersih, responsif, dan optimal. Konsep saya sederhana: visual teratur, alur jelas, dan kode terstruktur.</span>
+          <span data-lang="en" class="hidden">I am a Software Engineering student focused on building clean, responsive, and optimal websites. My concept is simple: organized visuals, clear flows, and structured code.</span>
         </p>
 
         <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
           <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-11 px-6 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all select-none shadow-sm">
-            Lihat Proyek Saya
+            <span data-lang="id">Lihat Proyek Saya</span>
+            <span data-lang="en" class="hidden">View My Projects</span>
             <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
           <a href="#about" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-11 px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 transition-all text-xs font-semibold text-black select-none">
-            Kenali Saya
+            <span data-lang="id">Kenali Saya</span>
+            <span data-lang="en" class="hidden">Get to Know Me</span>
           </a>
         </div>
 
         <!-- Stats Bar -->
         <div data-aos="fade-up" data-aos-delay="400" class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-[700px] mt-20 pt-8 border-t border-zinc-100">
           <div class="flex flex-col items-center">
-            <span class="font-sans font-semibold text-2xl text-black">3+ Tahun</span>
-            <span class="text-zinc-400 text-xs font-medium tracking-wide mt-1">Belajar & Praktek</span>
+            <span class="font-sans font-semibold text-2xl text-black">
+              <span data-lang="id">3+ Tahun</span>
+              <span data-lang="en" class="hidden">3+ Years</span>
+            </span>
+            <span class="text-zinc-400 text-xs font-medium tracking-wide mt-1">
+              <span data-lang="id">Belajar & Praktek</span>
+              <span data-lang="en" class="hidden">Learning & Practice</span>
+            </span>
           </div>
           <div class="flex flex-col items-center">
-            <span class="font-sans font-semibold text-2xl text-black">12+ Proyek</span>
-            <span class="text-zinc-400 text-xs font-medium tracking-wide mt-1">Selesai Dibuat</span>
+            <span class="font-sans font-semibold text-2xl text-black">
+              <span data-lang="id">12+ Proyek</span>
+              <span data-lang="en" class="hidden">12+ Projects</span>
+            </span>
+            <span class="text-zinc-400 text-xs font-medium tracking-wide mt-1">
+              <span data-lang="id">Selesai Dibuat</span>
+              <span data-lang="en" class="hidden">Completed</span>
+            </span>
           </div>
           <div class="flex flex-col items-center">
             <span class="font-sans font-semibold text-2xl text-black">RPL</span>
-            <span class="text-zinc-400 text-xs font-medium tracking-wide mt-1">SMK Informatika Pesat</span>
+            <span class="text-zinc-400 text-xs font-medium tracking-wide mt-1">
+              <span data-lang="id">SMK Informatika Pesat</span>
+              <span data-lang="en" class="hidden">Pesat IT Vocational School</span>
+            </span>
           </div>
         </div>
       </div>
@@ -188,36 +249,62 @@
           <!-- Right Column: Biography & Work Principles -->
           <div data-aos="fade-left" class="w-full md:w-[62%] flex flex-col justify-start">
             <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">About Me</span>
-            <h2 class="font-sans font-semibold text-3xl sm:text-4xl text-black mb-6 tracking-tight">Belajar Lewat Praktek Nyata.</h2>
+            <h2 class="font-sans font-semibold text-3xl sm:text-4xl text-black mb-6 tracking-tight">
+              <span data-lang="id">Belajar Lewat Praktek Nyata.</span>
+              <span data-lang="en" class="hidden">Learning Through Real Practice.</span>
+            </h2>
             <p class="text-zinc-500 text-sm sm:text-base leading-relaxed font-medium mb-6">
-              Halo! Saya <strong class="text-black font-semibold">Rafay Arvino Setiawan</strong>, siswa Rekayasa Perangkat Lunak (RPL) di SMK Informatik Pesat Kota Bogor. Ketertarikan saya terletak pada pengembangan frontend, struktur database backend (khususnya PHP & Laravel), dan pembuatan antarmuka minimalis.
+              <span data-lang="id">Halo! Saya <strong class="text-black font-semibold">Rafay Arvino Setiawan</strong>, siswa Rekayasa Perangkat Lunak (RPL) di SMK Informatik Pesat Kota Bogor. Ketertarikan saya terletak pada pengembangan frontend, struktur database backend (khususnya PHP & Laravel), dan pembuatan antarmuka minimalis.</span>
+              <span data-lang="en" class="hidden">Hello! I am <strong class="text-black font-semibold">Rafay Arvino Setiawan</strong>, a Software Engineering (RPL) student at SMK Informatika Pesat, Bogor. My interests lie in frontend development, backend database structure (specifically PHP & Laravel), and creating minimalist interfaces.</span>
             </p>
             <p class="text-zinc-500 text-sm sm:text-base leading-relaxed font-medium mb-10">
-              Saya mengutamakan kebersihan visual dan kemudahan akses halaman, memastikan pengguna merasa nyaman dan mudah memahami informasi yang disajikan.
+              <span data-lang="id">Saya mengutamakan kebersihan visual dan kemudahan akses halaman, memastikan pengguna merasa nyaman dan mudah memahami informasi yang disajikan.</span>
+              <span data-lang="en" class="hidden">I prioritize visual cleanliness and ease of page access, ensuring users feel comfortable and can easily understand the information presented.</span>
             </p>
 
-            <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-4">Prinsip Kerja</span>
+            <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-4">
+              <span data-lang="id">Prinsip Kerja</span>
+              <span data-lang="en" class="hidden">Work Principles</span>
+            </span>
             <div class="flex flex-col gap-6">
               <!-- AOS animations triggered individually in viewport -->
               <div data-aos="fade-up" class="flex gap-4 items-start">
                 <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0"></span>
                 <div>
-                  <h4 class="text-sm font-semibold text-black mb-0.5">Struktur Rencana</h4>
-                  <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium">Memetakan struktur data dan tata letak dasar halaman secara matang sebelum mulai menulis kode.</p>
+                  <h4 class="text-sm font-semibold text-black mb-0.5">
+                    <span data-lang="id">Struktur Rencana</span>
+                    <span data-lang="en" class="hidden">Structured Plan</span>
+                  </h4>
+                  <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium">
+                    <span data-lang="id">Memetakan struktur data dan tata letak dasar halaman secara matang sebelum mulai menulis kode.</span>
+                    <span data-lang="en" class="hidden">Thoroughly mapping data structures and basic page layouts before starting to write code.</span>
+                  </p>
                 </div>
               </div>
               <div data-aos="fade-up" data-aos-delay="100" class="flex gap-4 items-start">
                 <span class="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0"></span>
                 <div>
-                  <h4 class="text-sm font-semibold text-black mb-0.5">Visual Teratur</h4>
-                  <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium">Membangun antarmuka yang bersih menggunakan palet warna seimbang dan navigasi intuitif.</p>
+                  <h4 class="text-sm font-semibold text-black mb-0.5">
+                    <span data-lang="id">Visual Teratur</span>
+                    <span data-lang="en" class="hidden">Organized Visuals</span>
+                  </h4>
+                  <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium">
+                    <span data-lang="id">Membangun antarmuka yang bersih menggunakan palet warna seimbang dan navigasi intuitif.</span>
+                    <span data-lang="en" class="hidden">Building clean interfaces using a balanced color palette and intuitive navigation.</span>
+                  </p>
                 </div>
               </div>
               <div data-aos="fade-up" data-aos-delay="200" class="flex gap-4 items-start">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
                 <div>
-                  <h4 class="text-sm font-semibold text-black mb-0.5">Uji Optimal</h4>
-                  <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium">Menguji kecepatan akses halaman dan responsivitas di setiap browser dan ukuran layar.</p>
+                  <h4 class="text-sm font-semibold text-black mb-0.5">
+                    <span data-lang="id">Uji Optimal</span>
+                    <span data-lang="en" class="hidden">Optimal Testing</span>
+                  </h4>
+                  <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium">
+                    <span data-lang="id">Menguji kecepatan akses halaman dan responsivitas di setiap browser dan ukuran layar.</span>
+                    <span data-lang="en" class="hidden">Testing page access speed and responsiveness across every browser and screen size.</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -234,17 +321,22 @@
           <div data-aos="fade-up">
             <span class="block text-zinc-500 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">Selected Work</span>
             <h2 class="font-sans font-semibold text-3xl sm:text-4xl text-white tracking-tight">
-              Proyek Pilihan.
+              <span data-lang="id">Proyek Pilihan.</span>
+              <span data-lang="en" class="hidden">Selected Projects.</span>
             </h2>
           </div>
           <p data-aos="fade-up" data-aos-delay="100" class="text-zinc-400 text-sm max-w-[420px] leading-relaxed font-medium">
-            Proyek web dan game pilihan yang menunjukkan implementasi coding fungsional dan estetika antarmuka.
+            <span data-lang="id">Proyek web dan game pilihan yang menunjukkan implementasi coding fungsional dan estetika antarmuka.</span>
+            <span data-lang="en" class="hidden">A selection of web and game projects demonstrating functional coding implementations and interface aesthetics.</span>
           </p>
         </div>
 
         <!-- Category Filter Tabs -->
         <div data-aos="fade-up" data-aos-delay="150" class="flex items-center gap-1.5 overflow-x-auto pb-4 mb-16 no-scrollbar border-b border-zinc-900">
-          <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-white bg-white text-black transition-all whitespace-nowrap" id="filter-all" onclick="filterProjects('all')">Semua</button>
+          <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-white bg-white text-black transition-all whitespace-nowrap" id="filter-all" onclick="filterProjects('all')">
+            <span data-lang="id">Semua</span>
+            <span data-lang="en" class="hidden">All</span>
+          </button>
           <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap" id="filter-web" onclick="filterProjects('web')">Web Dev</button>
           <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap" id="filter-ui" onclick="filterProjects('ui')">Design</button>
           <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap" id="filter-game" onclick="filterProjects('game')">Game</button>
@@ -258,7 +350,8 @@
               <span class="text-zinc-500 text-[10px] font-semibold tracking-wider mb-2">Sports Media · 433 Design Football</span>
               <h3 class="font-sans font-semibold text-2xl mb-3 text-white hover:text-zinc-300 transition-colors">DiceSides</h3>
               <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Desain media olahraga modern untuk F1 dan Football. Fokus pada penyajian data statistik infografis yang bersih, fungsional, dan mudah dipahami.
+                <span data-lang="id">Desain media olahraga modern untuk F1 dan Football. Fokus pada penyajian data statistik infografis yang bersih, fungsional, dan mudah dipahami.</span>
+                <span data-lang="en" class="hidden">Modern sports media design for F1 and Football. Focused on presenting clean, functional, and easy-to-understand infographic stats.</span>
               </p>
               <div>
                 <span class="inline-flex items-center text-[10px] font-semibold text-zinc-500 tracking-wider">Design</span>
@@ -274,13 +367,20 @@
           <!-- Project 2 (SchoolHub) - Text Right (fade-left), Image Left (flip-up) -->
           <article class="flex flex-col md:flex-row-reverse gap-10 md:gap-16 items-center pb-16 border-b border-zinc-900/40 last:border-0 last:pb-0" data-category="web" data-tech="laravel php tailwindcss html">
             <div data-aos="fade-left" class="w-full md:w-[45%] flex flex-col justify-center">
-              <span class="text-zinc-500 text-[10px] font-semibold tracking-wider mb-2">PKK Sekolah · Tugas</span>
+              <span class="text-zinc-500 text-[10px] font-semibold tracking-wider mb-2">
+                <span data-lang="id">PKK Sekolah · Tugas</span>
+                <span data-lang="en" class="hidden">School PKK · Assignment</span>
+              </span>
               <h3 class="font-sans font-semibold text-2xl mb-3 text-white hover:text-zinc-300 transition-colors">SchoolHub</h3>
               <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Rancangan platform portal data sekolah terintegrasi. Berguna menyederhanakan komunikasi administratif internal antara guru, wali, dan murid.
+                <span data-lang="id">Rancangan platform portal data sekolah terintegrasi. Berguna menyederhanakan komunikasi administratif internal antara guru, wali, dan murid.</span>
+                <span data-lang="en" class="hidden">Integrated school data portal platform design. Designed to simplify internal administrative communication between teachers, parents, and students.</span>
               </p>
               <div>
-                <span class="inline-flex items-center text-[10px] font-semibold text-zinc-500 tracking-wider">Tugas Sekolah</span>
+                <span class="inline-flex items-center text-[10px] font-semibold text-zinc-500 tracking-wider">
+                  <span data-lang="id">Tugas Sekolah</span>
+                  <span data-lang="en" class="hidden">School Assignment</span>
+                </span>
               </div>
             </div>
             <div data-aos="flip-up" class="w-full md:w-[55%] relative color-glow-card rounded-[24px]">
@@ -296,7 +396,8 @@
               <span class="text-zinc-500 text-[10px] font-semibold tracking-wider mb-2">Roblox · Lua</span>
               <h3 class="font-sans font-semibold text-2xl mb-3 text-white hover:text-zinc-300 transition-colors">Avery's Home</h3>
               <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Pembuatan mini-game interaktif di platform Roblox. Eksplorasi pemrograman logika dan scripting mekanika game menggunakan bahasa Lua.
+                <span data-lang="id">Pembuatan mini-game interaktif di platform Roblox. Eksplorasi pemrograman logika dan scripting mekanika game menggunakan bahasa Lua.</span>
+                <span data-lang="en" class="hidden">Creation of an interactive mini-game on the Roblox platform. Exploring logic programming and game mechanics scripting using Lua.</span>
               </p>
               <div>
                 <span class="inline-flex items-center text-[10px] font-semibold text-zinc-500 tracking-wider">Game</span>
@@ -333,17 +434,21 @@
                 <div class="w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-800">
                   <img src="assets/onltycars.png" alt="OnlyCars Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=OnlyCars+Community'">
                 </div>
-                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Proyek Sekolah · Laravel</span>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">
+                  <span data-lang="id">Proyek Sekolah · Laravel</span>
+                  <span data-lang="en" class="hidden">School Project · Laravel</span>
+                </span>
                 <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
                   <a href="https://github.com/Vinnrafay/OnlyCars" target="_blank">OnlyCars ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Website komunitas pencinta mobil dengan tema minimalis gelap berbasis Laravel.
+                  <span data-lang="id">Website komunitas pencinta mobil dengan tema minimalis gelap berbasis Laravel.</span>
+                  <span data-lang="en" class="hidden">Car enthusiast community website with a minimalist dark theme based on Laravel.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Laravel</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -353,17 +458,21 @@
                 <div class="w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-800">
                   <img src="assets/wedding (2).png" alt="TechEduca Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=TechEduca+EdTech'">
                 </div>
-                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Proyek Sekolah · HTML CSS</span>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">
+                  <span data-lang="id">Proyek Sekolah · HTML CSS</span>
+                  <span data-lang="en" class="hidden">School Project · HTML CSS</span>
+                </span>
                 <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
                   <a href="https://github.com/Vinnrafay/Modul-2-TechEduca-Page" target="_blank">TechEduca ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Replika platform pembelajaran digital responsif menggunakan CSS Grid dan Flexbox.
+                  <span data-lang="id">Replika platform pembelajaran digital responsif menggunakan CSS Grid dan Flexbox.</span>
+                  <span data-lang="en" class="hidden">Responsive digital learning platform replica using CSS Grid and Flexbox.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-orange-400 font-mono">HTML / CSS</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -373,17 +482,21 @@
                 <div class="w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-800">
                   <img src="assets/wedding (1).png" alt="Wedding Invitation Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=Wedding+Invitation'">
                 </div>
-                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Proyek Sekolah · Web Design</span>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">
+                  <span data-lang="id">Proyek Sekolah · Web Design</span>
+                  <span data-lang="en" class="hidden">School Project · Web Design</span>
+                </span>
                 <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
                   <a href="https://github.com/Vinnrafay/Modul-5-Wedding-Page-Bootstrap" target="_blank">Wedding Invitation ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Undangan pernikahan digital berbasis web dengan layout responsif dan transisi halus.
+                  <span data-lang="id">Undangan pernikahan digital berbasis web dengan layout responsif dan transisi halus.</span>
+                  <span data-lang="en" class="hidden">Web-based digital wedding invitation with a responsive layout and smooth transitions.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-yellow-400 font-mono">JS / CSS</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -395,12 +508,13 @@
                   <a href="https://github.com/Vinnrafay/ProfilingSiswaBE" target="_blank">ProfilingSiswaBE ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  REST API dan sistem manajemen data (backend) untuk profiling siswa SMK Pesat.
+                  <span data-lang="id">REST API dan sistem manajemen data (backend) untuk profiling siswa SMK Pesat.</span>
+                  <span data-lang="en" class="hidden">REST API and data management system (backend) for student profiling at SMK Pesat.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Laravel</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -412,12 +526,13 @@
                   <a href="https://github.com/Vinnrafay/ProfilingSIswaFE" target="_blank">ProfilingSiswaFE ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Dashboard interaktif (frontend) untuk visualisasi dan rekap data sistem profiling siswa.
+                  <span data-lang="id">Dashboard interaktif (frontend) untuk visualisasi dan rekap data sistem profiling siswa.</span>
+                  <span data-lang="en" class="hidden">Interactive dashboard (frontend) for visualizing and summarizing student profiling system data.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript / React</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -429,12 +544,13 @@
                   <a href="https://github.com/Vinnrafay/Belanjain-Mobile" target="_blank">Belanjain-Mobile ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Aplikasi belanja sekolah berbasis mobile untuk memudahkan pemesanan barang/jasa secara digital.
+                  <span data-lang="id">Aplikasi belanja sekolah berbasis mobile untuk memudahkan pemesanan barang/jasa secara digital.</span>
+                  <span data-lang="en" class="hidden">Mobile-based school shopping application to facilitate digital ordering of goods/services.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-emerald-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -446,12 +562,13 @@
                   <a href="https://github.com/Vinnrafay/Belanjain-BE" target="_blank">Belanjain-BE ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Sistem database, autentikasi, dan kelola panel admin utama untuk platform Belanjain.
+                  <span data-lang="id">Sistem database, autentikasi, dan kelola panel admin utama untuk platform Belanjain.</span>
+                  <span data-lang="en" class="hidden">Database system, authentication, and main admin panel management for the Belanjain platform.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Laravel</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -463,12 +580,13 @@
                   <a href="https://github.com/Vinnrafay/ToDoList" target="_blank">ToDoList ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Aplikasi pencatatan daftar tugas harian yang minimalis dan responsif untuk mengelola produktivitas.
+                  <span data-lang="id">Aplikasi pencatatan daftar tugas harian yang minimalis dan responsif untuk mengelola produktivitas.</span>
+                  <span data-lang="en" class="hidden">Minimalist and responsive daily to-do list application for managing productivity.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-yellow-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -480,12 +598,13 @@
                   <a href="https://github.com/Vinnrafay/SmartNotes" target="_blank">SmartNotes ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Platform pencatatan modern dengan kategori terstruktur untuk kemudahan mencatat pelajaran sekolah.
+                  <span data-lang="id">Platform pencatatan modern dengan kategori terstruktur untuk kemudahan mencatat pelajaran sekolah.</span>
+                  <span data-lang="en" class="hidden">Modern note-taking platform with structured categories for easy school lesson logging.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-yellow-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -497,12 +616,13 @@
                   <a href="https://github.com/Vinnrafay/SmartNote" target="_blank">SmartNote ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Aplikasi pencatatan versi ringan yang berfokus pada kecepatan akses dan antarmuka bersih.
+                  <span data-lang="id">Aplikasi pencatatan versi ringan yang berfokus pada kecepatan akses dan antarmuka bersih.</span>
+                  <span data-lang="en" class="hidden">Lightweight note-taking application focusing on access speed and a clean interface.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-orange-400 font-mono">JavaScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -514,12 +634,13 @@
                   <a href="https://github.com/Vinnrafay/StudentVoice" target="_blank">StudentVoice ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Aplikasi aspirasi dan pengaduan siswa untuk menjembatani komunikasi dengan pihak sekolah.
+                  <span data-lang="id">Aplikasi aspirasi dan pengaduan siswa untuk menjembatani komunikasi dengan pihak sekolah.</span>
+                  <span data-lang="en" class="hidden">Student voice and complaints application to bridge communication with the school.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -531,12 +652,13 @@
                   <a href="https://github.com/Vinnrafay/api-service" target="_blank">api-service ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Sistem gateway integrasi API web sekolah untuk sinkronisasi antarmuka eksternal.
+                  <span data-lang="id">Sistem gateway integrasi API web sekolah untuk sinkronisasi antarmuka eksternal.</span>
+                  <span data-lang="en" class="hidden">School web API integration gateway system for external interface synchronization.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Blade</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -548,12 +670,13 @@
                   <a href="https://github.com/Vinnrafay/TeSate" target="_blank">TeSate ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Aplikasi pemesanan kuliner sate interaktif dengan kalkulasi total belanja langsung.
+                  <span data-lang="id">Aplikasi pemesanan kuliner sate interaktif dengan kalkulasi total belanja langsung.</span>
+                  <span data-lang="en" class="hidden">Interactive satay food ordering application with direct total billing calculation.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-rose-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -565,12 +688,13 @@
                   <a href="https://github.com/Vinnrafay/QuranPesat" target="_blank">QuranPesat ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Al-Quran digital interaktif yang dirancang untuk mendukung hafalan Quran siswa di SMK Pesat.
+                  <span data-lang="id">Al-Quran digital interaktif yang dirancang untuk mendukung hafalan Quran siswa di SMK Pesat.</span>
+                  <span data-lang="en" class="hidden">Interactive digital Quran designed to support student Quran memorization at SMK Pesat.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-emerald-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -582,12 +706,13 @@
                   <a href="https://github.com/Vinnrafay/Saraya" target="_blank">Saraya ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Landing page minimalis modern untuk profil perusahaan/organisasi yang bersih dan cepat.
+                  <span data-lang="id">Landing page minimalis modern untuk profil perusahaan/organisasi yang bersih dan cepat.</span>
+                  <span data-lang="en" class="hidden">Modern minimalist landing page for clean and fast company/organization profiles.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -599,12 +724,13 @@
                   <a href="https://github.com/Vinnrafay/Tokopedia-Clone" target="_blank">Tokopedia-Clone ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Replika desain tata letak UI e-commerce Tokopedia dengan filter pencarian dan detail produk.
+                  <span data-lang="id">Replika desain tata letak UI e-commerce Tokopedia dengan filter pencarian dan detail produk.</span>
+                  <span data-lang="en" class="hidden">Replica of Tokopedia e-commerce UI layout design with search filters and product details.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-emerald-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -616,12 +742,13 @@
                   <a href="https://github.com/Vinnrafay/Dana-Clone" target="_blank">Dana-Clone ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Uji coba replikasi tampilan mobile dompet digital DANA untuk kebutuhan simulasi transaksi.
+                  <span data-lang="id">Uji coba replikasi tampilan mobile dompet digital DANA untuk kebutuhan simulasi transaksi.</span>
+                  <span data-lang="en" class="hidden">Replication test of the DANA digital wallet mobile UI for transaction simulation needs.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -633,12 +760,13 @@
                   <a href="https://github.com/Vinnrafay/Modul-7-Foodie" target="_blank">Modul-7-Foodie ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Website pemesanan makanan Foodie dengan fungsionalitas keranjang belanja interaktif berbasis HTML/CSS.
+                  <span data-lang="id">Website pemesanan makanan Foodie dengan fungsionalitas keranjang belanja interaktif berbasis HTML/CSS.</span>
+                  <span data-lang="en" class="hidden">Foodie food ordering website with an interactive shopping cart functionality based on HTML/CSS.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-orange-400 font-mono">HTML / CSS</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -650,12 +778,13 @@
                   <a href="https://github.com/Vinnrafay/Modul-6-Latihan-PHP" target="_blank">Modul-6-Latihan-PHP ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Latihan pemrograman dasar PHP untuk memahami logika kontrol, database, fungsi, dan form handling.
+                  <span data-lang="id">Latihan pemrograman dasar PHP untuk memahami logika kontrol, database, fungsi, dan form handling.</span>
+                  <span data-lang="en" class="hidden">Basic PHP programming exercises to understand control logic, databases, functions, and form handling.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -667,12 +796,13 @@
                   <a href="https://github.com/Vinnrafay/Modul-4-PortofolioBootstrap" target="_blank">Modul-4-PortofolioBootstrap ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Website portofolio pribadi responsif yang dibuat menggunakan framework Bootstrap untuk layouting cepat.
+                  <span data-lang="id">Website portofolio pribadi responsif yang dibuat menggunakan framework Bootstrap untuk layouting cepat.</span>
+                  <span data-lang="en" class="hidden">Responsive personal portfolio website built using the Bootstrap framework for fast layout design.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-sky-400 font-mono">HTML / Bootstrap</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -684,12 +814,13 @@
                   <a href="https://github.com/Vinnrafay/Modul-3-Sertikom-2024" target="_blank">Modul-3-Sertikom-2024 ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Website latihan dan dokumentasi persiapan Ujian Sertifikasi Kompetensi (Sertikom) internal sekolah.
+                  <span data-lang="id">Website latihan dan dokumentasi persiapan Ujian Sertifikasi Kompetensi (Sertikom) internal sekolah.</span>
+                  <span data-lang="en" class="hidden">Practice and documentation website for internal school Competency Certification Exam (Sertikom) preparation.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-orange-400 font-mono">HTML / CSS</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
 
@@ -701,12 +832,13 @@
                   <a href="https://github.com/Vinnrafay/Modul-1-UI-Figma" target="_blank">Modul-1-UI-Figma ↗</a>
                 </h4>
                 <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
-                  Desain antarmuka pengguna (UI/UX) konsep pemesanan makanan Foodie yang dirancang di platform Figma.
+                  <span data-lang="id">Desain antarmuka pengguna (UI/UX) konsep pemesanan makanan Foodie yang dirancang di platform Figma.</span>
+                  <span data-lang="en" class="hidden">User interface (UI/UX) design for the Foodie food ordering concept designed on Figma.</span>
                 </p>
               </div>
               <div class="flex items-center justify-between mt-6">
                 <span class="text-[9px] font-semibold text-pink-400 font-mono">Figma UI</span>
-                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400"><span data-lang="id">Proyek Sekolah</span><span data-lang="en" class="hidden">School Project</span></span>
               </div>
             </div>
           </div>
@@ -720,10 +852,14 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div data-aos="fade-up">
             <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">Achievements</span>
-            <h2 class="font-sans font-semibold text-3xl sm:text-4xl text-black tracking-tight">Sertifikasi.</h2>
+            <h2 class="font-sans font-semibold text-3xl sm:text-4xl text-black tracking-tight">
+              <span data-lang="id">Sertifikasi.</span>
+              <span data-lang="en" class="hidden">Certificates.</span>
+            </h2>
           </div>
           <p data-aos="fade-up" data-aos-delay="100" class="text-zinc-500 text-sm max-w-[420px] leading-relaxed font-medium">
-            Daftar dokumentasi resmi ujian sertifikasi kompetensi internal sekolah yang saya capai.
+            <span data-lang="id">Daftar dokumentasi resmi ujian sertifikasi kompetensi internal sekolah yang saya capai.</span>
+            <span data-lang="en" class="hidden">List of official internal school competency certification exams I have achieved.</span>
           </p>
         </div>
 
@@ -734,8 +870,14 @@
             <div class="project-image-container relative overflow-hidden aspect-[16/10] bg-zinc-100 rounded-[24px] flex items-center justify-center cursor-zoom-in mb-4 shadow-sm" onclick="openLightbox('assets/sertikom1.jpg', 'Sertikom Semester 1 — SMK Pesat')">
               <img src="assets/sertikom1.jpg" alt="Sertikom 1" class="w-full h-full object-cover opacity-95 hover:opacity-100 transition-all duration-305" onerror="this.src='https://placehold.co/600x375/e4e4e7/000000?text=Sertikom+1+SMK+Pesat'">
             </div>
-            <h3 class="font-sans font-semibold text-base text-black mb-0.5">Sertifikat Kompetensi, Semester 1</h3>
-            <p class="text-zinc-400 text-xs font-semibold font-mono">SMK Informatika Pesat Kelas 10 · Tahun 2024</p>
+            <h3 class="font-sans font-semibold text-base text-black mb-0.5">
+              <span data-lang="id">Sertifikat Kompetensi, Semester 1</span>
+              <span data-lang="en" class="hidden">Competency Certificate, Semester 1</span>
+            </h3>
+            <p class="text-zinc-400 text-xs font-semibold font-mono">
+              <span data-lang="id">SMK Informatika Pesat Kelas 10 · Tahun 2024</span>
+              <span data-lang="en" class="hidden">SMK Informatika Pesat Grade 10 · Year 2024</span>
+            </p>
           </article>
 
           <!-- Cert 2 -->
@@ -743,8 +885,14 @@
             <div class="project-image-container relative overflow-hidden aspect-[16/10] bg-zinc-100 rounded-[24px] flex items-center justify-center cursor-zoom-in mb-4 shadow-sm" onclick="openLightbox('assets/sertikom 2.jpg', 'Sertikom Semester 2 — SMK Pesat')">
               <img src="assets/sertikom 2.jpg" alt="Sertikom 2" class="w-full h-full object-cover opacity-95 hover:opacity-100 transition-all duration-305" onerror="this.src='https://placehold.co/600x375/e4e4e7/000000?text=Sertikom+2+SMK+Pesat'">
             </div>
-            <h3 class="font-sans font-semibold text-base text-black mb-0.5">Sertifikat Kompetensi, Semester 2</h3>
-            <p class="text-zinc-400 text-xs font-semibold font-mono">SMK Informatika Pesat Kelas 10 · Tahun 2024</p>
+            <h3 class="font-sans font-semibold text-base text-black mb-0.5">
+              <span data-lang="id">Sertifikat Kompetensi, Semester 2</span>
+              <span data-lang="en" class="hidden">Competency Certificate, Semester 2</span>
+            </h3>
+            <p class="text-zinc-400 text-xs font-semibold font-mono">
+              <span data-lang="id">SMK Informatika Pesat Kelas 10 · Tahun 2024</span>
+              <span data-lang="en" class="hidden">SMK Informatika Pesat Grade 10 · Year 2024</span>
+            </p>
           </article>
         </div>
       </div>
@@ -754,9 +902,13 @@
     <section id="contact" class="w-full bg-[#050505] text-white py-24 pb-12 px-6 border-t border-zinc-900 shadow-2xl relative z-10">
       <div class="max-w-[850px] mx-auto text-center flex flex-col items-center">
         <span data-aos="fade-up" class="text-zinc-500 font-mono text-[9px] font-semibold tracking-widest uppercase mb-3">Get in Touch</span>
-        <h2 data-aos="fade-up" data-aos-delay="100" class="font-sans font-semibold text-3xl sm:text-4xl text-white tracking-tight mb-6">Mulai Kolaborasi Anda.</h2>
+        <h2 data-aos="fade-up" data-aos-delay="100" class="font-sans font-semibold text-3xl sm:text-4xl text-white tracking-tight mb-6">
+          <span data-lang="id">Mulai Kolaborasi Anda.</span>
+          <span data-lang="en" class="hidden">Start Your Collaboration.</span>
+        </h2>
         <p data-aos="fade-up" data-aos-delay="150" class="text-zinc-400 text-sm sm:text-base leading-relaxed font-medium mb-10 max-w-[550px]">
-          Saya selalu terbuka untuk berdiskusi tentang proyek freelance, kerja sama tim, maupun kesempatan magang industri (PKL). Silakan hubungi saya di bawah ini:
+          <span data-lang="id">Saya selalu terbuka untuk berdiskusi tentang proyek freelance, kerja sama tim, maupun kesempatan magang industri (PKL). Silakan hubungi saya di bawah ini:</span>
+          <span data-lang="en" class="hidden">I am always open to discussing freelance projects, teamwork, or industrial internship (PKL) opportunities. Please contact me below:</span>
         </p>
 
         <!-- Contact Cards Stagger -->
@@ -798,7 +950,10 @@
         <!-- Footer -->
         <footer class="w-full border-t border-zinc-900 pt-8 text-zinc-500 text-[10px] font-semibold tracking-wide flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
           <span class="font-sans font-semibold text-white">Rafay.dev</span>
-          <span>© 2026 Rafay Arvino Setiawan. Hak Cipta Dilindungi.</span>
+          <span>
+            <span data-lang="id">© 2026 Rafay Arvino Setiawan. Hak Cipta Dilindungi.</span>
+            <span data-lang="en" class="hidden">© 2026 Rafay Arvino Setiawan. All Rights Reserved.</span>
+          </span>
         </footer>
       </div>
     </section>
@@ -827,6 +982,49 @@
 
   <!-- Scripts -->
   <script>
+    // 0. Language Translation System
+    let currentLang = 'id';
+    let words = ["minimalis", "rapi", "responsif", "clean", "modern"];
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('portfolio-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      // Toggle display of elements based on data-lang
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      // Update typewriter words
+      if (lang === 'en') {
+        words = ["minimalist", "neat", "responsive", "clean", "modern"];
+      } else {
+        words = ["minimalis", "rapi", "responsif", "clean", "modern"];
+      }
+
+      // Update switcher pill buttons active style
+      const btnId = document.getElementById('lang-id');
+      const btnEn = document.getElementById('lang-en');
+      if (btnId && btnEn) {
+        if (lang === 'id') {
+          btnId.className = "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold";
+          btnEn.className = "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold";
+        } else {
+          btnId.className = "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold";
+          btnEn.className = "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold";
+        }
+      }
+    }
+
+    // Initialize Language
+    const savedLang = localStorage.getItem('portfolio-lang') || 'id';
+    setLanguage(savedLang);
+
     // 1. Mobile Menu Toggler
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -881,7 +1079,6 @@
 
     // 3. Hero Typewriter Animation
     const typewriterElement = document.getElementById('typewriter');
-    const words = ["minimalis", "rapi", "responsif", "clean", "modern"];
     let wordIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
@@ -1033,7 +1230,8 @@
     function copyToClipboard(text, label) {
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
-          showToast(`Berhasil menyalin ${label}!`);
+          const successMsg = currentLang === 'en' ? `Successfully copied ${label}!` : `Berhasil menyalin ${label}!`;
+          showToast(successMsg);
         }).catch(err => {
           fallbackCopyToClipboard(text, label);
         });
@@ -1054,9 +1252,11 @@
       textSubarea.select();
       try {
         document.execCommand('copy');
-        showToast(`Berhasil menyalin ${label}!`);
+        const successMsg = currentLang === 'en' ? `Successfully copied ${label}!` : `Berhasil menyalin ${label}!`;
+        showToast(successMsg);
       } catch (err) {
-        showToast(`Gagal menyalin ${label}.`);
+        const errorMsg = currentLang === 'en' ? `Failed to copy ${label}.` : `Gagal menyalin ${label}.`;
+        showToast(errorMsg);
       }
       document.body.removeChild(textSubarea);
     }
