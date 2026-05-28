@@ -8,6 +8,13 @@
 /* Base resets & Lenis Smooth Scroll Configuration */
 html {
   scroll-behavior: initial; /* Required for Lenis smooth scrolling */
+  overflow-x: hidden;
+  width: 100%;
+}
+@media (hover: none) {
+  html {
+    scroll-behavior: smooth; /* Native smooth scroll for mobile touch devices */
+  }
 }
 html.lenis {
   height: auto;
@@ -27,6 +34,7 @@ body {
   background-position: center top;
   color: #000000;
   overflow-x: hidden;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -72,7 +80,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 0;
   pointer-events: none;
@@ -227,3 +235,15 @@ body {
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
+/* Repo card paragraph font size overrides for mobile & desktop */
+.repo-card p {
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+@media (min-width: 640px) {
+  .repo-card p {
+    font-size: 13px !important;
+  }
+}
+
