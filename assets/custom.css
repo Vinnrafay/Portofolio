@@ -1,0 +1,229 @@
+/* custom.css - Alternating Themes & Animations (Google AntiGravity Style) */
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Base resets & Lenis Smooth Scroll Configuration */
+html {
+  scroll-behavior: initial; /* Required for Lenis smooth scrolling */
+}
+html.lenis {
+  height: auto;
+}
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis-smooth [data-aos] {
+  will-change: transform, opacity;
+}
+body {
+  background-color: #f7f6f3; /* Soft warm alabaster tone */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
+  color: #000000;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Scroll Progress Bar */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #000000;
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
+/* Custom Scrollbar Styles (Monochrome) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f6f3;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Hide scrollbar helper */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Particle Canvas Background styling */
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Floating Pill Navigation Bar */
+.floating-nav {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 900px;
+  height: 52px;
+  background: rgba(247, 246, 243, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(228, 228, 231, 0.8);
+  border-radius: 99px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  z-index: 50;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Typewriter blinking cursor */
+.typewriter-cursor {
+  border-right: 2px solid #000000;
+  animation: blink-caret 0.75s step-end infinite;
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #000000 }
+}
+
+/* AOS-like Scroll Animations (Smooth momentum fades & slides) */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 1.05s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+[data-aos="fade-up"] {
+  transform: translateY(60px);
+}
+[data-aos="fade-down"] {
+  transform: translateY(-60px);
+}
+[data-aos="fade-left"] {
+  transform: translateX(60px);
+}
+[data-aos="fade-right"] {
+  transform: translateX(-60px);
+}
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
+[data-aos="flip-up"] {
+  transform: perspective(1000px) rotateX(-15deg) translateY(60px);
+}
+
+/* AOS Active State */
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) rotateX(0deg);
+}
+
+/* Image Zoom Transition on projects/certs cover */
+.project-image-container {
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.project-image-container img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-image-container:hover img {
+  transform: scale(1.03);
+}
+
+/* Colorful Glow Backplate Shadow (Google style) */
+.color-glow-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.color-glow-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-out;
+}
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox-content {
+  transform: scale(0.97) translateY(5px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lightbox-modal.active .lightbox-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Mobile Nav Menu Drawer */
+#mobileMenu {
+  background: rgba(247, 246, 243, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  width: calc(100% - 32px);
+  left: 16px;
+  top: 76px;
+}
+#mobileMenu.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Staggered Badge Transitions */
+.skill-badge {
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.skill-badge:hover {
+  transform: translateY(-2px);
+}
+
+/* School projects grid styling */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.repo-card {
+  background: #09090b;
+  border: 1px solid #18181b;
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.repo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}

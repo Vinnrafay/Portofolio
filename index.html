@@ -2,260 +2,1223 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rafay Arvino Setiawan | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .gradient-text {
-      background: linear-gradient(to right, #6366f1, #a855f7, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
-</head>
-<body class="bg-gray-950 text-gray-200">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafay Arvino Setiawan — Portofolio Minimalis</title>
+  
+  <!-- SEO & Social Media Metadata -->
+  <meta name="description" content="Portofolio Rafay Arvino Setiawan - Siswa RPL SMK Pesat Bogor yang fokus pada pembuatan website bersih, Laravel, dashboard interaktif, dan UI modern." />
+  <meta name="keywords" content="Rafay Arvino Setiawan, Rafay, Web Developer Bogor, SMK Pesat, Portfolio Laravel, Portofolio RPL, Developer Indonesia" />
+  <meta name="author" content="Rafay Arvino Setiawan" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rafay Arvino Setiawan — Portofolio" />
+  <meta property="og:description" content="Siswa RPL yang fokus pada Laravel, website bersih, dan UI minimalis." />
+  <meta property="og:image" content="assets/179663690.jpeg" />
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md border-b border-indigo-500/30 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <h1 class="text-white text-2xl font-extrabold flex items-center gap-2">
-        <i data-feather="code" class="w-6 h-6 text-indigo-400"></i> Rafay
-      </h1>
-      <nav class="hidden md:flex space-x-8 font-medium">
-        <a href="#home" class="hover:text-indigo-400 transition">Beranda</a>
-        <a href="#about" class="hover:text-indigo-400 transition">Tentang</a>
-        <a href="#projects" class="hover:text-indigo-400 transition">Projek</a>
-        <a href="#external-projects" class="hover:text-indigo-400 transition">Projek Luar</a>
-        <a href="#certificates" class="hover:text-indigo-400 transition">Sertifikat</a>
-        <a href="#contact" class="hover:text-indigo-400 transition">Kontak</a>
-      </nav>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll CSS CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/custom.css" />
+</head>
+<body class="text-black font-sans antialiased relative min-h-screen selection:bg-black selection:text-white">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
+
+  <!-- Background Particle Canvas (Orbiting colored dust) -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Floating Navigation Pill Bar -->
+  <header class="floating-nav flex items-center justify-between px-6 z-50 select-none">
+    <div class="flex items-center gap-2">
+      <a href="#home" class="flex items-center gap-2 group">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoChevronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4285F4"/>
+                <stop offset="25%" stop-color="#EA4335"/>
+                <stop offset="50%" stop-color="#FBBC05"/>
+                <stop offset="100%" stop-color="#34A853"/>
+              </linearGradient>
+            </defs>
+            <path d="M12 3L22 18H17L12 9.5L7 18H2L12 3Z" fill="url(#logoChevronGrad)"/>
+          </svg>
+        </div>
+        <span class="font-sans font-semibold tracking-tight text-xs text-black">
+          Rafay<span class="text-zinc-400">.dev</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex items-center gap-6 font-sans font-semibold text-[11px] text-zinc-500 tracking-wide">
+      <a href="#home" class="hover:text-black transition-colors">Home</a>
+      <a href="#about" class="hover:text-black transition-colors">About</a>
+      <a href="#projects" class="hover:text-black transition-colors">Projects</a>
+      <a href="#certs" class="hover:text-black transition-colors">Certificates</a>
+      <a href="#contact" class="hover:text-black transition-colors">Contact</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-2">
+      <a href="https://wa.me/6287797895571" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all select-none shadow-sm">
+        Hubungi
+      </a>
+      <button class="md:hidden w-8 h-8 border border-zinc-200 hover:bg-zinc-100 rounded-full text-black flex items-center justify-center cursor-pointer transition-all" id="menuBtn" aria-label="Toggle Menu">
+        <div class="w-3.5 h-2.5 flex flex-col justify-between relative" id="hamburgerIcon">
+          <span class="w-full h-[1.5px] bg-black rounded transition-all duration-300 origin-left" id="bar1"></span>
+          <span class="w-full h-[1.5px] bg-black rounded transition-all duration-300" id="bar2"></span>
+          <span class="w-full h-[1.5px] bg-black rounded transition-all duration-300 origin-left" id="bar3"></span>
+        </div>
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-90"></div>
-    <div class="relative z-10 flex flex-col items-center" data-aos="fade-up">
-      <img src="assets/179663690.jpeg" alt="Rafay"
-        class="w-40 h-40 rounded-full border-4 border-indigo-500 shadow-[0_0_60px_-10px_rgba(99,102,241,0.8)] mb-6 hover:scale-110 transition duration-500 object-cover" />
-      <h2 class="text-5xl md:text-6xl font-extrabold mb-4 text-white">
-        Halo, saya <span class="gradient-text">Rafay</span>
-      </h2>
-      <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-8">
-        Murid SMK Pesat X-3 jurusan Rekayasa Perangkat Lunak.<br>
-        Web & Game Developer. Yuk kolab bikin sesuatu yang impactful!
-      </p>
-      <a href="https://wa.me/6287797895571" target="_blank"
-        class="px-10 py-3 rounded-lg font-semibold text-white bg-indigo-500 hover:bg-indigo-600 shadow-lg hover:shadow-indigo-500/50 transition transform hover:scale-105">
-        Hubungi Saya
-      </a>
-    </div>
-  </section>
+  <!-- Mobile Navigation Menu Drawer -->
+  <div id="mobileMenu" class="fixed z-40 hidden flex-col px-6 py-6 border border-zinc-200/50 gap-4">
+    <nav class="flex flex-col gap-4 font-sans font-semibold text-xs text-zinc-500 tracking-wide">
+      <a href="#home" class="hover:text-black transition-colors">Home</a>
+      <a href="#about" class="hover:text-black transition-colors">About</a>
+      <a href="#projects" class="hover:text-black transition-colors">Projects</a>
+      <a href="#certs" class="hover:text-black transition-colors">Certificates</a>
+      <a href="#contact" class="hover:text-black transition-colors">Contact</a>
+    </nav>
+    <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all">
+      Hubungi
+    </a>
+  </div>
 
-  <!-- About Me -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-28">
-    <h3 class="text-white text-4xl font-extrabold mb-12 text-center" data-aos="fade-up">Tentang Saya</h3>
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <img src="assets/9sev5rpc.png" alt="About Me"
-        class="rounded-2xl shadow-2xl w-full h-[350px] object-cover border border-gray-700 hover:scale-[1.02] transition" data-aos="fade-right" />
-      <div data-aos="fade-left">
-        <p class="text-gray-300 text-lg leading-relaxed mb-8">
-          Saya <span class="text-indigo-400 font-semibold">Rafay Arvino Setiawan</span>,  
-          seorang pelajar dengan passion besar di bidang <span class="text-indigo-400">Web Development</span> 
-          & <span class="text-indigo-400">Game Development</span> 
-          Skill yang saya kuasai:
+  <!-- Content Sections Wrapper -->
+  <div class="w-full relative">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="w-full bg-transparent text-black pt-32 pb-24 md:pt-40 md:pb-32 px-6">
+      <div class="max-w-[850px] mx-auto flex flex-col items-center text-center">
+        
+        <!-- Google Antigravity Style Header Icon -->
+        <div data-aos="fade-down" class="flex items-center gap-2 mb-6">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L22 18H17L12 9.5L7 18H2L12 3Z" fill="url(#logoChevronGrad)"/>
+          </svg>
+          <span class="font-sans font-semibold tracking-tight text-xs text-zinc-800">Rafay Arvino Setiawan</span>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="100" class="font-sans font-semibold text-[32px] sm:text-[46px] md:text-[58px] leading-[1.12] tracking-tight mb-8 text-black">
+          Web yang <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 typewriter-cursor font-bold">rapi</span><br>dan mudah dipahami.
+        </h1>
+
+        <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-500 text-xs sm:text-sm leading-relaxed max-w-[550px] mb-10 font-medium">
+          Saya siswa RPL yang fokus membangun website bersih, responsif, dan optimal. Konsep saya sederhana: visual teratur, alur jelas, dan kode terstruktur.
         </p>
-        <div class="grid grid-cols-3 gap-6">
-          <!-- Skill Cards -->
-          <div class="flex flex-col items-center bg-gray-800 p-4 rounded-xl hover:bg-indigo-500 hover:scale-105 transition">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-10 h-10 mb-2" />
-            <span>HTML</span>
+
+        <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+          <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-11 px-6 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all select-none shadow-sm">
+            Lihat Proyek Saya
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+          <a href="#about" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-11 px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 transition-all text-xs font-semibold text-black select-none">
+            Kenali Saya
+          </a>
+        </div>
+
+        <!-- Stats Bar -->
+        <div data-aos="fade-up" data-aos-delay="400" class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-[700px] mt-20 pt-8 border-t border-zinc-100">
+          <div class="flex flex-col items-center">
+            <span class="font-sans font-semibold text-2xl text-black">3+ Tahun</span>
+            <span class="text-zinc-400 text-[10px] font-medium tracking-wide mt-1">Belajar & Praktek</span>
           </div>
-          <div class="flex flex-col items-center bg-gray-800 p-4 rounded-xl hover:bg-indigo-500 hover:scale-105 transition">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-10 h-10 mb-2" />
-            <span>CSS</span>
+          <div class="flex flex-col items-center">
+            <span class="font-sans font-semibold text-2xl text-black">12+ Proyek</span>
+            <span class="text-zinc-400 text-[10px] font-medium tracking-wide mt-1">Selesai Dibuat</span>
           </div>
-          <div class="flex flex-col items-center bg-gray-800 p-4 rounded-xl hover:bg-indigo-500 hover:scale-105 transition">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-10 h-10 mb-2" />
-            <span>JavaScript</span>
-          </div>
-          <div class="flex flex-col items-center bg-gray-800 p-4 rounded-xl hover:bg-indigo-500 hover:scale-105 transition">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="w-10 h-10 mb-2" />
-            <span>PHP</span>
-          </div>
-          <div class="flex flex-col items-center bg-gray-800 p-4 rounded-xl hover:bg-indigo-500 hover:scale-105 transition">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-10 h-10 mb-2" />
-            <span>Laravel</span>
-          </div>
-          <div class="flex flex-col items-center bg-gray-800 p-4 rounded-xl hover:bg-indigo-500 hover:scale-105 transition">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" class="w-10 h-10 mb-2" />
-            <span>Lua</span>
+          <div class="flex flex-col items-center">
+            <span class="font-sans font-semibold text-2xl text-black">RPL</span>
+            <span class="text-zinc-400 text-[10px] font-medium tracking-wide mt-1">SMK Informatika Pesat</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects (Sekolah) -->
-  <section id="projects" class="max-w-7xl mx-auto px-6 py-28">
-    <h3 class="text-white text-4xl font-extrabold mb-14 text-center" data-aos="fade-up">Projek Sekolah</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <article data-aos="zoom-in" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 hover:scale-105 transition hover:shadow-lg hover:shadow-indigo-500/30">
-        <img src="assets/wedding (2).png" alt="Project" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-white text-2xl font-semibold mb-3">Modul 1 TechEduca</h4>
-          <p class="text-gray-400 mb-4">Replika website pendidikan. Project awal kelas 10.</p>
-          <a href="https://github.com/Vinnrafay/Modul-2-TechEduca-Page" target="_blank"
-            class="inline-block px-6 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition">
-            Lihat di Github
-          </a>
-        </div>
-      </article>
-       <article data-aos="zoom-in" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 hover:scale-105 transition hover:shadow-lg hover:shadow-indigo-500/30">
-        <img src="assets/wedding (1).png" alt="Project" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-white text-2xl font-semibold mb-3">Modul 2 Wedding Invitation</h4>
-          <p class="text-gray-400 mb-4">Wedding Invitation, Project ke 2 setelah Tech Educa.</p>
-          <a href="https://github.com/Vinnrafay/Modul-2-TechEduca-Page" target="_blank"
-            class="inline-block px-6 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition">
-            Lihat di Github
-          </a>
-        </div>
-      </article>
-       <article data-aos="zoom-in" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 hover:scale-105 transition hover:shadow-lg hover:shadow-indigo-500/30">
-        <img src="assets/onltycars.png" alt="Project" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-white text-2xl font-semibold mb-3">OnlyCars</h4>
-          <p class="text-gray-400 mb-4">Website Khusus pencinta mobil.</p>
-          <a href="https://github.com/Vinnrafay/Modul-2-TechEduca-Page" target="_blank"
-            class="inline-block px-6 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition">
-            Lihat di Github
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="w-full bg-transparent text-black py-24 px-6 border-t border-zinc-100">
+      <div class="max-w-[850px] mx-auto">
+        <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+          
+          <!-- Left Column: Photo & Tech stack -->
+          <div data-aos="fade-right" class="w-full md:w-[38%] flex flex-col items-center md:items-start">
+            <!-- Profile Photo: Highly visible & glowing with color shadow backplate -->
+            <div class="mb-8 relative color-glow-card rounded-[32px] md:rounded-[40px]">
+              <div class="w-52 h-52 md:w-72 md:h-72 rounded-[32px] md:rounded-[40px] overflow-hidden shadow-xl bg-zinc-50 project-image-container flex items-center justify-center">
+                <img src="assets/179663690.jpeg" alt="Rafay Arvino Setiawan" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/280x280/e4e4e7/000000?text=Profile'">
+              </div>
+            </div>
+            <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-3 text-center md:text-left">Tech Stack & Tools</span>
+            <div class="flex flex-wrap justify-center md:justify-start gap-1.5" id="skillsContainer">
+              <span data-aos="fade-up" data-tech="html" class="skill-badge px-3.5 py-1.5 rounded-full border border-orange-100 bg-orange-50/60 text-[9px] font-semibold text-orange-700 cursor-pointer">HTML</span>
+              <span data-aos="fade-up" data-aos-delay="50" data-tech="css" class="skill-badge px-3.5 py-1.5 rounded-full border border-orange-100 bg-orange-50/60 text-[9px] font-semibold text-orange-700 cursor-pointer">CSS</span>
+              <span data-aos="fade-up" data-aos-delay="100" data-tech="javascript" class="skill-badge px-3.5 py-1.5 rounded-full border border-yellow-200 bg-yellow-50/60 text-[9px] font-semibold text-yellow-800 cursor-pointer">JavaScript</span>
+              <span data-aos="fade-up" data-aos-delay="150" data-tech="php" class="skill-badge px-3.5 py-1.5 rounded-full border border-indigo-100 bg-indigo-50/60 text-[9px] font-semibold text-indigo-700 cursor-pointer">PHP</span>
+              <span data-aos="fade-up" data-aos-delay="200" data-tech="laravel" class="skill-badge px-3.5 py-1.5 rounded-full border border-red-100 bg-red-50/60 text-[9px] font-semibold text-red-650 cursor-pointer">Laravel</span>
+              <span data-aos="fade-up" data-aos-delay="250" data-tech="tailwindcss" class="skill-badge px-3.5 py-1.5 rounded-full border border-sky-100 bg-sky-50/60 text-[9px] font-semibold text-sky-600 cursor-pointer">TailwindCSS</span>
+              <span data-aos="fade-up" data-aos-delay="300" data-tech="lua" class="skill-badge px-3.5 py-1.5 rounded-full border border-blue-100 bg-blue-50/60 text-[9px] font-semibold text-blue-700 cursor-pointer">Lua</span>
+            </div>
+          </div>
 
-  <!-- Projects (Luar Sekolah) -->
-  <section id="external-projects" class="max-w-7xl mx-auto px-6 py-28">
-    <h3 class="text-white text-4xl font-extrabold mb-14 text-center" data-aos="fade-up">Projek Luar Sekolah</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <article data-aos="zoom-in" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 hover:scale-105 transition hover:shadow-lg hover:shadow-indigo-500/30">
-        <img src="assets/dicesides.png" alt="Project Roblox" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-white text-2xl font-semibold mb-3">DiceSides</h4>
-          <p class="text-gray-400 mb-4">Posting Tentang Football & F1, Dsbnya.</p>
-        </div>
-      </article>
-         <article data-aos="zoom-in" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 hover:scale-105 transition hover:shadow-lg hover:shadow-indigo-500/30">
-        <img src="assets/schoolhub.png" alt="Project Roblox" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-white text-2xl font-semibold mb-3">SchoolHub</h4>
-          <p class="text-gray-400 mb-4">Digitalisasi Sekolah</p>
-        </div>
-      </article>
-         <article data-aos="zoom-in" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 hover:scale-105 transition hover:shadow-lg hover:shadow-indigo-500/30">
-        <img src="assets/avery.png" alt="Project Roblox" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h4 class="text-white text-2xl font-semibold mb-3">Avery's Home</h4>
-          <p class="text-gray-400 mb-4">Roblox Game Studio</p>
-        </div>
-      </article>
-    </div>
-  </section>
+          <!-- Right Column: Biography & Work Principles -->
+          <div data-aos="fade-left" class="w-full md:w-[62%] flex flex-col justify-start">
+            <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">About Me</span>
+            <h2 class="font-sans font-semibold text-2xl sm:text-3xl text-black mb-6 tracking-tight">Belajar Lewat Praktek Nyata.</h2>
+            <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium mb-6">
+              Halo! Saya <strong class="text-black font-semibold">Rafay Arvino Setiawan</strong>, siswa Rekayasa Perangkat Lunak (RPL) di SMK Informatik Pesat Kota Bogor. Ketertarikan saya terletak pada pengembangan frontend, struktur database backend (khususnya PHP & Laravel), dan pembuatan antarmuka minimalis.
+            </p>
+            <p class="text-zinc-500 text-xs sm:text-sm leading-relaxed font-medium mb-10">
+              Saya mengutamakan kebersihan visual dan kemudahan akses halaman, memastikan pengguna merasa nyaman dan mudah memahami informasi yang disajikan.
+            </p>
 
-  <!-- Certificates -->
-  <section id="certificates" class="max-w-6xl mx-auto px-6 py-28">
-    <h3 class="text-white text-4xl font-extrabold mb-14 text-center" data-aos="fade-up">Sertifikat</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <div data-aos="flip-left" class="bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-700 hover:scale-[1.03] hover:shadow-indigo-500/30 transition">
-        <img src="assets/sertikom1.jpg" alt="Sertifikat 1" class="w-full h-48 object-cover rounded-md mb-5" />
-        <h4 class="text-white text-xl font-semibold">Sertikom 1</h4>
-        <p class="text-gray-400 text-sm mt-1">SMK Pesat 2024, Kelas 10 Semester 1</p>
+            <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-4">Prinsip Kerja</span>
+            <div class="flex flex-col gap-6">
+              <!-- AOS animations triggered individually in viewport -->
+              <div data-aos="fade-up" class="flex gap-4 items-start">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0"></span>
+                <div>
+                  <h4 class="text-xs font-semibold text-black mb-0.5">Struktur Rencana</h4>
+                  <p class="text-zinc-500 text-[10px] leading-relaxed font-medium">Memetakan struktur data dan tata letak dasar halaman secara matang sebelum mulai menulis kode.</p>
+                </div>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="100" class="flex gap-4 items-start">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0"></span>
+                <div>
+                  <h4 class="text-xs font-semibold text-black mb-0.5">Visual Teratur</h4>
+                  <p class="text-zinc-500 text-[10px] leading-relaxed font-medium">Membangun antarmuka yang bersih menggunakan palet warna seimbang dan navigasi intuitif.</p>
+                </div>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="200" class="flex gap-4 items-start">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
+                <div>
+                  <h4 class="text-xs font-semibold text-black mb-0.5">Uji Optimal</h4>
+                  <p class="text-zinc-500 text-[10px] leading-relaxed font-medium">Menguji kecepatan akses halaman dan responsivitas di setiap browser dan ukuran layar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </div>
-      <div data-aos="flip-left" class="bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-700 hover:scale-[1.03] hover:shadow-indigo-500/30 transition">
-        <img src="assets/sertikom 2.jpg" alt="Sertifikat 2" class="w-full h-48 object-cover rounded-md mb-5" />
-        <h4 class="text-white text-xl font-semibold">Sertikom 2</h4>
-        <p class="text-gray-400 text-sm mt-1">SMK Pesat 2024, Kelas 10 Semester 2</p>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="w-full bg-[#050505] text-white py-24 px-6 relative z-10 border-t border-zinc-900 shadow-2xl">
+      <div class="max-w-[850px] mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div data-aos="fade-up">
+            <span class="block text-zinc-500 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">Selected Work</span>
+            <h2 class="font-sans font-semibold text-2xl sm:text-3xl text-white tracking-tight">
+              Proyek Pilihan.
+            </h2>
+          </div>
+          <p data-aos="fade-up" data-aos-delay="100" class="text-zinc-400 text-xs max-w-[340px] leading-relaxed font-medium">
+            Proyek web dan game pilihan yang menunjukkan implementasi coding fungsional dan estetika antarmuka.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div data-aos="fade-up" data-aos-delay="150" class="flex items-center gap-1.5 overflow-x-auto pb-4 mb-16 no-scrollbar border-b border-zinc-900">
+          <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-white bg-white text-black transition-all whitespace-nowrap" id="filter-all" onclick="filterProjects('all')">Semua</button>
+          <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap" id="filter-web" onclick="filterProjects('web')">Web Dev</button>
+          <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap" id="filter-ui" onclick="filterProjects('ui')">Design</button>
+          <button class="px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap" id="filter-game" onclick="filterProjects('game')">Game</button>
+        </div>
+
+        <!-- Projects Rows Stack (AOS sliding animations for matching side-by-side elements) -->
+        <div class="flex flex-col gap-16 md:gap-24" id="projectsContainer">
+          <!-- Project 1 (DiceSides) - Text Left (fade-right), Image Right (flip-up) -->
+          <article class="flex flex-col md:flex-row gap-10 md:gap-16 items-center pb-16 border-b border-zinc-900/40 last:border-0 last:pb-0" data-category="ui" data-tech="ui/ux css">
+            <div data-aos="fade-right" class="w-full md:w-[45%] flex flex-col justify-center">
+              <span class="text-zinc-500 text-[9px] font-semibold tracking-wider mb-2">Sports Media · 433 Design Football</span>
+              <h3 class="font-sans font-semibold text-2xl mb-3 text-white hover:text-zinc-300 transition-colors">DiceSides</h3>
+              <p class="text-zinc-400 text-xs leading-relaxed mb-6 font-medium">
+                Desain media olahraga modern untuk F1 dan Football. Fokus pada penyajian data statistik infografis yang bersih, fungsional, dan mudah dipahami.
+              </p>
+              <div>
+                <span class="inline-flex items-center text-[9px] font-semibold text-zinc-500 tracking-wider">Design</span>
+              </div>
+            </div>
+            <div data-aos="flip-up" class="w-full md:w-[55%] relative color-glow-card rounded-[24px]">
+              <div class="project-image-container rounded-[24px] overflow-hidden aspect-[16/10] bg-zinc-800">
+                <img src="assets/dicesides.png" alt="DiceSides Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=DiceSides+Sports'">
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 (SchoolHub) - Text Right (fade-left), Image Left (flip-up) -->
+          <article class="flex flex-col md:flex-row-reverse gap-10 md:gap-16 items-center pb-16 border-b border-zinc-900/40 last:border-0 last:pb-0" data-category="web" data-tech="laravel php tailwindcss html">
+            <div data-aos="fade-left" class="w-full md:w-[45%] flex flex-col justify-center">
+              <span class="text-zinc-500 text-[9px] font-semibold tracking-wider mb-2">PKK Sekolah · Tugas</span>
+              <h3 class="font-sans font-semibold text-2xl mb-3 text-white hover:text-zinc-300 transition-colors">SchoolHub</h3>
+              <p class="text-zinc-400 text-xs leading-relaxed mb-6 font-medium">
+                Rancangan platform portal data sekolah terintegrasi. Berguna menyederhanakan komunikasi administratif internal antara guru, wali, dan murid.
+              </p>
+              <div>
+                <span class="inline-flex items-center text-[9px] font-semibold text-zinc-500 tracking-wider">Tugas Sekolah</span>
+              </div>
+            </div>
+            <div data-aos="flip-up" class="w-full md:w-[55%] relative color-glow-card rounded-[24px]">
+              <div class="project-image-container rounded-[24px] overflow-hidden aspect-[16/10] bg-zinc-800">
+                <img src="assets/schoolhub.png" alt="SchoolHub Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=SchoolHub+Portal'">
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 (Avery's Home) - Text Left (fade-right), Image Right (flip-up) -->
+          <article class="flex flex-col md:flex-row gap-10 md:gap-16 items-center pb-16 last:border-0 last:pb-0" data-category="game" data-tech="lua">
+            <div data-aos="fade-right" class="w-full md:w-[45%] flex flex-col justify-center">
+              <span class="text-zinc-500 text-[9px] font-semibold tracking-wider mb-2">Roblox · Lua</span>
+              <h3 class="font-sans font-semibold text-2xl mb-3 text-white hover:text-zinc-300 transition-colors">Avery's Home</h3>
+              <p class="text-zinc-400 text-xs leading-relaxed mb-6 font-medium">
+                Pembuatan mini-game interaktif di platform Roblox. Eksplorasi pemrograman logika dan scripting mekanika game menggunakan bahasa Lua.
+              </p>
+              <div>
+                <span class="inline-flex items-center text-[9px] font-semibold text-zinc-500 tracking-wider">Game</span>
+              </div>
+            </div>
+            <div data-aos="flip-up" class="w-full md:w-[55%] relative color-glow-card rounded-[24px]">
+              <div class="project-image-container rounded-[24px] overflow-hidden aspect-[16/10] bg-zinc-800">
+                <img src="assets/avery.png" alt="Avery's Home Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=Averys+Home+Roblox'">
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Elegant Divider -->
+        <div class="w-full h-[1px] bg-zinc-900 my-20"></div>
+
+        <!-- School Projects & GitHub Repositories Sub-Section -->
+        <div class="w-full">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div data-aos="fade-up">
+              <span class="block text-zinc-500 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">School Repositories</span>
+              <h3 class="font-sans font-semibold text-xl sm:text-2xl text-white tracking-tight">Proyek Sekolah & Repositori GitHub</h3>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-zinc-400 text-[11px] max-w-[380px] leading-relaxed font-medium">
+              Kumpulan repositori dan program tugas sekolah di bidang Rekayasa Perangkat Lunak (RPL), dari sistem profiling hingga aplikasi clone dompet digital.
+            </p>
+          </div>
+
+          <!-- Repositories Grid -->
+          <div class="repo-grid" id="reposGrid">
+            <!-- OnlyCars (With Image) -->
+            <div data-aos="flip-up" class="repo-card" data-tech="laravel css javascript php">
+              <div>
+                <div class="w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-800">
+                  <img src="assets/onltycars.png" alt="OnlyCars Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=OnlyCars+Community'">
+                </div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Proyek Sekolah · Laravel</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/OnlyCars" target="_blank">OnlyCars ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Website komunitas pencinta mobil dengan tema minimalis gelap berbasis Laravel.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Laravel</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- TechEduca (With Image) -->
+            <div data-aos="flip-up" data-aos-delay="50" class="repo-card" data-tech="html css javascript">
+              <div>
+                <div class="w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-800">
+                  <img src="assets/wedding (2).png" alt="TechEduca Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=TechEduca+EdTech'">
+                </div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Proyek Sekolah · HTML CSS</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-2-TechEduca-Page" target="_blank">TechEduca ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Replika platform pembelajaran digital responsif menggunakan CSS Grid dan Flexbox.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-orange-400 font-mono">HTML / CSS</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Wedding Invitation (With Image) -->
+            <div data-aos="flip-up" data-aos-delay="100" class="repo-card" data-tech="html css javascript">
+              <div>
+                <div class="w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-800">
+                  <img src="assets/wedding (1).png" alt="Wedding Invitation Preview" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://placehold.co/600x375/27272a/ffffff?text=Wedding+Invitation'">
+                </div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Proyek Sekolah · Web Design</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-5-Wedding-Page-Bootstrap" target="_blank">Wedding Invitation ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Undangan pernikahan digital berbasis web dengan layout responsif dan transisi halus.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-yellow-400 font-mono">JS / CSS</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 1: ProfilingSiswaBE -->
+            <div data-aos="flip-up" data-aos-delay="150" class="repo-card" data-tech="php laravel">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Laravel Backend</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/ProfilingSiswaBE" target="_blank">ProfilingSiswaBE ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  REST API dan sistem manajemen data (backend) untuk profiling siswa SMK Pesat.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Laravel</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 2: ProfilingSiswaFE -->
+            <div data-aos="flip-up" data-aos-delay="200" class="repo-card" data-tech="typescript react">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">React Frontend</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-sky-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/ProfilingSIswaFE" target="_blank">ProfilingSiswaFE ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Dashboard interaktif (frontend) untuk visualisasi dan rekap data sistem profiling siswa.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript / React</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 3: Belanjain-Mobile -->
+            <div data-aos="flip-up" data-aos-delay="100" class="repo-card" data-tech="typescript react-native">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Mobile App</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-emerald-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Belanjain-Mobile" target="_blank">Belanjain-Mobile ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Aplikasi belanja sekolah berbasis mobile untuk memudahkan pemesanan barang/jasa secara digital.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-emerald-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 4: Belanjain-BE -->
+            <div data-aos="flip-up" data-aos-delay="150" class="repo-card" data-tech="php laravel">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Laravel Backend</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Belanjain-BE" target="_blank">Belanjain-BE ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Sistem database, autentikasi, dan kelola panel admin utama untuk platform Belanjain.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Laravel</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 5: ToDoList -->
+            <div data-aos="flip-up" class="repo-card" data-tech="typescript javascript">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Task Manager</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-yellow-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/ToDoList" target="_blank">ToDoList ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Aplikasi pencatatan daftar tugas harian yang minimalis dan responsif untuk mengelola produktivitas.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-yellow-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 6: SmartNotes -->
+            <div data-aos="flip-up" data-aos-delay="50" class="repo-card" data-tech="typescript javascript">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Cloud Notes</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-yellow-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/SmartNotes" target="_blank">SmartNotes ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Platform pencatatan modern dengan kategori terstruktur untuk kemudahan mencatat pelajaran sekolah.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-yellow-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 7: SmartNote -->
+            <div data-aos="flip-up" data-aos-delay="100" class="repo-card" data-tech="javascript css">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Minimalist Notes</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-orange-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/SmartNote" target="_blank">SmartNote ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Aplikasi pencatatan versi ringan yang berfokus pada kecepatan akses dan antarmuka bersih.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-orange-400 font-mono">JavaScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 8: StudentVoice -->
+            <div data-aos="flip-up" data-aos-delay="150" class="repo-card" data-tech="typescript react php">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Public Service</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-sky-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/StudentVoice" target="_blank">StudentVoice ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Aplikasi aspirasi dan pengaduan siswa untuk menjembatani komunikasi dengan pihak sekolah.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 9: api-service -->
+            <div data-aos="flip-up" class="repo-card" data-tech="php laravel">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Integration API</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/api-service" target="_blank">api-service ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Sistem gateway integrasi API web sekolah untuk sinkronisasi antarmuka eksternal.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP / Blade</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 10: TeSate -->
+            <div data-aos="flip-up" data-aos-delay="50" class="repo-card" data-tech="typescript react tailwindcss">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Food Ordering</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-rose-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/TeSate" target="_blank">TeSate ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Aplikasi pemesanan kuliner sate interaktif dengan kalkulasi total belanja langsung.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-rose-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 11: QuranPesat -->
+            <div data-aos="flip-up" data-aos-delay="100" class="repo-card" data-tech="typescript react tailwindcss">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Islamic App</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-emerald-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/QuranPesat" target="_blank">QuranPesat ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Al-Quran digital interaktif yang dirancang untuk mendukung hafalan Quran siswa di SMK Pesat.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-emerald-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 12: Saraya -->
+            <div data-aos="flip-up" data-aos-delay="150" class="repo-card" data-tech="typescript nextjs">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Company Profile</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-sky-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Saraya" target="_blank">Saraya ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Landing page minimalis modern untuk profil perusahaan/organisasi yang bersih dan cepat.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 13: Tokopedia-Clone -->
+            <div data-aos="flip-up" class="repo-card" data-tech="typescript react tailwindcss">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">E-Commerce Clone</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-emerald-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Tokopedia-Clone" target="_blank">Tokopedia-Clone ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Replika desain tata letak UI e-commerce Tokopedia dengan filter pencarian dan detail produk.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-emerald-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 14: Dana-Clone -->
+            <div data-aos="flip-up" data-aos-delay="50" class="repo-card" data-tech="typescript react tailwindcss">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Fintech UI Clone</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-sky-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Dana-Clone" target="_blank">Dana-Clone ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Uji coba replikasi tampilan mobile dompet digital DANA untuk kebutuhan simulasi transaksi.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-sky-400 font-mono">TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 15: Modul-7-Foodie -->
+            <div data-aos="flip-up" data-aos-delay="100" class="repo-card" data-tech="html css">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Food Ordering Page</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-7-Foodie" target="_blank">Modul-7-Foodie ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Website pemesanan makanan Foodie dengan fungsionalitas keranjang belanja interaktif berbasis HTML/CSS.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-orange-400 font-mono">HTML / CSS</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 16: Modul-6-Latihan-PHP -->
+            <div data-aos="flip-up" data-aos-delay="150" class="repo-card" data-tech="php">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">PHP Basics</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-6-Latihan-PHP" target="_blank">Modul-6-Latihan-PHP ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Latihan pemrograman dasar PHP untuk memahami logika kontrol, database, fungsi, dan form handling.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-indigo-400 font-mono">PHP</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 17: Modul-4-PortofolioBootstrap -->
+            <div data-aos="flip-up" class="repo-card" data-tech="html css bootstrap">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Responsive Portfolio</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-4-PortofolioBootstrap" target="_blank">Modul-4-PortofolioBootstrap ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Website portofolio pribadi responsif yang dibuat menggunakan framework Bootstrap untuk layouting cepat.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-sky-400 font-mono">HTML / Bootstrap</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 18: Modul-3-Sertikom-2024 -->
+            <div data-aos="flip-up" data-aos-delay="50" class="repo-card" data-tech="html css">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Exam Prep Website</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-indigo-400 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-3-Sertikom-2024" target="_blank">Modul-3-Sertikom-2024 ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Website latihan dan dokumentasi persiapan Ujian Sertifikasi Kompetensi (Sertikom) internal sekolah.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-orange-400 font-mono">HTML / CSS</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+
+            <!-- Repo 19: Modul-1-UI-Figma -->
+            <div data-aos="flip-up" data-aos-delay="100" class="repo-card" data-tech="figma ui">
+              <div>
+                <span class="text-zinc-500 text-[8px] font-semibold font-mono tracking-wider uppercase">Figma UI Design</span>
+                <h4 class="text-sm font-semibold text-white mt-1 mb-2 hover:text-rose-450 transition-colors">
+                  <a href="https://github.com/Vinnrafay/Modul-1-UI-Figma" target="_blank">Modul-1-UI-Figma ↗</a>
+                </h4>
+                <p class="text-zinc-400 text-[10px] leading-relaxed font-medium">
+                  Desain antarmuka pengguna (UI/UX) konsep pemesanan makanan Foodie yang dirancang di platform Figma.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-[9px] font-semibold text-pink-400 font-mono">Figma UI</span>
+                <span class="px-2.5 py-0.5 rounded-full border border-indigo-900 bg-indigo-950/40 text-[8px] font-bold text-indigo-400">Proyek Sekolah</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="certs" class="w-full bg-transparent text-black py-24 px-6 border-t border-zinc-150">
+      <div class="max-w-[850px] mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div data-aos="fade-up">
+            <span class="block text-zinc-400 font-mono text-[9px] font-semibold tracking-widest uppercase mb-2">Achievements</span>
+            <h2 class="font-sans font-semibold text-2xl sm:text-3xl text-black tracking-tight">Sertifikasi.</h2>
+          </div>
+          <p data-aos="fade-up" data-aos-delay="100" class="text-zinc-500 text-xs max-w-[340px] leading-relaxed font-medium">
+            Daftar dokumentasi resmi ujian sertifikasi kompetensi internal sekolah yang saya capai.
+          </p>
+        </div>
+
+        <!-- Certificates Stagger Grid (AOS slides in from left and right) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <!-- Cert 1 -->
+          <article data-aos="fade-right" class="flex flex-col">
+            <div class="project-image-container relative overflow-hidden aspect-[16/10] bg-zinc-100 rounded-[24px] flex items-center justify-center cursor-zoom-in mb-4 shadow-sm" onclick="openLightbox('assets/sertikom1.jpg', 'Sertikom Semester 1 — SMK Pesat')">
+              <img src="assets/sertikom1.jpg" alt="Sertikom 1" class="w-full h-full object-cover opacity-95 hover:opacity-100 transition-all duration-305" onerror="this.src='https://placehold.co/600x375/e4e4e7/000000?text=Sertikom+1+SMK+Pesat'">
+            </div>
+            <h3 class="font-sans font-semibold text-sm text-black mb-0.5">Sertikom Uji Kompetensi Semester 1</h3>
+            <p class="text-zinc-400 text-[10px] font-semibold font-mono">SMK Pesat IT Xten · Tahun 2024</p>
+          </article>
+
+          <!-- Cert 2 -->
+          <article data-aos="fade-left" class="flex flex-col">
+            <div class="project-image-container relative overflow-hidden aspect-[16/10] bg-zinc-100 rounded-[24px] flex items-center justify-center cursor-zoom-in mb-4 shadow-sm" onclick="openLightbox('assets/sertikom 2.jpg', 'Sertikom Semester 2 — SMK Pesat')">
+              <img src="assets/sertikom 2.jpg" alt="Sertikom 2" class="w-full h-full object-cover opacity-95 hover:opacity-100 transition-all duration-305" onerror="this.src='https://placehold.co/600x375/e4e4e7/000000?text=Sertikom+2+SMK+Pesat'">
+            </div>
+            <h3 class="font-sans font-semibold text-sm text-black mb-0.5">Sertikom Uji Kompetensi Semester 2</h3>
+            <p class="text-zinc-400 text-[10px] font-semibold font-mono">SMK Pesat IT Xten · Tahun 2024</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION & FOOTER -->
+    <section id="contact" class="w-full bg-[#050505] text-white py-24 pb-12 px-6 border-t border-zinc-900 shadow-2xl relative z-10">
+      <div class="max-w-[850px] mx-auto text-center flex flex-col items-center">
+        <span data-aos="fade-up" class="text-zinc-500 font-mono text-[9px] font-semibold tracking-widest uppercase mb-3">Get in Touch</span>
+        <h2 data-aos="fade-up" data-aos-delay="100" class="font-sans font-semibold text-2xl sm:text-3xl text-white tracking-tight mb-6">Mulai Kolaborasi Anda.</h2>
+        <p data-aos="fade-up" data-aos-delay="150" class="text-zinc-400 text-xs sm:text-sm leading-relaxed font-medium mb-10 max-w-[550px]">
+          Saya selalu terbuka untuk berdiskusi tentang proyek freelance, kerja sama tim, maupun kesempatan magang industri (PKL). Silakan hubungi saya di bawah ini:
+        </p>
+
+        <!-- Contact Cards Stagger -->
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full max-w-[650px] mb-20">
+          <!-- WhatsApp -->
+          <div data-aos="fade-up" data-aos-delay="200" class="flex-1 min-w-[200px] flex items-center bg-[#0d0d0f] border border-zinc-800 rounded-full pl-5 pr-2 py-2 justify-between group shadow-lg hover:border-white transition-all">
+            <a href="https://wa.me/6287797895571" target="_blank" class="flex flex-col text-left">
+              <span class="text-zinc-500 text-[8px] font-semibold font-mono uppercase tracking-wider">WhatsApp</span>
+              <span class="text-xs font-semibold text-white mt-0.5">+62 877-9789-5571</span>
+            </a>
+            <button onclick="copyToClipboard('+6287797895571', 'WhatsApp')" class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-all cursor-pointer active:scale-90" title="Copy WhatsApp">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            </button>
+          </div>
+
+          <!-- GitHub -->
+          <div data-aos="fade-up" data-aos-delay="250" class="flex-1 min-w-[200px] flex items-center bg-[#0d0d0f] border border-zinc-800 rounded-full pl-5 pr-2 py-2 justify-between group shadow-lg hover:border-white transition-all">
+            <a href="https://github.com/Vinnrafay" target="_blank" class="flex flex-col text-left">
+              <span class="text-zinc-500 text-[8px] font-semibold font-mono uppercase tracking-wider">GitHub</span>
+              <span class="text-xs font-semibold text-white mt-0.5">@Vinnrafay</span>
+            </a>
+            <button onclick="copyToClipboard('https://github.com/Vinnrafay', 'GitHub Link')" class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-all cursor-pointer active:scale-90" title="Copy GitHub">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            </button>
+          </div>
+
+          <!-- Instagram -->
+          <div data-aos="fade-up" data-aos-delay="300" class="flex-1 min-w-[200px] flex items-center bg-[#0d0d0f] border border-zinc-800 rounded-full pl-5 pr-2 py-2 justify-between group shadow-lg hover:border-white transition-all">
+            <a href="https://instagram.com" target="_blank" class="flex flex-col text-left">
+              <span class="text-zinc-500 text-[8px] font-semibold font-mono uppercase tracking-wider">Instagram</span>
+              <span class="text-xs font-semibold text-white mt-0.5">@rafay.dev</span>
+            </a>
+            <button onclick="copyToClipboard('@rafay.dev', 'Instagram Username')" class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-all cursor-pointer active:scale-90" title="Copy Instagram">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full border-t border-zinc-900 pt-8 text-zinc-500 text-[10px] font-semibold tracking-wide flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+          <span class="font-sans font-semibold text-white">Rafay.dev</span>
+          <span>© 2026 Rafay Arvino Setiawan. Hak Cipta Dilindungi.</span>
+        </footer>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Fullscreen Lightbox Modal for Certificates -->
+  <div id="lightboxModal" class="lightbox-modal fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 w-10 h-10 border border-white/20 bg-white/5 hover:bg-white/10 rounded-full text-white text-lg flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="closeLightbox()" aria-label="Close modal">✕</button>
+    <div class="lightbox-content max-w-4xl max-h-[85vh] flex flex-col items-center gap-3 relative" onclick="event.stopPropagation()">
+      <img id="lightboxImg" src="" alt="Sertifikat Detail" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10" />
+      <span id="lightboxCaption" class="text-white text-xs font-semibold font-sans tracking-wide"></span>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact -->
-  <section id="contact" class="max-w-4xl mx-auto px-6 py-28 text-center">
-    <h3 class="text-white text-4xl font-extrabold mb-8" data-aos="fade-up">Kontak Saya</h3>
-    <p class="text-gray-400 mb-6">Punya ide keren atau mau kolaborasi? Bisa hubungi saya di:</p>
-    <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-lg">
-      <a href="https://wa.me/6287797895571" target="_blank" class="hover:text-green-400 flex items-center gap-2 transition" data-aos="zoom-in">
-        <i data-feather="phone"></i> WhatsApp
-      </a>
-      <a href="https://github.com/Vinnrafay" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition" data-aos="zoom-in" data-aos-delay="100">
-        <i data-feather="github"></i> GitHub
-      </a>
-      <a href="https://linkedin.com" target="_blank" class="hover:text-blue-400 flex items-center gap-2 transition" data-aos="zoom-in" data-aos-delay="200">
-        <i data-feather="linkedin"></i> LinkedIn
-      </a>
-      <a href="https://instagram.com" target="_blank" class="hover:text-pink-400 flex items-center gap-2 transition" data-aos="zoom-in" data-aos-delay="300">
-        <i data-feather="instagram"></i> Instagram
-      </a>
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 z-50 transition-all duration-300 pointer-events-none">
+    <div class="px-5 py-3 rounded-full bg-black border border-zinc-800 text-white text-xs font-bold font-sans tracking-wide shadow-xl flex items-center gap-2">
+      <span class="text-zinc-400">✓</span>
+      <span id="toastMessage"></span>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="text-center text-gray-500 py-8 border-t border-gray-800">
-    © 2025 <span class="text-white">Rafay Arvino Setiawan</span>
-  </footer>
+  <!-- Lenis Smooth Scroll script CDN -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
-  <script>feather.replace()</script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init({ once: true, duration: 800 });</script>
-
+  <!-- Scripts -->
   <script>
-  // Smooth scroll custom
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80, // biar ga ketutup navbar
-          behavior: "smooth"
+    // 1. Mobile Menu Toggler
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        requestAnimationFrame(() => {
+          mobileMenu.classList.add('show');
         });
-      }
-    });
-  });
-
-  // Navbar active highlight
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("header nav a");
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.remove("text-indigo-400");
-            link.classList.remove("font-bold");
-          });
-          const activeLink = document.querySelector(
-            `header nav a[href="#${entry.target.id}"]`
-          );
-          if (activeLink) {
-            activeLink.classList.add("text-indigo-400", "font-bold");
+      } else {
+        mobileMenu.classList.remove('show');
+        mobileMenu.addEventListener('transitionend', function handler() {
+          if (!mobileMenu.classList.contains('show')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
           }
+          mobileMenu.removeEventListener('transitionend', handler);
+        }, { once: true });
+      }
+      
+      bar1.classList.toggle('rotate-45');
+      bar1.classList.toggle('translate-y-[5px]');
+      bar2.classList.toggle('opacity-0');
+      bar3.classList.toggle('-rotate-45');
+      bar3.classList.toggle('-translate-y-[5px]');
+    });
+
+    // Close mobile menu on click links
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        bar1.classList.remove('rotate-45', 'translate-y-[5px]');
+        bar2.classList.remove('opacity-0');
+        bar3.classList.remove('-rotate-45', '-translate-y-[5px]');
+      });
+    });
+
+    // 2. Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    // 3. Hero Typewriter Animation
+    const typewriterElement = document.getElementById('typewriter');
+    const words = ["minimalis", "rapi", "responsif", "clean", "modern"];
+    let wordIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeEffect() {
+      const currentWord = words[wordIdx];
+      if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
+        charIdx--;
+        typingSpeed = 50;
+      } else {
+        typewriterElement.textContent = currentWord.substring(0, charIdx + 1);
+        charIdx++;
+        typingSpeed = 120;
+      }
+
+      if (!isDeleting && charIdx === currentWord.length) {
+        typingSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        wordIdx = (wordIdx + 1) % words.length;
+        typingSpeed = 400;
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+    if (typewriterElement) {
+      setTimeout(typeEffect, 1000);
+    }
+
+    // 4. Interactive Spotlight Card Tilt
+    function setupSpotlight() {
+      document.querySelectorAll('.project-image-container').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+      });
+    }
+    setupSpotlight();
+
+    // 5. Projects Category Filtering Logic
+    function filterProjects(category) {
+      const container = document.getElementById('projectsContainer');
+      const cards = container.querySelectorAll('article');
+      
+      const categories = ['all', 'web', 'ui', 'game'];
+      categories.forEach(cat => {
+        const btn = document.getElementById(`filter-${cat}`);
+        if(cat === category) {
+          btn.className = "px-4 py-2 text-[10px] font-semibold rounded-full border border-white bg-white text-black transition-all whitespace-nowrap";
+        } else {
+          btn.className = "px-4 py-2 text-[10px] font-semibold rounded-full border border-zinc-800 hover:border-white hover:text-white text-zinc-400 bg-[#121214] transition-all whitespace-nowrap";
         }
       });
-    },
-    { threshold: 0.6 }
-  );
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if(category === 'all' || cardCat === category) {
+          card.style.display = 'flex';
+          requestAnimationFrame(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          });
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          card.style.display = 'none';
+        }
+      });
+    }
 
+    // 6. Skill Badges Hover Filter Highlight
+    const skillBadges = document.querySelectorAll('.skill-badge');
+    const projectArticles = document.querySelectorAll('#projectsContainer article');
+
+    skillBadges.forEach(badge => {
+      badge.addEventListener('mouseenter', () => {
+        const tech = badge.getAttribute('data-tech');
+        if (!tech) return;
+
+        projectArticles.forEach(card => {
+          const cardTechs = card.getAttribute('data-tech');
+          if (cardTechs && cardTechs.split(' ').includes(tech)) {
+            card.querySelector('.project-image-container').classList.add('scale-[1.01]');
+          } else {
+            card.style.opacity = '0.35';
+          }
+        });
+      });
+
+      badge.addEventListener('mouseleave', () => {
+        projectArticles.forEach(card => {
+          card.style.opacity = '1';
+          card.querySelector('.project-image-container').classList.remove('scale-[1.01]');
+        });
+      });
+    });
+
+    // 7. Lightbox Certificate Modal
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption;
+      lightboxModal.classList.add('active');
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+      lightboxModal.classList.remove('active');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // 8. Clipboard copy row details
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    let toastTimeout;
+
+    function showToast(message) {
+      clearTimeout(toastTimeout);
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    function copyToClipboard(text, label) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(`Berhasil menyalin ${label}!`);
+        }).catch(err => {
+          fallbackCopyToClipboard(text, label);
+        });
+      } else {
+        fallbackCopyToClipboard(text, label);
+      }
+    }
+
+    function fallbackCopyToClipboard(text, label) {
+      const textSubarea = document.createElement("textarea");
+      textSubarea.value = text;
+      textSubarea.style.position = "fixed";
+      textSubarea.style.top = "0";
+      textSubarea.style.left = "0";
+      textSubarea.style.opacity = "0";
+      document.body.appendChild(textSubarea);
+      textSubarea.focus();
+      textSubarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(`Berhasil menyalin ${label}!`);
+      } catch (err) {
+        showToast(`Gagal menyalin ${label}.`);
+      }
+      document.body.removeChild(textSubarea);
+    }
+
+    // 10. Background Interactive Particle Swirl System (Colorful Google Style)
+    const particleCanvas = document.getElementById('particleCanvas');
+    const particleCtx = particleCanvas.getContext('2d');
+    let particlesList = [];
+    let particleMouse = { x: null, y: null, radius: 170 };
+
+    function resizeParticleCanvas() {
+      particleCanvas.width = window.innerWidth;
+      particleCanvas.height = window.innerHeight;
+    }
+    resizeParticleCanvas();
+    window.addEventListener('resize', resizeParticleCanvas);
+
+    window.addEventListener('mousemove', (e) => {
+      particleMouse.x = e.clientX;
+      particleMouse.y = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      particleMouse.x = null;
+      particleMouse.y = null;
+    });
+
+    const googleColors = [
+      'rgba(66, 133, 244, 0.7)', // Blue
+      'rgba(234, 67, 53, 0.7)',  // Red
+      'rgba(251, 188, 5, 0.7)',  // Yellow
+      'rgba(52, 168, 83, 0.7)',  // Green
+      'rgba(255, 122, 0, 0.7)'   // Orange
+    ];
+
+    class OrbitParticle {
+      constructor() {
+        this.reset();
+        this.angle = Math.random() * Math.PI * 2;
+      }
+
+      reset() {
+        this.centerX = particleCanvas.width / 2;
+        this.centerY = particleCanvas.height / 3; 
+        this.orbitRadiusX = Math.random() * (particleCanvas.width * 0.45) + 120;
+        this.orbitRadiusY = Math.random() * (particleCanvas.height * 0.35) + 90;
+        this.angularSpeed = (Math.random() * 0.001 + 0.0003) * (Math.random() > 0.5 ? 1 : -1);
+        this.radius = Math.random() * 2.5 + 1.2;
+        this.color = googleColors[Math.floor(Math.random() * googleColors.length)];
+        this.x = this.centerX + Math.cos(this.angle) * this.orbitRadiusX;
+        this.y = this.centerY + Math.sin(this.angle) * this.orbitRadiusY;
+        this.offsetX = 0;
+        this.offsetY = 0;
+      }
+
+      update() {
+        this.centerX = particleCanvas.width / 2;
+        this.centerY = Math.min(particleCanvas.height / 2.3, 380); 
+        this.angle += this.angularSpeed;
+
+        const targetX = this.centerX + Math.cos(this.angle) * this.orbitRadiusX;
+        const targetY = this.centerY + Math.sin(this.angle) * this.orbitRadiusY;
+
+        this.x += (targetX - this.x) * 0.05;
+        this.y += (targetY - this.y) * 0.05;
+
+        // Mouse repulsion
+        if (particleMouse.x !== null && particleMouse.y !== null) {
+          const dx = this.x - particleMouse.x;
+          const dy = this.y - particleMouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < particleMouse.radius) {
+            const force = (particleMouse.radius - dist) / particleMouse.radius;
+            const angle = Math.atan2(dy, dx);
+            this.offsetX += Math.cos(angle) * force * 5.5;
+            this.offsetY += Math.sin(angle) * force * 5.5;
+          }
+        }
+
+        this.offsetX *= 0.93;
+        this.offsetY *= 0.93;
+      }
+
+      draw() {
+        particleCtx.beginPath();
+        particleCtx.arc(this.x + this.offsetX, this.y + this.offsetY, this.radius, 0, Math.PI * 2);
+        particleCtx.fillStyle = this.color;
+        particleCtx.fill();
+      }
+    }
+
+    function initParticles() {
+      particlesList = [];
+      const count = Math.min(100, Math.floor((particleCanvas.width * particleCanvas.height) / 14000));
+      for (let i = 0; i < count; i++) {
+        particlesList.push(new OrbitParticle());
+      }
+    }
+    initParticles();
+    window.addEventListener('resize', initParticles);
+
+    function animateParticles() {
+      particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+      particlesList.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 11. AOS (Animate on Scroll) Lightweight Native Script
+    const aosObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('aos-animate');
+          aosObserver.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: "0px 0px -80px 0px" // Trigger slightly earlier
+    });
+
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      const delay = el.getAttribute('data-aos-delay');
+      if (delay) {
+        el.style.transitionDelay = `${delay}ms`;
+      }
+      aosObserver.observe(el);
+    });
+
+    // 12. Lenis Smooth Momentum Scrolling Integration
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutQuint
+      smooth: true,
+      mouseMultiplier: 1.0,
+      smoothTouch: false,
+    });
+
+    // Handle anchor links smooth scroll with Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, {
+            offset: -75, // Adjust offset to accommodate the floating nav bar
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        }
+      });
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  </script>
 </body>
 </html>
