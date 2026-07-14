@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jurnal & Catatan Belajar — Rafay Arvino Setiawan</title>
+  
+  <!-- SEO & Social Media Metadata -->
+  <meta name="description" content="Jurnal catatan pengembangan web Laravel, tips UI/UX, dan eksplorasi coding oleh Rafay Arvino Setiawan." />
+  <meta name="author" content="Rafay Arvino Setiawan" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll CSS CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+    
+    // Immediately check theme to prevent white flash
+    (function() {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/custom.css" />
+</head>
+<body class="text-black dark:text-zinc-100 font-sans antialiased relative min-h-screen selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
+
+  <!-- Background Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Floating Navigation Pill Bar -->
+  <header class="floating-nav flex items-center justify-between px-6 z-50 select-none">
+    <div class="flex items-center gap-2">
+      <a href="index.html#home" class="flex items-center gap-2 group">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoChevronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4285F4"/>
+                <stop offset="25%" stop-color="#EA4335"/>
+                <stop offset="50%" stop-color="#FBBC05"/>
+                <stop offset="100%" stop-color="#34A853"/>
+              </linearGradient>
+            </defs>
+            <path d="M12 3L22 18H17L12 9.5L7 18H2L12 3Z" fill="url(#logoChevronGrad)"/>
+          </svg>
+        </div>
+        <span class="font-sans font-semibold tracking-tight text-xs text-black dark:text-white">
+          Rafay<span class="text-zinc-400">.dev</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex items-center gap-6 font-sans font-semibold text-[11px] text-zinc-500 dark:text-zinc-400 tracking-wide">
+      <a href="index.html#home" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Beranda</span>
+        <span data-lang="en" class="hidden">Home</span>
+      </a>
+      <a href="index.html#about" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Tentang</span>
+        <span data-lang="en" class="hidden">About</span>
+      </a>
+      <a href="index.html#projects" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Proyek</span>
+        <span data-lang="en" class="hidden">Projects</span>
+      </a>
+      <a href="index.html#certs" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Sertifikat</span>
+        <span data-lang="en" class="hidden">Certificates</span>
+      </a>
+      <a href="index.html#contact" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Kontak</span>
+        <span data-lang="en" class="hidden">Contact</span>
+      </a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-2">
+      <!-- Language Switcher Pill -->
+      <div id="langSwitcherContainer" class="inline-flex p-0.5 rounded-full bg-zinc-200/40 backdrop-blur-sm border border-zinc-200/80 text-[10px] font-sans font-semibold select-none shadow-inner dark:bg-zinc-900/40 dark:border-zinc-800/80">
+        <button id="lang-id" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold" onclick="setLanguage('id')">ID</button>
+        <button id="lang-en" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold" onclick="setLanguage('en')">EN</button>
+      </div>
+
+      <!-- Theme Switcher Button -->
+      <button id="themeToggle" onclick="toggleTheme()" class="w-8 h-8 rounded-full border border-zinc-200 hover:bg-zinc-100 text-black flex items-center justify-center cursor-pointer transition-all active:scale-95 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" aria-label="Toggle Theme">
+        <!-- Sun Icon (shown in dark mode) -->
+        <svg id="themeIconSun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+        <!-- Moon Icon (shown in light mode) -->
+        <svg id="themeIconMoon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+      </button>
+
+      <a href="https://wa.me/6287797895571" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all select-none shadow-sm dark:bg-white dark:text-black dark:hover:bg-zinc-200">
+        <span data-lang="id">Hubungi</span>
+        <span data-lang="en" class="hidden">Contact Me</span>
+      </a>
+      <button class="md:hidden w-8 h-8 border border-zinc-200 hover:bg-zinc-100 rounded-full text-black flex items-center justify-center cursor-pointer transition-all dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" id="menuBtn" aria-label="Toggle Menu">
+        <div class="w-3.5 h-2.5 flex flex-col justify-between relative" id="hamburgerIcon">
+          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left" id="bar1"></span>
+          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300" id="bar2"></span>
+          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left" id="bar3"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu Drawer -->
+  <div id="mobileMenu" class="fixed z-40 hidden flex-col px-6 py-6 border border-zinc-200/50 gap-4 dark:border-zinc-800/80">
+    <nav class="flex flex-col gap-4 font-sans font-semibold text-sm text-zinc-500 dark:text-zinc-400 tracking-wide">
+      <a href="index.html#home" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Beranda</span>
+        <span data-lang="en" class="hidden">Home</span>
+      </a>
+      <a href="index.html#about" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Tentang</span>
+        <span data-lang="en" class="hidden">About</span>
+      </a>
+      <a href="index.html#projects" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Proyek</span>
+        <span data-lang="en" class="hidden">Projects</span>
+      </a>
+      <a href="index.html#certs" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Sertifikat</span>
+        <span data-lang="en" class="hidden">Certificates</span>
+      </a>
+      <a href="blog.html" class="text-black dark:text-white transition-colors">Blog</a>
+      <a href="index.html#contact" class="hover:text-black dark:hover:text-white transition-colors">
+        <span data-lang="id">Kontak</span>
+        <span data-lang="en" class="hidden">Contact</span>
+      </a>
+    </nav>
+    <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all dark:bg-white dark:text-black dark:hover:bg-zinc-200">
+      <span data-lang="id">Hubungi</span>
+      <span data-lang="en" class="hidden">Contact Me</span>
+    </a>
+  </div>
+
+  <!-- Content Wrapper -->
+  <div class="w-full relative overflow-x-hidden">
+
+    <!-- HERO SECTION -->
+    <section class="w-full bg-transparent text-black dark:text-zinc-300 pt-32 pb-12 md:pt-40 md:pb-16 px-6">
+      <div class="max-w-[900px] mx-auto flex flex-col items-center text-center">
+        <h1 data-aos="fade-up" class="font-sans font-extrabold text-[40px] sm:text-[54px] md:text-[64px] tracking-tight mb-2 text-black dark:text-white bg-gradient-to-r from-black via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-250 dark:to-zinc-550 bg-clip-text text-transparent">
+          Blog
+        </h1>
+        <div class="w-12 h-[3px] bg-black dark:bg-white rounded-full mt-4"></div>
+      </div>
+    </section>
+
+    <!-- ARTICLES INDEX SECTION -->
+    <section class="w-full bg-transparent px-6 pb-20">
+      <div class="max-w-[900px] mx-auto">
+        <div id="articlesGrid" class="flex flex-col border-t border-zinc-200 dark:border-zinc-800">
+          <!-- Dynamically Rendered Article Rows -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO UPDATES SECTION -->
+    <section id="updates" class="w-full bg-transparent text-black dark:text-zinc-300 py-24 px-6 border-t border-zinc-200 dark:border-zinc-800">
+      <div class="max-w-[900px] mx-auto">
+
+        <!-- Section Header -->
+        <div class="mb-14" data-aos="fade-up">
+          <span class="block font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-3">Changelog</span>
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <h2 class="font-sans font-bold text-3xl sm:text-4xl text-black dark:text-white tracking-tight leading-tight">
+              <span data-lang="id">Catatan Update.</span>
+              <span data-lang="en" class="hidden">Portfolio Updates.</span>
+            </h2>
+            <p class="text-zinc-400 dark:text-zinc-500 text-xs font-medium max-w-[320px] leading-relaxed">
+              <span data-lang="id">Riwayat pengembangan, perbaikan, dan pembaruan fitur pada website ini.</span>
+              <span data-lang="en" class="hidden">Development history, fixes, and feature updates on this website.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Update Entries -->
+        <div class="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-800">
+
+          <!-- Entry 1: Mei 2026 -->
+          <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-6 sm:gap-16 py-10">
+            <!-- Left: Date anchor -->
+            <div class="sm:w-32 flex-shrink-0 pt-0.5">
+              <span class="font-mono text-[10px] font-bold tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
+                <span data-lang="id">Mei 2026</span>
+                <span data-lang="en" class="hidden">May 2026</span>
+              </span>
+            </div>
+            <!-- Right: Content -->
+            <div class="flex-1">
+              <h3 class="font-sans font-semibold text-base text-black dark:text-white mb-3 leading-snug">
+                <span data-lang="id">Pembaruan Tampilan & Fitur Interaktif</span>
+                <span data-lang="en" class="hidden">Interface & Interactive Feature Updates</span>
+              </h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5 max-w-[560px]">
+                <span data-lang="id">Peningkatan kenyamanan membaca dan interaktivitas website secara menyeluruh.</span>
+                <span data-lang="en" class="hidden">A comprehensive improvement in reading comfort and website interactivity.</span>
+              </p>
+              <!-- Feature pills -->
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
+                  <span data-lang="id">Dark Mode</span><span data-lang="en" class="hidden">Dark Mode</span>
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
+                  <span data-lang="id">Dwibahasa ID/EN</span><span data-lang="en" class="hidden">Bilingual ID/EN</span>
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
+                  <span data-lang="id">Halaman Blog</span><span data-lang="en" class="hidden">Blog Page</span>
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
+                  <span data-lang="id">Kontrol Ukuran Font</span><span data-lang="en" class="hidden">Font Size Control</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 2: Maret 2026 -->
+          <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-6 sm:gap-16 py-10">
+            <div class="sm:w-32 flex-shrink-0 pt-0.5">
+              <span class="font-mono text-[10px] font-bold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
+                <span data-lang="id">Maret 2026</span>
+                <span data-lang="en" class="hidden">March 2026</span>
+              </span>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-sans font-semibold text-base text-black dark:text-white mb-3 leading-snug">
+                <span data-lang="id">Optimasi Visual & Performa</span>
+                <span data-lang="en" class="hidden">Visual & Performance Optimization</span>
+              </h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5 max-w-[560px]">
+                <span data-lang="id">Penyempurnaan animasi dan interaksi agar pengalaman menjelajah terasa lebih hidup dan responsif.</span>
+                <span data-lang="en" class="hidden">Refining animations and interactions for a more dynamic and responsive browsing experience.</span>
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+                  Particle Canvas
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+                  Smooth Scroll
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+                  <span data-lang="id">Hover Effects</span><span data-lang="en" class="hidden">Hover Effects</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 3: Awal 2025 -->
+          <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-6 sm:gap-16 py-10">
+            <div class="sm:w-32 flex-shrink-0 pt-0.5">
+              <span class="font-mono text-[10px] font-bold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
+                <span data-lang="id">Awal 2025</span>
+                <span data-lang="en" class="hidden">Early 2025</span>
+              </span>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-sans font-semibold text-base text-black dark:text-white mb-3 leading-snug">
+                <span data-lang="id">Rilis Perdana</span>
+                <span data-lang="en" class="hidden">Initial Launch</span>
+              </h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5 max-w-[560px]">
+                <span data-lang="id">Peluncuran pertama website portofolio satu halaman dengan fitur-fitur dasar yang lengkap.</span>
+                <span data-lang="en" class="hidden">First release of the one-page portfolio with a complete set of core features.</span>
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+                  <span data-lang="id">Navigasi Melayang</span><span data-lang="en" class="hidden">Floating Nav</span>
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+                  <span data-lang="id">Galeri Proyek</span><span data-lang="en" class="hidden">Project Gallery</span>
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+                  <span data-lang="id">Repositori RPL</span><span data-lang="en" class="hidden">RPL Repository</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="w-full bg-[#050505] text-white py-12 px-6 border-t border-zinc-900 shadow-2xl relative z-10">
+      <div class="max-w-[850px] mx-auto text-center flex flex-col items-center">
+        <footer class="w-full pt-4 text-zinc-500 text-[10px] font-semibold tracking-wide flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+          <span class="font-sans font-semibold text-white">Rafay.dev</span>
+          <span>
+            <span data-lang="id">© 2026 Rafay Arvino Setiawan. Hak Cipta Dilindungi.</span>
+            <span data-lang="en" class="hidden">© 2026 Rafay Arvino Setiawan. All Rights Reserved.</span>
+          </span>
+        </footer>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Interactive Article Overlay Reader Panel -->
+  <div id="articleModal" class="lightbox-modal fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4" onclick="closeArticle()">
+    <!-- Sticky Close Button outside -->
+    <button class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 border border-white/20 bg-white/5 hover:bg-white/10 rounded-full text-white text-lg flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="closeArticle()" aria-label="Close modal">✕</button>
+    
+    <div class="lightbox-content bg-white dark:bg-[#0d0d0f] border border-zinc-200/80 dark:border-zinc-800 max-w-2xl w-full max-h-[90vh] rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden spring-modal flex flex-col" onclick="event.stopPropagation()">
+      
+      <!-- Top Action Bar (Sticky) -->
+      <div class="border-b border-zinc-150 dark:border-zinc-900 bg-white/90 dark:bg-[#0d0d0f]/90 backdrop-blur-md p-4 flex items-center justify-between gap-4 z-10 select-none">
+        <!-- Font Size Controls (Minimalist layout) -->
+        <div class="flex items-center gap-1.5 text-xs text-zinc-500 font-mono select-none">
+          <button onclick="changeFontSize(-1)" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer font-bold select-none text-[10px]" title="Kecilkan Font (A-)">A-</button>
+          <button onclick="changeFontSize(1)" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer font-bold select-none text-[10px]" title="Besarkan Font (A+)">A+</button>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2">
+          <!-- Share Button -->
+          <button onclick="shareArticleFromModal()" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all text-zinc-600 dark:text-zinc-400 cursor-pointer" title="Share / Bagikan">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8.684 10.742l4.636-2.318m0 7.116l-4.636-2.318a3 3 0 110-3.636l4.636 2.318a3 3 0 110 3.636z"></path></svg>
+          </button>
+          <!-- Close Button inside top bar -->
+          <button onclick="closeArticle()" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-650 dark:text-zinc-400 transition-all cursor-pointer font-bold select-none">✕</button>
+        </div>
+      </div>
+
+      <!-- Article Scroll Container -->
+      <div id="modalScrollContainer" class="overflow-y-auto p-6 sm:p-8 flex-1 scroll-smooth">
+        <div class="flex flex-wrap items-center gap-4 text-[10px] font-semibold font-mono text-zinc-400 dark:text-zinc-500 mb-4 select-none">
+          <span id="modalDate"></span>
+          <span class="text-zinc-200 dark:text-zinc-800">|</span>
+          <span id="modalTech" class="text-zinc-500 dark:text-zinc-400"></span>
+        </div>
+        <h2 id="modalTitle" class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white mb-6 leading-tight"></h2>
+        
+        <!-- Main body text -->
+        <div id="modalBody" class="font-sans text-[13px] sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium mb-4"></div>
+      </div>
+      
+    </div>
+  </div></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 z-50 transition-all duration-300 pointer-events-none">
+    <div class="px-5 py-3 rounded-full bg-black border border-zinc-800 text-white text-xs font-bold font-sans tracking-wide shadow-xl flex items-center gap-2">
+      <span class="text-zinc-400">✓</span>
+      <span id="toastMessage"></span>
+    </div>
+  </div>
+
+  <!-- Lenis Smooth Scroll script CDN -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <script>
+    // 00. Theme Switcher System
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
+      updateThemeIcons(isDark);
+      setLanguage(currentLang);
+    }
+
+    function updateThemeIcons(isDark) {
+      const themeIconSun = document.getElementById('themeIconSun');
+      const themeIconMoon = document.getElementById('themeIconMoon');
+      if (themeIconSun && themeIconMoon) {
+        if (isDark) {
+          themeIconSun.classList.remove('hidden');
+          themeIconMoon.classList.add('hidden');
+        } else {
+          themeIconSun.classList.add('hidden');
+          themeIconMoon.classList.remove('hidden');
+        }
+      }
+    }
+
+    // Initialize Theme Switcher Icons
+    updateThemeIcons(document.documentElement.classList.contains('dark'));
+
+    // 0. Language Translation System
+    let currentLang = 'id';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('portfolio-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      // Toggle display of elements based on data-lang
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      // Update switcher pill buttons active style
+      const btnId = document.getElementById('lang-id');
+      const btnEn = document.getElementById('lang-en');
+      const isDark = document.documentElement.classList.contains('dark');
+      if (btnId && btnEn) {
+        const activeClass = isDark 
+          ? "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-zinc-800 text-white shadow-sm font-bold"
+          : "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold";
+        
+        const inactiveClass = isDark
+          ? "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-500 hover:text-zinc-200 font-semibold"
+          : "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold";
+
+        if (lang === 'id') {
+          btnId.className = activeClass;
+          btnEn.className = inactiveClass;
+        } else {
+          btnId.className = inactiveClass;
+          btnEn.className = activeClass;
+        }
+      }
+
+      // Re-render the articles with adjusted language
+      renderArticles();
+
+      // If reading modal is open, refresh its content in current language
+      if (activeArticleId !== null) {
+        renderModalContent(activeArticleId);
+      }
+    }
+
+    // 1. Mobile Menu Toggler
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('flex');
+          requestAnimationFrame(() => {
+            mobileMenu.classList.add('show');
+          });
+        } else {
+          mobileMenu.classList.remove('show');
+          mobileMenu.addEventListener('transitionend', function handler() {
+            if (!mobileMenu.classList.contains('show')) {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.classList.remove('flex');
+            }
+            mobileMenu.removeEventListener('transitionend', handler);
+          }, { once: true });
+        }
+        
+        bar1.classList.toggle('rotate-45');
+        bar1.classList.toggle('translate-y-[5px]');
+        bar2.classList.toggle('opacity-0');
+        bar3.classList.toggle('-rotate-45');
+        bar3.classList.toggle('-translate-y-[5px]');
+      });
+    }
+
+    // Close mobile menu on links click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu) {
+          mobileMenu.classList.remove('show');
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+        }
+        if (bar1) bar1.classList.remove('rotate-45', 'translate-y-[5px]');
+        if (bar2) bar2.classList.remove('opacity-0');
+        if (bar3) bar3.classList.remove('-rotate-45', '-translate-y-[5px]');
+      });
+    });
+
+    // 3. Articles Data (Casual "test postingan" placeholder posts)
+    const adminArticles = [
+      {
+        id: 'post-1',
+        category: 'web',
+        date: '29 Mei 2026',
+        dateEn: 'May 29, 2026',
+        time: '09:00 WIB',
+        timeEn: '9:00 AM WIB',
+        tech: 'Laravel · PHP',
+        author: 'Rafay Arvino',
+        readTime: '3 min read',
+        readTimeId: 'Bacaan 3 menit',
+        title: 'ngetest',
+        titleEn: 'ngetest',
+        snippet: 'cobain fitur post aja disini, mau cerita random paling',
+        snippetEn: 'testing post feature, probably gonna share some random deep thoughts.',
+        content: `
+          <p class="mb-4">smk bisa smk hebattttttt</p>
+        `,
+        contentEn: `
+          <p class="mb-4">smk can smk amazingggggggggg</p>
+        `,
+        coverImage: 'assets/images/onlycars_cover.png',
+        tagClass: 'text-indigo-550 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/30 border-indigo-100 dark:border-indigo-900/50',
+        categoryLabel: 'Web Dev'
+      },
+      // {
+      //   id: 'post-2',
+      //   category: 'ui',
+      //   date: '25 Mei 2026',
+      //   dateEn: 'May 25, 2026',
+      //   time: '14:20 WIB',
+      //   timeEn: '2:20 PM WIB',
+      //   tech: 'Figma · Tailwind',
+      //   author: 'Rafay Arvino',
+      //   readTime: '2 min read',
+      //   readTimeId: 'Bacaan 2 menit',
+      //   title: 'Test Postingan Kedua: Kenapa Memilih UI Minimalis?',
+      //   titleEn: 'Second Test Post: Why Choose a Minimalist UI?',
+      //   snippet: 'Di postingan test kedua ini, aku mau sharing alasan kenapa aku suka banget sama desain yang minimalis dan simple. Less is more!',
+      //   snippetEn: 'In this second test post, I want to share the reasons why I really love minimalist and simple designs. Less is more!',
+      //   content: `
+      //     <p class="mb-4">Hai! Masih di test postingan, kali ini aku pengen bahas tentang desain UI/UX yang minimalis. Kenapa sih aku lebih milih bikin website portofolio ini dengan gaya yang simple?</p>
+      //     <p class="mb-4">Jawabannya sederhana: biar info yang pengen aku sampaikan bisa langsung dibaca tanpa banyak gangguan visual. Desain minimalis itu gak cuma soal warna putih atau hitam aja, tapi tentang gimana kita ngatur ruang (spacing), tipografi, dan kontras warna biar mata pengunjung gak capek.</p>
+      //     <p>Gimana menurut kalian tentang tampilan web aku yang sekarang? Udah cukup minimalis belum?</p>
+      //   `,
+      //   contentEn: `
+      //     <p class="mb-4">Hi! Still in a test post, this time I want to discuss minimalist UI/UX design. Why did I choose to build this portfolio website in a simple style?</p>
+      //     <p class="mb-4">The answer is simple: so that the information I want to convey can be read immediately without visual distractions. Minimalist design is not just about white or black colors, but about how we organize spacing, typography, and color contrast so the visitor's eyes don't get tired.</p>
+      //     <p>What do you think about my current website design? Is it minimalist enough?</p>
+      //   `,
+      //   coverImage: 'assets/images/glassmorphism_cover.png',
+      //   tagClass: 'text-rose-500 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/30 border-rose-100 dark:border-rose-900/50',
+      //   categoryLabel: 'UI/UX'
+      // },
+      // {
+      //   id: 'post-3',
+      //   category: 'game',
+      //   date: '20 Mei 2026',
+      //   dateEn: 'May 20, 2026',
+      //   time: '16:00 WIB',
+      //   timeEn: '4:00 PM WIB',
+      //   tech: 'Lua · Roblox SDK',
+      //   author: 'Rafay Arvino',
+      //   readTime: '3 min read',
+      //   readTimeId: 'Bacaan 3 menit',
+      //   title: 'Test Postingan Ketiga: Ngulik Game Logic pake Lua',
+      //   titleEn: 'Third Test Post: Tweaking Game Logic with Lua',
+      //   snippet: 'Postingan test ketiga. Aku mau cerita singkat pas ngulik-ngulik game di Roblox pake bahasa pemrograman Lua. Ternyata asik!',
+      //   snippetEn: 'Third test post. I want to tell a brief story about my experience writing scripts for Roblox games using the Lua programming language. Turns out it is fun!',
+      //   content: `
+      //     <p class="mb-4">Halo guys! Di test postingan ketiga ini, aku mau cerita dikit tentang hobi sampingan aku, yaitu ngulik game coding. Aku sempet nyobain bikin game kecil di Roblox pake bahasa Lua.</p>
+      //     <p class="mb-4">Beda banget rasanya sama bikin website biasa. Di sini, kita harus mikirin koordinat 3D, fisika game, dan event handling pas player nyentuh objek tertentu. Belajar Lua ngebantu aku banget buat melatih logika programming biar lebih terstruktur.</p>
+      //     <p>Meskipun cuma game mini, tapi rasanya puas banget pas script yang kita tulis bisa jalan dan gamenya bisa dimainin.</p>
+      //   `,
+      //   contentEn: `
+      //     <p class="mb-4">Hello guys! In this third test post, I want to share a little story about my side hobby, which is game coding. I tried making a small game in Roblox using Lua.</p>
+      //     <p class="mb-4">It feels very different from making a regular website. Here, we have to think about 3D coordinates, game physics, and event handling when a player touches a specific object. Learning Lua really helped me train my programming logic to be more structured.</p>
+      //     <p>Even though it's just a mini game, it feels so satisfying when the script we write actually works and the game becomes playable.</p>
+      //   `,
+      //   coverImage: 'assets/images/roblox_cover.png',
+      //   tagClass: 'text-emerald-500 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/50',
+      //   categoryLabel: 'Game Dev'
+      // }
+    ];
+
+    let activeArticleId = null;
+    let currentFontSize = parseInt(localStorage.getItem('portfolio-blog-font-size')) || 14;
+
+    function changeFontSize(delta) {
+      const newSize = currentFontSize + delta;
+      if (newSize >= 11 && newSize <= 24) {
+        currentFontSize = newSize;
+        localStorage.setItem('portfolio-blog-font-size', currentFontSize);
+        const bodyEl = document.getElementById('modalBody');
+        if (bodyEl) bodyEl.style.fontSize = currentFontSize + 'px';
+      }
+    }
+
+    // Render articles logic (editorial list layout)
+    function renderArticles() {
+      const recentGrid = document.getElementById('articlesGrid');
+      if (!recentGrid) return;
+      
+      recentGrid.innerHTML = '';
+
+      adminArticles.forEach((art, index) => {
+        const displayTitle = currentLang === 'en' ? art.titleEn : art.title;
+        const displaySnippet = currentLang === 'en' ? art.snippetEn : art.snippet;
+        const displayDate = currentLang === 'en' ? art.dateEn : art.date;
+        const indexStr = String(index + 1).padStart(2, '0');
+
+        const row = document.createElement('article');
+        row.onclick = () => readArticle(art.id);
+        row.className = "group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8 py-7 border-b border-zinc-200 dark:border-zinc-800 cursor-pointer select-none transition-all duration-200";
+        row.setAttribute('data-category', art.category);
+
+        row.innerHTML = `
+          <div class="flex-shrink-0 flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1 sm:w-28">
+            <span class="font-mono text-[11px] font-bold text-indigo-500 dark:text-indigo-400">${indexStr}</span>
+            <span class="font-mono text-[9px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest hidden sm:block">${displayDate}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-sans font-semibold text-base text-black dark:text-white leading-snug mb-1.5 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-200">
+              ${displayTitle}
+            </h3>
+            <p class="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed font-medium line-clamp-2">
+              ${displaySnippet}
+            </p>
+          </div>
+          <div class="flex-shrink-0 flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-3 sm:w-32">
+            <span class="font-mono text-[9px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">${art.tech}</span>
+            <span class="text-indigo-500 dark:text-indigo-400 text-xs font-semibold group-hover:translate-x-1 transition-transform duration-200">→</span>
+          </div>
+        `;
+
+        recentGrid.appendChild(row);
+      });
+    }
+
+    const articleModal = document.getElementById('articleModal');
+
+    function readArticle(id) {
+      activeArticleId = id;
+      renderModalContent(id);
+      if (articleModal) articleModal.classList.add('active');
+      
+      // Reset reading scroll position
+      setTimeout(() => {
+        const container = document.getElementById('modalScrollContainer');
+        if (container) container.scrollTop = 0;
+      }, 50);
+
+      // Push history state parameter to let user link directly
+      const newUrl = window.location.origin + window.location.pathname + '?post=' + id;
+      window.history.pushState({ postId: id }, '', newUrl);
+    }
+
+    function renderModalContent(id) {
+      const art = adminArticles.find(a => a.id === id);
+      if (!art) return;
+      
+      // Date and details
+      const displayDate = currentLang === 'en' ? art.dateEn : art.date;
+      const displayTime = currentLang === 'en' ? art.timeEn : art.time;
+      const modalDate = document.getElementById('modalDate');
+      if (modalDate) {
+        modalDate.textContent = `${displayDate} · ${displayTime}`;
+      }
+
+      const modalTech = document.getElementById('modalTech');
+      if (modalTech) {
+        modalTech.textContent = art.tech;
+      }
+      
+      // Title and contents
+      const title = currentLang === 'en' ? art.titleEn : art.title;
+      const content = currentLang === 'en' ? art.contentEn : art.content;
+      
+      const modalTitle = document.getElementById('modalTitle');
+      if (modalTitle) {
+        modalTitle.textContent = title;
+      }
+
+      const modalBody = document.getElementById('modalBody');
+      if (modalBody) {
+        modalBody.innerHTML = content;
+        modalBody.style.fontSize = currentFontSize + 'px';
+      }
+    }
+
+    function closeArticle() {
+      if (articleModal) articleModal.classList.remove('active');
+      activeArticleId = null;
+
+      // Reset URL query parameter back to normal
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.history.pushState({}, '', cleanUrl);
+    }
+
+    // Share Article trigger
+    function shareArticleFromModal() {
+      if (!activeArticleId) return;
+      
+      const shareUrl = window.location.origin + window.location.pathname + '?post=' + activeArticleId;
+      
+      // Use Clipboard API
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        const msg = currentLang === 'en' ? 'Shareable link copied to clipboard!' : 'Tautan berhasil disalin ke papan klip!';
+        showToast(msg);
+      }).catch(err => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = shareUrl;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        const msg = currentLang === 'en' ? 'Link copied!' : 'Tautan berhasil disalin!';
+        showToast(msg);
+      });
+    }
+
+    // Toast systems
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    let toastTimeout;
+
+    function showToast(message) {
+      if (!toast || !toastMessage) return;
+      clearTimeout(toastTimeout);
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // Initialize Page on Load
+    renderArticles();
+    
+    // Set active language from localStorage or default
+    const savedLang = localStorage.getItem('portfolio-lang') || 'id';
+    setLanguage(savedLang);
+
+    // Escape listener for closing modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeArticle();
+      }
+    });
+
+    // Check shareable URL search parameter to auto-open article
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postParam = urlParams.get('post');
+      if (postParam && adminArticles.some(a => a.id === postParam)) {
+        setTimeout(() => {
+          readArticle(postParam);
+        }, 300);
+      }
+    });
+
+    // 10. Background Interactive Particle Swirl System
+    const particleCanvas = document.getElementById('particleCanvas');
+    const particleCtx = particleCanvas.getContext('2d');
+    let particlesList = [];
+    let particleMouse = { x: null, y: null, radius: 170 };
+
+    function resizeParticleCanvas() {
+      particleCanvas.width = window.innerWidth;
+      particleCanvas.height = window.innerHeight;
+    }
+    resizeParticleCanvas();
+    window.addEventListener('resize', resizeParticleCanvas);
+
+    window.addEventListener('mousemove', (e) => {
+      particleMouse.x = e.clientX;
+      particleMouse.y = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      particleMouse.x = null;
+      particleMouse.y = null;
+    });
+
+    const googleColors = [
+      'rgba(66, 133, 244, 0.7)', // Blue
+      'rgba(234, 67, 53, 0.7)',  // Red
+      'rgba(251, 188, 5, 0.7)',  // Yellow
+      'rgba(52, 168, 83, 0.7)',  // Green
+      'rgba(255, 122, 0, 0.7)'   // Orange
+    ];
+
+    class OrbitParticle {
+      constructor() {
+        this.reset();
+        this.angle = Math.random() * Math.PI * 2;
+      }
+
+      reset() {
+        this.centerX = particleCanvas.width / 2;
+        this.centerY = particleCanvas.height / 3; 
+        this.orbitRadiusX = Math.random() * (particleCanvas.width * 0.45) + 120;
+        this.orbitRadiusY = Math.random() * (particleCanvas.height * 0.35) + 90;
+        this.angularSpeed = (Math.random() * 0.001 + 0.0003) * (Math.random() > 0.5 ? 1 : -1);
+        this.radius = Math.random() * 2.5 + 1.2;
+        this.color = googleColors[Math.floor(Math.random() * googleColors.length)];
+        this.x = this.centerX + Math.cos(this.angle) * this.orbitRadiusX;
+        this.y = this.centerY + Math.sin(this.angle) * this.orbitRadiusY;
+        this.offsetX = 0;
+        this.offsetY = 0;
+      }
+
+      update() {
+        this.centerX = particleCanvas.width / 2;
+        this.centerY = Math.min(particleCanvas.height / 2.3, 380); 
+        this.angle += this.angularSpeed;
+
+        const targetX = this.centerX + Math.cos(this.angle) * this.orbitRadiusX;
+        const targetY = this.centerY + Math.sin(this.angle) * this.orbitRadiusY;
+
+        this.x += (targetX - this.x) * 0.05;
+        this.y += (targetY - this.y) * 0.05;
+
+        // Mouse repulsion
+        if (particleMouse.x !== null && particleMouse.y !== null) {
+          const dx = this.x - particleMouse.x;
+          const dy = this.y - particleMouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < particleMouse.radius) {
+            const force = (particleMouse.radius - dist) / particleMouse.radius;
+            const angle = Math.atan2(dy, dx);
+            this.offsetX += Math.cos(angle) * force * 5.5;
+            this.offsetY += Math.sin(angle) * force * 5.5;
+          }
+        }
+
+        this.offsetX *= 0.93;
+        this.offsetY *= 0.93;
+      }
+
+      draw() {
+        particleCtx.beginPath();
+        particleCtx.arc(this.x + this.offsetX, this.y + this.offsetY, this.radius, 0, Math.PI * 2);
+        particleCtx.fillStyle = this.color;
+        particleCtx.fill();
+      }
+    }
+
+    function initParticles() {
+      particlesList = [];
+      const count = Math.min(100, Math.floor((particleCanvas.width * particleCanvas.height) / 14000));
+      for (let i = 0; i < count; i++) {
+        particlesList.push(new OrbitParticle());
+      }
+    }
+    initParticles();
+    window.addEventListener('resize', initParticles);
+
+    function animateParticles() {
+      particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+      particlesList.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 12. Lenis Smooth Momentum Scrolling Integration
+    const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (hasHover) {
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutQuint
+        smooth: true,
+        mouseMultiplier: 1.0,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // 13. AOS (Animate on Scroll) Lightweight Native Script
+    const aosObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('aos-animate');
+          aosObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: "0px 0px -80px 0px"
+    });
+
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      const delay = el.getAttribute('data-aos-delay');
+      if (delay) {
+        el.style.transitionDelay = `${delay}ms`;
+      }
+      aosObserver.observe(el);
+    });
+  </script>
+</body>
+</html>
