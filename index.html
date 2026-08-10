@@ -58,12 +58,13 @@
 
   <!-- Background Particle Canvas (Orbiting colored dust) -->
   <canvas id="particleCanvas"></canvas>
-
-  <!-- Floating Navigation Pill Bar -->
-  <header class="floating-nav flex items-center justify-between px-6 z-50 select-none">
+<!-- Floating Navigation Pill Bar -->
+  <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-5xl z-50 h-14 px-5 rounded-full border border-zinc-200/80 dark:border-zinc-800/80 bg-white/75 dark:bg-zinc-950/75 backdrop-blur-md shadow-sm transition-all flex items-center justify-between select-none">
+    
+    <!-- Logo -->
     <div class="flex items-center gap-2">
-      <a href="#home" class="flex items-center gap-2 group">
-        <div class="w-6 h-6 flex items-center justify-center">
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <div class="w-6 h-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="logoChevronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -76,31 +77,31 @@
             <path d="M12 3L22 18H17L12 9.5L7 18H2L12 3Z" fill="url(#logoChevronGrad)"/>
           </svg>
         </div>
-        <span class="font-sans font-semibold tracking-tight text-xs text-black dark:text-white">
-          Rafay<span class="text-zinc-400">.dev</span>
+        <span class="font-sans font-bold tracking-tight text-xs text-black dark:text-white">
+          Rafay<span class="text-indigo-500 dark:text-indigo-400">.dev</span>
         </span>
       </a>
     </div>
 
     <!-- Desktop Nav Links -->
-    <nav class="hidden md:flex items-center gap-6 font-sans font-semibold text-[11px] text-zinc-500 dark:text-zinc-400 tracking-wide">
-      <a href="#home" class="hover:text-black dark:hover:text-white transition-colors">
+    <nav class="hidden md:flex items-center gap-1 font-sans font-semibold text-[11px] text-zinc-500 dark:text-zinc-400 tracking-wide">
+      <a href="#home" class="px-3 py-1.5 rounded-full hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all">
         <span data-lang="id">Beranda</span>
         <span data-lang="en" class="hidden">Home</span>
       </a>
-      <a href="#about" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#about" class="px-3 py-1.5 rounded-full hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all">
         <span data-lang="id">Tentang</span>
         <span data-lang="en" class="hidden">About</span>
       </a>
-      <a href="#projects" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#projects" class="px-3 py-1.5 rounded-full hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all">
         <span data-lang="id">Proyek</span>
         <span data-lang="en" class="hidden">Projects</span>
       </a>
-      <a href="#certs" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#certs" class="px-3 py-1.5 rounded-full hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all">
         <span data-lang="id">Sertifikat</span>
         <span data-lang="en" class="hidden">Certificates</span>
       </a>
-      <a href="#contact" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#contact" class="px-3 py-1.5 rounded-full hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all">
         <span data-lang="id">Kontak</span>
         <span data-lang="en" class="hidden">Contact</span>
       </a>
@@ -108,59 +109,64 @@
 
     <!-- Header Actions -->
     <div class="flex items-center gap-2">
+      
       <!-- Language Switcher Pill -->
-      <div id="langSwitcherContainer" class="inline-flex p-0.5 rounded-full bg-zinc-200/40 backdrop-blur-sm border border-zinc-200/80 text-[10px] font-sans font-semibold select-none shadow-inner dark:bg-zinc-900/40 dark:border-zinc-800/80">
-        <button id="lang-id" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold" onclick="setLanguage('id')">ID</button>
-        <button id="lang-en" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold" onclick="setLanguage('en')">EN</button>
+      <div id="langSwitcherContainer" class="inline-flex p-0.5 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800/80 text-[10px] font-sans font-semibold select-none shadow-inner">
+        <button id="lang-id" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black dark:bg-zinc-800 dark:text-white shadow-sm font-bold" onclick="setLanguage('id')">ID</button>
+        <button id="lang-en" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black dark:hover:text-white font-semibold" onclick="setLanguage('en')">EN</button>
       </div>
 
       <!-- Theme Switcher Button -->
-      <button id="themeToggle" onclick="toggleTheme()" class="w-8 h-8 rounded-full border border-zinc-200 hover:bg-zinc-100 text-black flex items-center justify-center cursor-pointer transition-all active:scale-95 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" aria-label="Toggle Theme">
+      <button id="themeToggle" onclick="toggleTheme()" class="w-8 h-8 rounded-full border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-black flex items-center justify-center cursor-pointer transition-all active:scale-95 dark:text-white" aria-label="Toggle Theme">
         <!-- Sun Icon (shown in dark mode) -->
-        <svg id="themeIconSun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+        <svg id="themeIconSun" class="w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
         <!-- Moon Icon (shown in light mode) -->
-        <svg id="themeIconMoon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg id="themeIconMoon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
       </button>
 
-      <a href="https://wa.me/6287797895571" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all select-none shadow-sm dark:bg-white dark:text-black dark:hover:bg-zinc-200">
+      <!-- CTA Button Desktop -->
+      <a href="https://wa.me/6287797895571" target="_blank" class="hidden sm:inline-flex items-center h-8 px-4 rounded-full bg-black text-white font-sans font-semibold text-[11px] hover:bg-zinc-800 active:scale-95 transition-all select-none shadow-sm dark:bg-white dark:text-black dark:hover:bg-zinc-200">
         <span data-lang="id">Hubungi</span>
         <span data-lang="en" class="hidden">Contact Me</span>
       </a>
-      <button class="md:hidden w-8 h-8 border border-zinc-200 hover:bg-zinc-100 rounded-full text-black flex items-center justify-center cursor-pointer transition-all dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" id="menuBtn" aria-label="Toggle Menu">
+
+      <!-- Hamburger Button Mobile -->
+      <button class="md:hidden w-8 h-8 border border-zinc-200/80 dark:border-zinc-800/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full text-black flex items-center justify-center cursor-pointer transition-all active:scale-95 dark:text-white" id="menuBtn" aria-label="Toggle Menu">
         <div class="w-3.5 h-2.5 flex flex-col justify-between relative" id="hamburgerIcon">
           <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left" id="bar1"></span>
           <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300" id="bar2"></span>
           <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left" id="bar3"></span>
         </div>
       </button>
+
     </div>
   </header>
 
-  <!-- Mobile Navigation Menu Drawer -->
-  <div id="mobileMenu" class="fixed z-40 hidden flex-col px-6 py-6 border border-zinc-200/50 gap-4 dark:border-zinc-800/80">
-    <nav class="flex flex-col gap-4 font-sans font-semibold text-sm text-zinc-500 dark:text-zinc-400 tracking-wide">
-      <a href="#home" class="hover:text-black dark:hover:text-white transition-colors">
+  <!-- Mobile Navigation Menu Drawer Floating Glass Card -->
+  <div id="mobileMenu" class="fixed top-20 left-4 right-4 z-40 hidden flex-col p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-xl gap-4 transition-all">
+    <nav class="flex flex-col gap-2 font-sans font-semibold text-sm text-zinc-600 dark:text-zinc-400 tracking-wide">
+      <a href="#home" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Beranda</span>
         <span data-lang="en" class="hidden">Home</span>
       </a>
-      <a href="#about" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#about" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Tentang</span>
         <span data-lang="en" class="hidden">About</span>
       </a>
-      <a href="#projects" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#projects" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Proyek</span>
         <span data-lang="en" class="hidden">Projects</span>
       </a>
-      <a href="#certs" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#certs" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Sertifikat</span>
         <span data-lang="en" class="hidden">Certificates</span>
       </a>
-      <a href="#contact" class="hover:text-black dark:hover:text-white transition-colors">
+      <a href="#contact" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Kontak</span>
         <span data-lang="en" class="hidden">Contact</span>
       </a>
     </nav>
-    <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all dark:bg-white dark:text-black dark:hover:bg-zinc-200">
+    <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-xl bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 active:scale-95 transition-all dark:bg-white dark:text-black dark:hover:bg-zinc-200">
       <span data-lang="id">Hubungi</span>
       <span data-lang="en" class="hidden">Contact Me</span>
     </a>
@@ -170,81 +176,80 @@
   <div class="w-full relative overflow-x-hidden">
 
 <!-- HERO SECTION -->
-    <section id="home" class="w-full bg-transparent text-black dark:text-zinc-300 pt-36 pb-20 md:pt-44 md:pb-28 px-6">
-      <div class="max-w-[860px] mx-auto flex flex-col items-center text-center">
-        
-        <!-- Status / Availability Badge -->
-        <div data-aos="fade-down" class="inline-flex items-center gap-2.5 mb-8 px-4 py-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md shadow-sm">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span class="font-sans font-medium tracking-tight text-[11px] text-zinc-600 dark:text-zinc-300">
-            <span data-lang="id">Tersedia untuk proyek & kolaborasi</span>
-            <span data-lang="en" class="hidden">Available for projects & collaboration</span>
-          </span>
-        </div>
+<section id="home" class="w-full bg-transparent text-black dark:text-zinc-300 pt-36 pb-20 md:pt-44 md:pb-28 px-6">
+  <div class="max-w-[860px] mx-auto flex flex-col items-center text-center">
+    
+    <!-- Status / Availability Badge -->
+    <div data-aos="fade-down" class="inline-flex items-center gap-2.5 mb-8 px-4 py-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md shadow-sm">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span class="font-sans font-medium tracking-tight text-[11px] text-zinc-600 dark:text-zinc-300">
+        <span data-lang="id">Tersedia untuk proyek & kolaborasi</span>
+        <span data-lang="en" class="hidden">Available for projects & collaboration</span>
+      </span>
+    </div>
 
-      <!-- Main headline -->
-        <h1 data-aos="fade-up" data-aos-delay="100" class="font-sans font-extrabold text-[36px] sm:text-[48px] md:text-[60px] leading-[1.1] tracking-tight mb-6 text-black dark:text-white">
-          <span data-lang="id">Merancang dari <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 typewriter-cursor">sketsa Figma</span> hingga kode produksi.</span>
-          <span data-lang="en" class="hidden">Crafting from <span id="typewriter-en" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500">Figma wireframes</span> to production code.</span>
-        </h1>
+<!-- Main headline -->
+<h1 data-aos="fade-up" data-aos-delay="100" class="font-sans font-extrabold text-[56px] sm:text-[72px] md:text-[88px] leading-[1.1] tracking-tight mb-6 text-black dark:text-white">
+  <span id="rotating-greeting" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 transition-all duration-300">Halo!</span>
+</h1>
 
-        <!-- Subheadline -->
-        <p data-aos="fade-up" data-aos-delay="180" class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-[520px] mb-10 font-normal">
-          <span data-lang="id">Software Engineer & UI/UX Designer dari SMK Informatika Pesat. Fokus pada pengalaman pengguna yang mulus dan kode yang bersih.</span>
-          <span data-lang="en" class="hidden">Software Engineer & UI/UX Designer from SMK Informatika Pesat. Focused on seamless user experiences and clean code.</span>
-        </p>
+    <!-- Subheadline -->
+    <p data-aos="fade-up" data-aos-delay="180" class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-[520px] mb-10 font-normal">
+      <span data-lang="id">Software Engineer & UI/UX Designer dari SMK Informatika Pesat. Fokus pada pengalaman pengguna yang mulus dan kode yang bersih.</span>
+      <span data-lang="en" class="hidden">Software Engineer & UI/UX Designer from SMK Informatika Pesat. Focused on seamless user experiences and clean code.</span>
+    </p>
 
-        <!-- CTA Buttons -->
-        <div data-aos="fade-up" data-aos-delay="260" class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto mb-16">
-          <!-- Primary -->
-          <a href="#projects" class="inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full bg-black text-white font-sans font-semibold text-sm hover:bg-zinc-800 active:scale-95 transition-all select-none shadow-lg shadow-black/10 dark:shadow-white/5 dark:bg-white dark:text-black dark:hover:bg-zinc-100">
-            <span data-lang="id">Eksplor Proyek</span>
-            <span data-lang="en" class="hidden">Explore Projects</span>
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </a>
-          <!-- Secondary: About -->
-          <a href="#about" class="inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full border border-zinc-300 dark:border-zinc-700 bg-transparent hover:bg-zinc-100/80 dark:hover:bg-zinc-900 text-sm font-semibold text-zinc-700 dark:text-zinc-300 active:scale-95 transition-all select-none">
-            <span data-lang="id">Tentang Saya</span>
-            <span data-lang="en" class="hidden">About Me</span>
-          </a>
-        </div>
+    <!-- CTA Buttons -->
+    <div data-aos="fade-up" data-aos-delay="260" class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto mb-16">
+      <!-- Primary -->
+      <a href="#projects" class="inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full bg-black text-white font-sans font-semibold text-sm hover:bg-zinc-800 active:scale-95 transition-all select-none shadow-lg shadow-black/10 dark:shadow-white/5 dark:bg-white dark:text-black dark:hover:bg-zinc-100">
+        <span data-lang="id">Eksplor Proyek</span>
+        <span data-lang="en" class="hidden">Explore Projects</span>
+        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+      <!-- Secondary: About -->
+      <a href="#about" class="inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full border border-zinc-300 dark:border-zinc-700 bg-transparent hover:bg-zinc-100/80 dark:hover:bg-zinc-900 text-sm font-semibold text-zinc-700 dark:text-zinc-300 active:scale-95 transition-all select-none">
+        <span data-lang="id">Tentang Saya</span>
+        <span data-lang="en" class="hidden">About Me</span>
+      </a>
+    </div>
 
-        <!-- Stats Bar -->
-        <div data-aos="fade-up" data-aos-delay="360" class="grid grid-cols-3 divide-x divide-zinc-200 dark:divide-zinc-800 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 w-full max-w-[640px]">
-          <div class="flex flex-col items-center gap-1 px-2">
-            <span class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white">
-              <span data-lang="id">3+</span>
-              <span data-lang="en" class="hidden">3+</span>
-            </span>
-            <span class="text-zinc-400 dark:text-zinc-500 text-[11px] sm:text-xs font-medium text-center">
-              <span data-lang="id">Tahun Pengalaman</span>
-              <span data-lang="en" class="hidden">Years Experience</span>
-            </span>
-          </div>
-          <div class="flex flex-col items-center gap-1 px-2">
-            <span class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white">
-              <span data-lang="id">12+</span>
-              <span data-lang="en" class="hidden">12+</span>
-            </span>
-            <span class="text-zinc-400 dark:text-zinc-500 text-[11px] sm:text-xs font-medium text-center">
-              <span data-lang="id">Proyek Selesai</span>
-              <span data-lang="en" class="hidden">Completed Projects</span>
-            </span>
-          </div>
-          <div class="flex flex-col items-center gap-1 px-2">
-            <span class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white">Full-Stack</span>
-            <span class="text-zinc-400 dark:text-zinc-500 text-[11px] sm:text-xs font-medium text-center">
-              <span data-lang="id">End-to-End Dev</span>
-              <span data-lang="en" class="hidden">End-to-End Dev</span>
-            </span>
-          </div>
-        </div>
-
+    <!-- Stats Bar -->
+    <div data-aos="fade-up" data-aos-delay="360" class="grid grid-cols-3 divide-x divide-zinc-200 dark:divide-zinc-800 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 w-full max-w-[640px]">
+      <div class="flex flex-col items-center gap-1 px-2">
+        <span class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white">
+          <span data-lang="id">3+</span>
+          <span data-lang="en" class="hidden">3+</span>
+        </span>
+        <span class="text-zinc-400 dark:text-zinc-500 text-[11px] sm:text-xs font-medium text-center">
+          <span data-lang="id">Tahun Pengalaman</span>
+          <span data-lang="en" class="hidden">Years Experience</span>
+        </span>
       </div>
-    </section>
+      <div class="flex flex-col items-center gap-1 px-2">
+        <span class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white">
+          <span data-lang="id">12+</span>
+          <span data-lang="en" class="hidden">12+</span>
+        </span>
+        <span class="text-zinc-400 dark:text-zinc-500 text-[11px] sm:text-xs font-medium text-center">
+          <span data-lang="id">Proyek Selesai</span>
+          <span data-lang="en" class="hidden">Completed Projects</span>
+        </span>
+      </div>
+      <div class="flex flex-col items-center gap-1 px-2">
+        <span class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white">Full-Stack</span>
+        <span class="text-zinc-400 dark:text-zinc-500 text-[11px] sm:text-xs font-medium text-center">
+          <span data-lang="id">End-to-End Dev</span>
+          <span data-lang="en" class="hidden">End-to-End Dev</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ABOUT SECTION -->
     <section id="about" class="w-full bg-transparent text-black dark:text-zinc-300 py-24 px-6 border-t border-zinc-200/80 dark:border-zinc-800">
@@ -282,7 +287,7 @@
           </div>
         </div>
 
-        <!-- Languages Learned (Tech Stack Grid) -->
+        <!-- Languages Learned (Tech Stack Grid)
         <div class="mb-14">
           <span class="block font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-6" data-aos="fade-up">
             <span data-lang="id">Bahasa yang Dipelajari</span>
@@ -291,7 +296,7 @@
 
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="skillsContainer">
             
-            <!-- HTML -->
+            HTML
             <div data-aos="fade-up" data-tech="html" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-orange-300 dark:hover:border-orange-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-orange-100/80 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 2l2.1 14.8L12 21l6.9-4.2L21 2H3zm14.7 5.5l-.2 2.5H8.7l.3 3.5h5.8l-.5 5.2-3.3 1-3.3-1-.2-2.2H6l.4 4.5L12 20l5-1.5.7-8.5H7.7l-.3-3.5h10.3z"/></svg>
@@ -300,53 +305,53 @@
               <span class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">Markup Language</span>
             </div>
 
-            <!-- CSS -->
-            <div data-aos="fade-up" data-aos-delay="40" data-tech="css" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-blue-300 dark:hover:border-blue-800/60 transition-all group cursor-pointer">
+             CSS -->
+            <!-- <div data-aos="fade-up" data-aos-delay="40" data-tech="css" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-blue-300 dark:hover:border-blue-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-blue-100/80 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 2l2.1 14.8L12 21l6.9-4.2L21 2H3zm14.7 5.5l-.2 2.5H8.7l.3 3.5h5.8l-.5 5.2-3.3 1-3.3-1-.2-2.2H7.2l.4 4.5L12 20l5-1.5.7-8.5H9.3l-.3-3h8.7l.3-2.5z"/></svg>
               </div>
               <span class="font-sans font-bold text-sm text-black dark:text-white">CSS</span>
               <span class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">Styling & Layout</span>
-            </div>
+            </div> -->
 
             <!-- JavaScript -->
-            <div data-aos="fade-up" data-aos-delay="80" data-tech="javascript" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-yellow-300 dark:hover:border-yellow-800/60 transition-all group cursor-pointer">
+            <!-- <div data-aos="fade-up" data-aos-delay="80" data-tech="javascript" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-yellow-300 dark:hover:border-yellow-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-yellow-100/80 dark:bg-yellow-950/40 text-yellow-700 dark:text-yellow-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.8 14.3c.7-.4 1.2-1 1.5-1.8l-1.3-.5c-.2.5-.5.8-.9 1-.4.2-.8.3-1.2.3-.7 0-1.2-.2-1.5-.6-.3-.4-.5-1-.5-1.8v-3.7h1.8v3.5c0 .5.1.8.3 1 .2.2.5.3.9.3.4 0 .7-.1.9-.4.2-.3.3-.7.3-1.2v-3.2h1.8v5.5h-1.5l-.2-1zm5.2-1.3c-.3.6-.7 1.1-1.3 1.5-.6.4-1.3.6-2.2.6-.9 0-1.7-.2-2.3-.6-.6-.4-1-.9-1.3-1.5-.3-.7-.4-1.4-.4-2.3 0-.9.1-1.6.4-2.3.3-.7.7-1.2 1.3-1.6.6-.4 1.4-.6 2.3-.6.9 0 1.6.2 2.2.6.6.4 1 1 1.3 1.6.3.7.4 1.4.4 2.3 0 .9-.1 1.6-.4 2.3zm-1.7-3.8c-.2-.4-.5-.7-.9-.9-.4-.2-.9-.3-1.4-.3s-1 .1-1.4.3c-.4.2-.7.5-.9.9-.2.4-.3.9-.3 1.5s.1 1.1.3 1.5c.2.4.5.7.9.9.4.2.9.3 1.4.3s1-.1 1.4-.3c.4-.2.7-.5.9-.9.2-.4.3-.9.3-1.5s-.1-1.1-.3-1.5z"/></svg>
               </div>
               <span class="font-sans font-bold text-sm text-black dark:text-white">JavaScript</span>
               <span class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">Interactive Logic</span>
-            </div>
+            </div> -->
 
             <!-- PHP -->
-            <div data-aos="fade-up" data-aos-delay="120" data-tech="php" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-indigo-300 dark:hover:border-indigo-800/60 transition-all group cursor-pointer">
+            <!-- <div data-aos="fade-up" data-aos-delay="120" data-tech="php" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-indigo-300 dark:hover:border-indigo-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-indigo-100/80 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.2 2 11.5c0 3.2 1.8 6 4.5 7.5v2.5l3-2c.8.2 1.6.3 2.5.3 5.5 0 10-4.2 10-9.5S17.5 2 12 2zm1.2 12.3h-1.3v-1.9h-1.4v1.9H9.3V8.8h2.6c1.7 0 2.8.9 2.8 2.3 0 1-.6 1.8-1.5 2.1l1.8 2.6zm3.9 0h-1.4l-1.5-2.4h-1v2.4H12V8.8h2.6c1.7 0 2.8.9 2.8 2.3 0 1-.6 1.8-1.5 2.1l1.8 2.6z"/></svg>
               </div>
               <span class="font-sans font-bold text-sm text-black dark:text-white">PHP</span>
               <span class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">Backend Scripting</span>
-            </div>
+            </div> -->
 
             <!-- Laravel -->
-            <div data-aos="fade-up" data-aos-delay="160" data-tech="laravel" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-red-300 dark:hover:border-red-800/60 transition-all group cursor-pointer">
+            <!-- <div data-aos="fade-up" data-aos-delay="160" data-tech="laravel" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-red-300 dark:hover:border-red-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-red-100/80 dark:bg-red-950/40 text-red-600 dark:text-red-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.67 3.52l-6.42 3.71v7.43l6.42-3.71V3.52zM11.5 15.42l-6.42-3.71v7.43l6.42 3.71v-7.43zM12 1.14l7.92 4.57v9.14L12 19.42 4.08 14.85V5.71L12 1.14z"/></svg>
               </div>
               <span class="font-sans font-bold text-sm text-black dark:text-white">Laravel</span>
               <span class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">PHP Framework</span>
-            </div>
+            </div> -->
 
             <!-- TailwindCSS -->
-            <div data-aos="fade-up" data-aos-delay="200" data-tech="tailwindcss" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-sky-300 dark:hover:border-sky-800/60 transition-all group cursor-pointer">
+            <!-- <div data-aos="fade-up" data-aos-delay="200" data-tech="tailwindcss" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-sky-300 dark:hover:border-sky-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-sky-100/80 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-2.7 0-4.8 1.4-6.3 4.2 1.4-2.1 3.2-2.8 5.6-2.1 1.2.4 2.1 1.3 3 2.2 1.5 1.5 3.3 3.3 7.7 3.3 2.7 0 4.8-1.4 6.3-4.2-1.4 2.1-3.2 2.8-5.6 2.1-1.2-.4-2.1-1.3-3-2.2C18.6 7.8 16.8 6 12 6zm-6 6c-2.7 0-4.8 1.4-6.3 4.2 1.4-2.1 3.2-2.8 5.6-2.1 1.2.4 2.1 1.3 3 2.2 1.5 1.5 3.3 3.3 7.7 3.3 2.7 0 4.8-1.4 6.3-4.2-1.4 2.1-3.2 2.8-5.6 2.1-1.2-.4-2.1-1.3-3-2.2C12.6 13.8 10.8 12 6 12z"/></svg>
               </div>
               <span class="font-sans font-bold text-sm text-black dark:text-white">TailwindCSS</span>
               <span class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">CSS Framework</span>
-            </div>
+            </div> -->
 
             <!-- Luau -->
-            <div data-aos="fade-up" data-aos-delay="240" data-tech="lua" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-blue-300 dark:hover:border-blue-800/60 transition-all group cursor-pointer">
+            <!-- <div data-aos="fade-up" data-aos-delay="240" data-tech="lua" class="skill-badge flex flex-col p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-blue-300 dark:hover:border-blue-800/60 transition-all group cursor-pointer">
               <div class="w-9 h-9 rounded-xl bg-blue-100/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm3.5 13.8l-3.5-2.1V7h1.5v6l3 1.8-.7 1z"/></svg>
               </div>
@@ -355,7 +360,7 @@
             </div>
 
           </div>
-        </div>
+        </div> --> 
 
         <!-- Tools & Software I Use
         <div class="mb-14">
@@ -403,59 +408,65 @@
           </div>
         </div> -->
 
-        <!-- Work Principles: 3-column grid (Clearer & Structured) -->
-        <div class="border-t border-zinc-200/80 dark:border-zinc-800 pt-12">
-          <span class="block font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-8" data-aos="fade-up">
-            <span data-lang="id">Prinsip Kerja</span>
-            <span data-lang="en" class="hidden">Work Principles</span>
-          </span>
+<!-- Work Principles: Ultra-Minimalist & Clean -->
+<div class="border-t border-zinc-200/80 dark:border-zinc-800/80 pt-10">
+  <span class="block font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-8" data-aos="fade-up">
+    <span data-lang="id">Prinsip Kerja</span>
+    <span data-lang="en" class="hidden">Work Principles</span>
+  </span>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
 
-            <div data-aos="fade-up" class="flex flex-col gap-3 p-5 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/80">
-              <div class="w-8 h-8 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/60 flex items-center justify-center">
-                <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
-              </div>
-              <h4 class="text-sm font-semibold text-black dark:text-white">
-                <span data-lang="id">Terstruktur & Terencana</span>
-                <span data-lang="en" class="hidden">Structured Planning</span>
-              </h4>
-              <p class="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed font-medium">
-                <span data-lang="id">Menyusun kerangka logika, arsitektur data, dan tata letak UI dengan matang sebelum masuk tahap coding.</span>
-                <span data-lang="en" class="hidden">Mapping out logic frameworks, data architecture, and UI layouts carefully before coding.</span>
-              </p>
-            </div>
+    <!-- Item 1 -->
+    <div data-aos="fade-up" class="group flex flex-col gap-2.5">
+      <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-semibold tracking-wider">
+        <span>01</span>
+        <span class="w-5 h-[1px] bg-indigo-500/30 group-hover:w-8 group-hover:bg-indigo-500 transition-all duration-300"></span>
+      </div>
+      <h4 class="text-sm font-bold text-black dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <span data-lang="id">Terstruktur & Terencana</span>
+        <span data-lang="en" class="hidden">Structured Planning</span>
+      </h4>
+      <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+        <span data-lang="id">Menyusun logika, arsitektur data, dan layout UI dengan matang sebelum masuk tahap coding.</span>
+        <span data-lang="en" class="hidden">Mapping out logic, data architecture, and UI layouts carefully before coding.</span>
+      </p>
+    </div>
 
-            <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col gap-3 p-5 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/80">
-              <div class="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950/50 border border-rose-100 dark:border-rose-900/60 flex items-center justify-center">
-                <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-              </div>
-              <h4 class="text-sm font-semibold text-black dark:text-white">
-                <span data-lang="id">Estetika Fungsional</span>
-                <span data-lang="en" class="hidden">Functional Aesthetics</span>
-              </h4>
-              <p class="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed font-medium">
-                <span data-lang="id">Menggabungkan kenyamanan visual (UI/UX) dengan keterbacaan kode yang bersih serta mudah dirawat.</span>
-                <span data-lang="en" class="hidden">Blending visual appeal (UI/UX) with clean, maintainable, and well-organized code standards.</span>
-              </p>
-            </div>
+    <!-- Item 2 -->
+    <div data-aos="fade-up" data-aos-delay="100" class="group flex flex-col gap-2.5">
+      <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-semibold tracking-wider">
+        <span>02</span>
+        <span class="w-5 h-[1px] bg-indigo-500/30 group-hover:w-8 group-hover:bg-indigo-500 transition-all duration-300"></span>
+      </div>
+      <h4 class="text-sm font-bold text-black dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <span data-lang="id">Estetika Fungsional</span>
+        <span data-lang="en" class="hidden">Functional Aesthetics</span>
+      </h4>
+      <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+        <span data-lang="id">Menyeimbangkan tampilan visual yang nyaman (UI/UX) dengan struktur kode yang bersih.</span>
+        <span data-lang="en" class="hidden">Blending visual appeal (UI/UX) with clean and maintainable code standards.</span>
+      </p>
+    </div>
 
-            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col gap-3 p-5 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/80">
-              <div class="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/60 flex items-center justify-center">
-                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              </div>
-              <h4 class="text-sm font-semibold text-black dark:text-white">
-                <span data-lang="id">Optimal & Responsif</span>
-                <span data-lang="en" class="hidden">Optimized & Responsive</span>
-              </h4>
-              <p class="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed font-medium">
-                <span data-lang="id">Memastikan performa aplikasi berjalan cepat, efisien, dan konsisten di berbagai ukuran layar perangkat.</span>
-                <span data-lang="en" class="hidden">Ensuring applications perform fast, efficiently, and consistently across various device screen sizes.</span>
-              </p>
-            </div>
+    <!-- Item 3 -->
+    <div data-aos="fade-up" data-aos-delay="200" class="group flex flex-col gap-2.5">
+      <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-semibold tracking-wider">
+        <span>03</span>
+        <span class="w-5 h-[1px] bg-indigo-500/30 group-hover:w-8 group-hover:bg-indigo-500 transition-all duration-300"></span>
+      </div>
+      <h4 class="text-sm font-bold text-black dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <span data-lang="id">Optimal & Responsif</span>
+        <span data-lang="en" class="hidden">Optimized & Responsive</span>
+      </h4>
+      <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+        <span data-lang="id">Memastikan performa aplikasi cepat, efisien, dan konsisten di semua jenis layar.</span>
+        <span data-lang="en" class="hidden">Ensuring applications perform fast, efficiently, and consistently across screens.</span>
+      </p>
+    </div>
 
-          </div>
-        </div>
+  </div>
+</div>
 
       </div>
     </section>
@@ -1902,5 +1913,36 @@
       requestAnimationFrame(raf);
     }
   </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const greetings = [
+      "Halo!",       // Indonesia
+      "Hello!",      // Inggris
+      "Bonjour!",    // Prancis
+      "Hola!",       // Spanyol
+      "Ciao!",       // Italia
+      "こんにちは!",  // Jepang
+      "안녕하세요!"   // Korea
+    ];
+
+    let currentGreetingIndex = 0;
+    const greetingElement = document.getElementById("rotating-greeting");
+
+    // Guard Clause: Jangan jalankan jika elemen tidak ada di halaman
+    if (!greetingElement) return;
+
+    setInterval(() => {
+      greetingElement.style.opacity = "0";
+
+      setTimeout(() => {
+        currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+        greetingElement.textContent = greetings[currentGreetingIndex];
+        greetingElement.style.opacity = "1";
+      }, 200);
+
+    }, 2000);
+  });
+</script>
 </body>
 </html>
