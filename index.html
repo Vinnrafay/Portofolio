@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
   <!-- Lenis Smooth Scroll CDN (Khusus Desktop) -->
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
@@ -176,7 +179,7 @@
   <!-- Scroll Progress Indicator -->
   <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-zinc-950 dark:bg-white z-50 transition-all duration-75"></div>
 
-<!-- FLOATING NAVBAR (DESKTOP 3 PILL TERPISAH & MOBILE SINGLE PILL LEGA) -->
+  <!-- FLOATING NAVBAR (DESKTOP 3 PILL TERPISAH & MOBILE SINGLE PILL LEGA) -->
   <div class="fixed top-3.5 sm:top-4 left-0 right-0 z-40 px-3 sm:px-6 pointer-events-none">
     
     <!-- DESKTOP CONTAINER: 3 PILL MELAYANG PROPORSIONAL -->
@@ -213,7 +216,7 @@
         </a>
       </header>
 
-<!-- PILL KANAN: UTILITIES (MINIMALIS & ROUNDY) -->
+      <!-- PILL KANAN: UTILITIES (MINIMALIS & ROUNDY) -->
       <div class="pointer-events-auto h-11 px-2 py-1 rounded-full border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md shadow-sm flex items-center gap-1.5 transition-colors">
         
         <!-- Language Switcher Bersih -->
@@ -318,8 +321,8 @@
   <!-- KONTEN UTAMA -->
   <main class="max-w-5xl mx-auto px-5 pt-32 sm:pt-40 pb-24">
 
-<!-- HERO SECTION -->
-    <section id="home" class="mb-20 flex flex-col items-center text-center">
+    <!-- HERO SECTION -->
+    <section id="home" class="mb-20 flex flex-col items-center text-center" data-aos="fade-up">
       
       <!-- Greeting Bersih (Tanpa Pill/Badge) -->
       <p class="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-3 tracking-normal">
@@ -353,7 +356,7 @@
       </div>
 
       <!-- TECH STACK: DUAL-TIER MARQUEE (LANGUAGES & TOOLS) -->
-      <section class="w-full pt-14 pb-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <section class="w-full pt-14 pb-4 border-t border-zinc-200/80 dark:border-zinc-800/80" data-aos="fade-up">
         
         <!-- Title & Description -->
         <div class="flex flex-col items-center text-center max-w-xl mx-auto mb-10 px-4">
@@ -575,107 +578,107 @@
       </section>
     </section>
 
-<!-- ABOUT SECTION (LABEL SANS-SERIF BERSIH + CHAT BUBBLE BIRU IMESSAGE) -->
-<section id="about" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
-  
-  <!-- HEADER: SUB-LABEL & KUTIPAN UTAMA (OSCAR PIASTRI) - CENTERED & EDITORIAL -->
-  <div class="mb-14 sm:mb-16 flex flex-col items-center text-center max-w-3xl mx-auto px-2"> 
-    
-    <!-- Sub-label "Ayo, Kenalan sama saya" + Waving Hand -->
-    <div class="mb-3 sm:mb-4">
-      <span class="inline-flex items-center gap-2 text-sm sm:text-base font-bold tracking-tight text-zinc-700 dark:text-zinc-300 select-none">
-        <span data-lang="id">Ayo, Kenalan sama saya</span>
-        <span data-lang="en" class="hidden">Get to know me</span>
+    <!-- ABOUT SECTION (LABEL SANS-SERIF BERSIH + CHAT BUBBLE BIRU IMESSAGE) -->
+    <section id="about" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
+      
+      <!-- HEADER: SUB-LABEL & KUTIPAN UTAMA (OSCAR PIASTRI) - CENTERED & EDITORIAL -->
+      <div class="mb-14 sm:mb-16 flex flex-col items-center text-center max-w-3xl mx-auto px-2"> 
         
-        <!-- Icon Tangan Melambai Roundy -->
-        <span class="inline-flex items-center wave-hand origin-[75%_75%] text-zinc-800 dark:text-zinc-200">
-          <svg class="w-5 h-5 -translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7.5 11.5V6a1.8 1.8 0 0 1 3.6 0v5" />
-            <path d="M11.1 11V4.8a1.8 1.8 0 0 1 3.6 0V11" />
-            <path d="M14.7 11V6.5a1.8 1.8 0 0 1 3.6 0v5.5" />
-            <path d="M18.3 11a1.8 1.8 0 0 1 3.6 0v4.2c0 4.2-3.4 7.8-7.6 7.8h-1.6c-2.4 0-4.6-.9-6.3-2.6l-3.2-3.2a1.8 1.8 0 0 1 2.5-2.5l2 2" />
-            <path d="M21.5 4.5a4.5 4.5 0 0 1 0 5" />
-          </svg>
-        </span>
-      </span>
-    </div>
-    
-    <!-- Kutipan Utama (Oscar Piastri) dengan Layout Seimbang -->
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-snug">
-      <span class="block">“There are always things to learn and improve on. It never stops.”</span>
-      
-<!-- Baris Penulis & Nomor 81 Presisi di Tengah (Lebih Besar & Jelas) -->
-      <span class="inline-flex items-center justify-center align-middle gap-2.5 sm:gap-3 mt-4 sm:mt-5 text-lg sm:text-xl md:text-2xl font-bold text-zinc-700 dark:text-zinc-300">
-        <span>- Oscar Piastri</span>
-        <span class="inline-flex items-center align-middle -translate-y-0.5">
-          <img 
-            id="piastriNumber" 
-            src="assets/OP81.png" 
-            alt="Oscar Piastri 81" 
-            class="h-[1.35em] w-auto object-contain transition-opacity duration-500 ease-in-out opacity-100 select-none drop-shadow-xs" 
-            loading="eager"
-          />
-        </span>
-      </span>
-    </h2> 
-  </div>
-
-  <!-- GRID KONTEN UTAMA -->
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-    
-    <!-- Foto Asli Profil Pengguna (Kiri - 4 Kolom) -->
-    <div class="lg:col-span-4 flex justify-center lg:justify-start">
-      <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-md">
-        <img src="assets/179663690.jpeg" alt="Rafay Arvino Setiawan" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/18181b/ffffff?text=Rafay'" />
-      </div>
-    </div>
-
-    <!-- Chat Bubble (Kanan - 8 Kolom) -->
-    <div class="lg:col-span-8 flex flex-col gap-3.5">
-      
-      <!-- Bubble 1: Pesan Masuk (Abu-abu Muted) -->
-      <div class="self-start max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3 bg-zinc-200/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 text-sm sm:text-base leading-relaxed border border-zinc-300/40 dark:border-zinc-700/40 shadow-sm">
-        <span data-lang="id">Halo! Saya Rafay Arvino Setiawan, siswa jurusan Rekayasa Perangkat Lunak (RPL) di SMK Informatika Pesat Bogor.</span>
-        <span data-lang="en" class="hidden">Hi! I am Rafay Arvino Setiawan, a Software Engineering student at SMK Informatika Pesat, Bogor.</span>
-      </div>
-
-      <!-- Bubble 2: Pesan Balasan (Biru iMessage #007aff) -->
-      <div class="self-start max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3 bg-iosblue text-white text-sm sm:text-base leading-relaxed shadow-sm font-medium">
-        <span data-lang="id">Saya adalah seorang game developer dan juga web developer, dan dominan berfokus dalam UI/UX Design. Tetapi saya punya kok keahlian untuk ngoding dan paham soal coding.</span>
-        <span data-lang="en" class="hidden">I am a game developer and web developer, with a strong focus on UI/UX design. However, I also have solid coding skills and understand programming concepts.</span>
-      </div>
-
-      <!-- Bubble 3: Pesan Penutup (Biru iMessage #007aff) -->
-      <div class="self-start max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3 bg-iosblue text-white text-sm sm:text-base leading-relaxed shadow-sm font-medium">
-        <span data-lang="id">Udah sampai situ aja, Saya bingung apa yang mau di ketik disini. Kalau mau kenalan, Boleh ngobrol.</span>
-        <span data-lang="en" class="hidden">That's about it, not really sure what else to write here. Feel free to chat if you want to get to know me.</span>
-      </div>
-
-    </div>
-
-    <!-- Kutipan Kedua (Max Verstappen) - FULL 12 KOLOM AGAR BISA MEMANJANG KE KIRI -->
-    <div class="lg:col-span-12 text-right mt-4 sm:mt-6">
-      <p class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-snug">
-        <span class="block">"You can't change what already happened, so you have to look forward."</span>
-  <span class="inline-flex items-center justify-end align-middle gap-2.5 sm:gap-3 mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl font-bold text-zinc-700 dark:text-zinc-300">
-          <span>- Max Verstappen</span>
-          <span class="inline-flex items-center align-middle -translate-y-0.5">
-            <img 
-              src="assets/MV3.png" 
-              alt="Max Verstappen 3" 
-              class="h-[1.35em] w-auto object-contain transition-opacity duration-500 ease-in-out opacity-100 select-none drop-shadow-xs" 
-              loading="eager"
-            />
+        <!-- Sub-label "Ayo, Kenalan sama saya" + Waving Hand -->
+        <div class="mb-3 sm:mb-4">
+          <span class="inline-flex items-center gap-2 text-sm sm:text-base font-bold tracking-tight text-zinc-700 dark:text-zinc-300 select-none">
+            <span data-lang="id">Ayo, Kenalan sama saya</span>
+            <span data-lang="en" class="hidden">Get to know me</span>
+            
+            <!-- Icon Tangan Melambai Roundy -->
+            <span class="inline-flex items-center wave-hand origin-[75%_75%] text-zinc-800 dark:text-zinc-200">
+              <svg class="w-5 h-5 -translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.5 11.5V6a1.8 1.8 0 0 1 3.6 0v5" />
+                <path d="M11.1 11V4.8a1.8 1.8 0 0 1 3.6 0V11" />
+                <path d="M14.7 11V6.5a1.8 1.8 0 0 1 3.6 0v5.5" />
+                <path d="M18.3 11a1.8 1.8 0 0 1 3.6 0v4.2c0 4.2-3.4 7.8-7.6 7.8h-1.6c-2.4 0-4.6-.9-6.3-2.6l-3.2-3.2a1.8 1.8 0 0 1 2.5-2.5l2 2" />
+                <path d="M21.5 4.5a4.5 4.5 0 0 1 0 5" />
+              </svg>
+            </span>
           </span>
-        </span>
-      </p>
-    </div>
+        </div>
+        
+        <!-- Kutipan Utama (Oscar Piastri) dengan Layout Seimbang -->
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-snug">
+          <span class="block">“There are always things to learn and improve on. It never stops.”</span>
+          
+          <!-- Baris Penulis & Nomor 81 Presisi di Tengah (Lebih Besar & Jelas) -->
+          <span class="inline-flex items-center justify-center align-middle gap-2.5 sm:gap-3 mt-4 sm:mt-5 text-lg sm:text-xl md:text-2xl font-bold text-zinc-700 dark:text-zinc-300">
+            <span>- Oscar Piastri</span>
+            <span class="inline-flex items-center align-middle -translate-y-0.5">
+              <img 
+                id="piastriNumber" 
+                src="assets/OP81.png" 
+                alt="Oscar Piastri 81" 
+                class="h-[1.35em] w-auto object-contain transition-opacity duration-500 ease-in-out opacity-100 select-none drop-shadow-xs" 
+                loading="eager"
+              />
+            </span>
+          </span>
+        </h2> 
+      </div>
 
-  </div>
-</section>
+      <!-- GRID KONTEN UTAMA -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Foto Asli Profil Pengguna (Kiri - 4 Kolom) -->
+        <div class="lg:col-span-4 flex justify-center lg:justify-start" data-aos="fade-up">
+          <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-md">
+            <img src="assets/179663690.jpeg" alt="Rafay Arvino Setiawan" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/18181b/ffffff?text=Rafay'" />
+          </div>
+        </div>
 
-<!-- SELECTED PROJECTS (HERO MOCKUP + NORMAL UI SHOWCASE) -->
-    <section id="projects" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
+        <!-- Chat Bubble (Kanan - 8 Kolom) -->
+        <div class="lg:col-span-8 flex flex-col gap-3.5" data-aos="fade-up">
+          
+          <!-- Bubble 1: Pesan Masuk (Abu-abu Muted) -->
+          <div class="self-start max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3 bg-zinc-200/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 text-sm sm:text-base leading-relaxed border border-zinc-300/40 dark:border-zinc-700/40 shadow-sm">
+            <span data-lang="id">Halo! Saya Rafay Arvino Setiawan, siswa jurusan Rekayasa Perangkat Lunak (RPL) di SMK Informatika Pesat Bogor.</span>
+            <span data-lang="en" class="hidden">Hi! I am Rafay Arvino Setiawan, a Software Engineering student at SMK Informatika Pesat, Bogor.</span>
+          </div>
+
+          <!-- Bubble 2: Pesan Balasan (Biru iMessage #007aff) -->
+          <div class="self-start max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3 bg-iosblue text-white text-sm sm:text-base leading-relaxed shadow-sm font-medium">
+            <span data-lang="id">Saya adalah seorang game developer dan juga web developer, dan dominan berfokus dalam UI/UX Design. Tetapi saya punya kok keahlian untuk ngoding dan paham soal coding.</span>
+            <span data-lang="en" class="hidden">I am a game developer and web developer, with a strong focus on UI/UX design. However, I also have solid coding skills and understand programming concepts.</span>
+          </div>
+
+          <!-- Bubble 3: Pesan Penutup (Biru iMessage #007aff) -->
+          <div class="self-start max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3 bg-iosblue text-white text-sm sm:text-base leading-relaxed shadow-sm font-medium">
+            <span data-lang="id">Udah sampai situ aja, Saya bingung apa yang mau di ketik disini. Kalau mau kenalan, Boleh ngobrol.</span>
+            <span data-lang="en" class="hidden">That's about it, not really sure what else to write here. Feel free to chat if you want to get to know me.</span>
+          </div>
+
+        </div>
+
+        <!-- Kutipan Kedua (Max Verstappen) - FULL 12 KOLOM AGAR BISA MEMANJANG KE KIRI -->
+        <div class="lg:col-span-12 text-right mt-4 sm:mt-6" data-aos="fade-up">
+          <p class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-snug">
+            <span class="block">"You can't change what already happened, so you have to look forward."</span>
+            <span class="inline-flex items-center justify-end align-middle gap-2.5 sm:gap-3 mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl font-bold text-zinc-700 dark:text-zinc-300">
+              <span>- Max Verstappen</span>
+              <span class="inline-flex items-center align-middle -translate-y-0.5">
+                <img 
+                  src="assets/MV3.png" 
+                  alt="Max Verstappen 3" 
+                  class="h-[1.35em] w-auto object-contain transition-opacity duration-500 ease-in-out opacity-100 select-none drop-shadow-xs" 
+                  loading="eager"
+                />
+              </span>
+            </span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS (HERO MOCKUP + NORMAL UI SHOWCASE) -->
+    <section id="projects" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
       
       <!-- Section Header -->
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
@@ -698,10 +701,8 @@
       <!-- PROJECTS LIST -->
       <div class="space-y-20" id="projectsContainer">
         
-        <!-- ============================================== -->
-        <!-- PROJECT 1: DiceSides (TEXT KIRI, GAMBAR KANAN) -->
-        <!-- ============================================== -->
-        <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center pb-16 border-b border-zinc-200/80 dark:border-zinc-800/80" data-category="ui">
+        <!-- PROJECT 1: DiceSides -->
+        <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center pb-16 border-b border-zinc-200/80 dark:border-zinc-800/80" data-category="ui" data-aos="fade-up">
           
           <!-- Kiri: Detail Teks & Badges Asli -->
           <div class="w-full md:w-1/2 flex flex-col justify-center">
@@ -721,9 +722,7 @@
 
           <!-- Kanan: Showcase Preview (Hero Penuh / Detail UI) -->
           <div class="w-full md:w-1/2 flex flex-col gap-3.5">
-            <!-- Bingkai Utama Halus Melengkung (Rounded-3xl ala Mockup Asli) -->
             <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('dicesidesMainImg')">
-              <!-- Foto Utama Awal: Full-bleed Hero Mockup -->
               <img 
                 id="dicesidesMainImg" 
                 src="assets/Banner (3).png" 
@@ -734,7 +733,7 @@
               />
             </div>
 
-            <!-- Thumbnail Sub-Foto (Foto 1 = Cover Hero, Foto 2-3 = Normal UI) -->
+            <!-- Thumbnail Sub-Foto -->
             <div class="flex items-center gap-2.5">
               <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (3).png', 'DiceSides · Cover Mockup', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
                 <img src="assets/Banner (3).png" alt="Cover" class="w-full h-full object-cover" />
@@ -750,10 +749,8 @@
 
         </article>
 
-        <!-- ================================================== -->
-        <!-- PROJECT 3: DiceSides Studio (TEXT KIRI, GAMBAR KANAN) -->
-        <!-- ================================================== -->
-        <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center" data-category="game">
+        <!-- PROJECT 3: DiceSides Studio -->
+        <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center" data-category="game" data-aos="fade-up">
           
           <!-- Kiri: Detail Teks & Badges Asli -->
           <div class="w-full md:w-1/2 flex flex-col justify-center">
@@ -805,8 +802,8 @@
       </div>
     </section>
 
-<!-- PROYEK SEKOLAH & GITHUB (6 REPO UTAMA + VIEW MORE KE GITHUB) -->
-    <section id="repos" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
+    <!-- PROYEK SEKOLAH & GITHUB (6 REPO UTAMA + VIEW MORE KE GITHUB) -->
+    <section id="repos" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
       
       <!-- Section Header -->
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
@@ -822,7 +819,7 @@
       <div id="reposGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
         <!-- 1. StudentVoiceBE -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Laravel Backend</span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
@@ -837,7 +834,7 @@
         </article>
 
         <!-- 2. StudentVoice -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Fullstack Client</span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
@@ -852,7 +849,7 @@
         </article>
 
         <!-- 3. MoraFE -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">React Native</span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
@@ -867,7 +864,7 @@
         </article>
 
         <!-- 4. MoraBE -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Laravel Backend</span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
@@ -882,7 +879,7 @@
         </article>
 
         <!-- 5. AyoNyuciApp -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">React Native</span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
@@ -897,7 +894,7 @@
         </article>
 
         <!-- 6. OnlyCars -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <div class="flex items-center justify-between">
               <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
@@ -922,8 +919,8 @@
 
       </div>
 
-  <!-- Action Button: View More on GitHub (Dengan Icon Folder Roundy) -->
-      <div class="flex justify-center mt-12">
+      <!-- Action Button: View More on GitHub (Dengan Icon Folder Roundy) -->
+      <div class="flex justify-center mt-12" data-aos="fade-up">
         <a 
           href="https://github.com/Vinnrafay?tab=repositories" 
           target="_blank" 
@@ -948,7 +945,7 @@
     </section>
 
     <!-- PROYEK TESTING MANDIRI (3 SANDBOX REPOS) -->
-    <section class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
+    <section class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
       <div class="mb-6">
         <h2 class="text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
           Open-Source Projects.
@@ -956,8 +953,8 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <!-- NexoraDProject -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <!-- NexoraDProject -->
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
               <span data-lang="id">Next.js Eksperimen</span>
@@ -975,7 +972,7 @@
         </article>
 
         <!-- EnglishPractice -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
               <span data-lang="id">Testing Sandbox</span>
@@ -993,7 +990,7 @@
         </article>
 
         <!-- Template Edukasi -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
               <span data-lang="id">Open Source</span>
@@ -1015,8 +1012,8 @@
       </div>
     </section>
 
-<!-- SERTIFIKAT LENGKAP (CARD SHOWCASE + TRANSLATION + NO YEAR BADGE) -->
-    <section id="certs" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
+    <!-- SERTIFIKAT LENGKAP (CARD SHOWCASE + TRANSLATION + NO YEAR BADGE) -->
+    <section id="certs" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
       
       <!-- Section Header -->
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
@@ -1032,7 +1029,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 sm:gap-5">
 
         <!-- Cert 1: Sertikom Sem 1 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/sertikom1.jpg', 'Sertifikat Kompetensi Semester 1 · SMK Informatika Pesat')">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/sertikom1.jpg', 'Sertifikat Kompetensi Semester 1 · SMK Informatika Pesat')" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
               <img src="assets/sertikom1.jpg" alt="Sertikom 1" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+1'" />
@@ -1049,7 +1046,7 @@
         </article>
 
         <!-- Cert 2: Sertikom Sem 2 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/sertikom 2.jpg', 'Sertifikat Kompetensi Semester 2 · SMK Informatika Pesat')">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/sertikom 2.jpg', 'Sertifikat Kompetensi Semester 2 · SMK Informatika Pesat')" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
               <img src="assets/sertikom 2.jpg" alt="Sertikom 2" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+2'" />
@@ -1066,7 +1063,7 @@
         </article>
 
         <!-- Cert 3: Sertikom Sem 3 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/certificate3.jpeg', 'Sertifikat Kompetensi Semester 3 · SMK Informatika Pesat')">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/certificate3.jpeg', 'Sertifikat Kompetensi Semester 3 · SMK Informatika Pesat')" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
               <img src="assets/certificate3.jpeg" alt="Sertikom 3" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+3'" />
@@ -1083,7 +1080,7 @@
         </article>
 
         <!-- Cert 4: Sertikom Sem 4 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/certificate4.jpeg', 'Sertifikat Kompetensi Semester 4 · SMK Informatika Pesat')">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/certificate4.jpeg', 'Sertifikat Kompetensi Semester 4 · SMK Informatika Pesat')" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
               <img src="assets/certificate4.jpeg" alt="Sertikom 4" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+4'" />
@@ -1100,7 +1097,7 @@
         </article>
 
         <!-- Cert 5: Juara 1 UI/UX IDN -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/lomba1.jpeg', 'Juara 1 UI/UX Design · IDN Boarding School')">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/lomba1.jpeg', 'Juara 1 UI/UX Design · IDN Boarding School')" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
               <img src="assets/lomba1.jpeg" alt="Juara 1 UI/UX" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Juara+1+UI/UX'" />
@@ -1117,7 +1114,7 @@
         </article>
 
         <!-- Cert 6: Juara 3 Primakara Bali -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/lomba2.jpeg', 'Juara 3 UI Design · Universitas Primakara Bali')">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/lomba2.jpeg', 'Juara 3 UI Design · Universitas Primakara Bali')" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
               <img src="assets/lomba2.jpeg" alt="Juara 3 UI Design" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Juara+3+UI'" />
@@ -1137,7 +1134,7 @@
     </section>
 
     <!-- CONTACT SECTION: KARTU LEBIH BESAR, JELAS, & LANGSUNG MENGARAH KE LINK -->
-    <section id="contact" class="pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
+    <section id="contact" class="pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
       
       <div class="text-center max-w-2xl mx-auto mb-14">
         <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-tight mb-4">
@@ -1154,7 +1151,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-16">
         
         <!-- WhatsApp Card -->
-        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
+        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">WhatsApp</span>
             <button onclick="copyToClipboard('+6287797895571', 'Nomor WhatsApp')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Nomor">
@@ -1168,7 +1165,7 @@
         </div>
 
         <!-- GitHub Card -->
-        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
+        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">GitHub</span>
             <button onclick="copyToClipboard('https://github.com/Vinnrafay', 'GitHub URL')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Tautan">
@@ -1182,10 +1179,10 @@
         </div>
 
         <!-- Instagram Card -->
-        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
+        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Instagram</span>
-            <button onclick="copyToClipboard('@r_fayy', 'Username Instagram')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Username">
+            <button onclick="copyToClipboard('@r_afayy', 'Username Instagram')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Username">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
@@ -1196,7 +1193,7 @@
         </div>
 
         <!-- Email Card -->
-        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
+        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Email</span>
             <button onclick="copyToClipboard('rafayarvino.xpro@gmail.com', 'Alamat Email')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Email">
@@ -1231,104 +1228,155 @@
     </div>
   </div>
 
+  <!-- AOS (Animate On Scroll) JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
   <!-- SCRIPTS -->
   <script>
 
     // ==========================================
     // SMOOTH SCROLLING (KHUSUS PC, MATI DI MOBILE)
     // ==========================================
+    let lenisInstance = null;
     if (typeof Lenis !== 'undefined' && window.matchMedia('(min-width: 768px) and (pointer: fine)').matches && !('ontouchstart' in window)) {
-      const lenis = new Lenis({
+      lenisInstance = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         touchMultiplier: 0,
       });
+      window.lenis = lenisInstance;
 
       function raf(time) {
-        lenis.raf(time);
+        lenisInstance.raf(time);
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
 
-      // Hubungkan ke Scroll Progress Bar
-      lenis.on('scroll', () => {
+      // Hubungkan ke Scroll Progress Bar & Sinkronkan dengan AOS
+      lenisInstance.on('scroll', () => {
         const winScroll = window.scrollY || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         const progress = document.getElementById('scrollProgress');
         if (progress) progress.style.width = scrolled + '%';
+
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh();
+        }
       });
     }
 
-// ==========================================
-// CONTROLLER PREVIEW: HERO COVER VS NORMAL UI
-// ==========================================
-function swapProjectImage(targetImgId, newSrc, newCaption, clickedThumb, mode = 'cover') {
-  const mainImg = document.getElementById(targetImgId);
-  if (!mainImg) return;
-
-  // Efek transisi halus saat pergantian foto
-  mainImg.style.opacity = '0.35';
-  
-  setTimeout(() => {
-    mainImg.src = newSrc;
-    mainImg.setAttribute('data-caption', newCaption);
-
-    // Mode 'cover' = Full-bleed Hero Mockup
-    // Mode 'contain' = Tampilan Normal UI Tanpa Crop
-    if (mode === 'contain') {
-      mainImg.className = 'w-full h-full object-contain p-2 sm:p-4 select-none group-hover:scale-[1.01] transition-all duration-300';
-    } else {
-      mainImg.className = 'w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300';
-    }
-
-    mainImg.style.opacity = '1';
-  }, 100);
-
-  // Perbarui border thumbnail aktif
-  const container = clickedThumb.parentElement;
-  if (container) {
-    container.querySelectorAll('.thumb-btn').forEach((btn) => {
-      btn.className = 'thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95';
+    // ==========================================
+    // INISIALISASI AOS ANIMATION
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          once: true,
+          duration: 700,
+          easing: 'ease-out-cubic',
+          offset: 80,
+        });
+      }
     });
-    clickedThumb.className = 'thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white opacity-100 shrink-0 transition-all active:scale-95 shadow-xs';
-  }
-}
 
-// Buka Lightbox Gambar yang Sedang Aktif
-function openCurrentProjectImage(imgId) {
-  const imgEl = document.getElementById(imgId);
-  if (!imgEl) return;
-  const src = imgEl.src;
-  const caption = imgEl.getAttribute('data-caption') || imgEl.alt;
-  if (typeof openLightbox === 'function') {
-    openLightbox(src, caption);
-  }
-}
+    // ==========================================
+    // SMOOTH SCROLLING NAVBAR / ANCHOR CLICKS
+    // ==========================================
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
 
-// Filter Tab Pills Kategori
-function filterProjects(category) {
-  const cards = document.querySelectorAll('.project-featured-card');
-  cards.forEach((card) => {
-    if (category === 'all' || card.getAttribute('data-category') === category) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
+        e.preventDefault();
+
+        // Jika PC dan Lenis aktif
+        if (window.lenis) {
+          window.lenis.scrollTo(targetEl, { offset: -40, duration: 1.2 });
+        } else {
+          // Fallback / Mobile: Smooth scroll terarah dengan offset navbar floating
+          const navOffset = 64;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ==========================================
+    // CONTROLLER PREVIEW: HERO COVER VS NORMAL UI
+    // ==========================================
+    function swapProjectImage(targetImgId, newSrc, newCaption, clickedThumb, mode = 'cover') {
+      const mainImg = document.getElementById(targetImgId);
+      if (!mainImg) return;
+
+      mainImg.style.opacity = '0.35';
+      
+      setTimeout(() => {
+        mainImg.src = newSrc;
+        mainImg.setAttribute('data-caption', newCaption);
+
+        if (mode === 'contain') {
+          mainImg.className = 'w-full h-full object-contain p-2 sm:p-4 select-none group-hover:scale-[1.01] transition-all duration-300';
+        } else {
+          mainImg.className = 'w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300';
+        }
+
+        mainImg.style.opacity = '1';
+      }, 100);
+
+      const container = clickedThumb.parentElement;
+      if (container) {
+        container.querySelectorAll('.thumb-btn').forEach((btn) => {
+          btn.className = 'thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95';
+        });
+        clickedThumb.className = 'thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white opacity-100 shrink-0 transition-all active:scale-95 shadow-xs';
+      }
     }
-  });
 
-  const buttons = ['all', 'ui', 'web', 'game'];
-  buttons.forEach((btn) => {
-    const el = document.getElementById(`filter-${btn}`);
-    if (!el) return;
-    if (btn === category) {
-      el.className = 'px-4 py-1.5 text-xs font-semibold rounded-full bg-zinc-950 text-white dark:bg-zinc-100 dark:text-zinc-950 transition-all whitespace-nowrap shadow-xs';
-    } else {
-      el.className = 'px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap';
+    // Buka Lightbox Gambar yang Sedang Aktif
+    function openCurrentProjectImage(imgId) {
+      const imgEl = document.getElementById(imgId);
+      if (!imgEl) return;
+      const src = imgEl.src;
+      const caption = imgEl.getAttribute('data-caption') || imgEl.alt;
+      if (typeof openLightbox === 'function') {
+        openLightbox(src, caption);
+      }
     }
-  });
-}
+
+    // Filter Tab Pills Kategori
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-featured-card');
+      cards.forEach((card) => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      const buttons = ['all', 'ui', 'web', 'game'];
+      buttons.forEach((btn) => {
+        const el = document.getElementById(`filter-${btn}`);
+        if (!el) return;
+        if (btn === category) {
+          el.className = 'px-4 py-1.5 text-xs font-semibold rounded-full bg-zinc-950 text-white dark:bg-zinc-100 dark:text-zinc-950 transition-all whitespace-nowrap shadow-xs';
+        } else {
+          el.className = 'px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap';
+        }
+      });
+
+      if (typeof AOS !== 'undefined') {
+        setTimeout(() => AOS.refresh(), 50);
+      }
+    }
 
     // 1. Pengalih Tema (Dark / Light)
     function toggleTheme() {
@@ -1365,7 +1413,6 @@ function filterProjects(category) {
       localStorage.setItem('portfolio-lang', lang);
       document.documentElement.setAttribute('lang', lang);
 
-      // Tampilkan teks sesuai data-lang yang dipilih
       document.querySelectorAll('[data-lang]').forEach(el => {
         if (el.getAttribute('data-lang') === lang) {
           el.classList.remove('hidden');
@@ -1374,7 +1421,6 @@ function filterProjects(category) {
         }
       });
 
-      // Update styling tombol switcher di desktop & mobile
       const pairs = [
         ['lang-id', 'lang-en'],
         ['lang-id-m', 'lang-en-m']
@@ -1467,7 +1513,8 @@ function filterProjects(category) {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
-      document.getElementById('scrollProgress').style.width = scrolled + '%';
+      const progress = document.getElementById('scrollProgress');
+      if (progress) progress.style.width = scrolled + '%';
     });
 
     // 7. Menu Mobile
