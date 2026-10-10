@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jurnal & Catatan Belajar — Rafay Arvino Setiawan</title>
-  
+
   <!-- SEO & Social Media Metadata -->
-  <meta name="description" content="Jurnal catatan pengembangan web Laravel, tips UI/UX, dan eksplorasi coding oleh Rafay Arvino Setiawan." />
+  <meta name="description"
+    content="Jurnal catatan pengembangan web Laravel, tips UI/UX, dan eksplorasi coding oleh Rafay Arvino Setiawan." />
   <meta name="author" content="Rafay Arvino Setiawan" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- Lenis Smooth Scroll CSS CDN -->
   <link rel="stylesheet" href="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.css" />
@@ -31,9 +35,9 @@
         }
       }
     };
-    
+
     // Immediately check theme to prevent white flash
-    (function() {
+    (function () {
       const savedTheme = localStorage.getItem('portfolio-theme');
       if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
@@ -44,7 +48,9 @@
   </script>
   <link rel="stylesheet" href="assets/custom.css" />
 </head>
-<body class="text-black dark:text-zinc-100 font-sans antialiased relative min-h-screen selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+
+<body
+  class="text-black dark:text-zinc-100 font-sans antialiased relative min-h-screen selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
 
   <!-- Scroll Progress Indicator -->
   <div id="scrollProgress"></div>
@@ -60,13 +66,13 @@
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="logoChevronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#4285F4"/>
-                <stop offset="25%" stop-color="#EA4335"/>
-                <stop offset="50%" stop-color="#FBBC05"/>
-                <stop offset="100%" stop-color="#34A853"/>
+                <stop offset="0%" stop-color="#4285F4" />
+                <stop offset="25%" stop-color="#EA4335" />
+                <stop offset="50%" stop-color="#FBBC05" />
+                <stop offset="100%" stop-color="#34A853" />
               </linearGradient>
             </defs>
-            <path d="M12 3L22 18H17L12 9.5L7 18H2L12 3Z" fill="url(#logoChevronGrad)"/>
+            <path d="M12 3L22 18H17L12 9.5L7 18H2L12 3Z" fill="url(#logoChevronGrad)" />
           </svg>
         </div>
         <span class="font-sans font-semibold tracking-tight text-xs text-black dark:text-white">
@@ -76,7 +82,8 @@
     </div>
 
     <!-- Desktop Nav Links -->
-    <nav class="hidden md:flex items-center gap-6 font-sans font-semibold text-[11px] text-zinc-500 dark:text-zinc-400 tracking-wide">
+    <nav
+      class="hidden md:flex items-center gap-6 font-sans font-semibold text-[11px] text-zinc-500 dark:text-zinc-400 tracking-wide">
       <a href="index.html#home" class="hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Beranda</span>
         <span data-lang="en" class="hidden">Home</span>
@@ -102,35 +109,55 @@
     <!-- Header Actions -->
     <div class="flex items-center gap-2">
       <!-- Language Switcher Pill -->
-      <div id="langSwitcherContainer" class="inline-flex p-0.5 rounded-full bg-zinc-200/40 backdrop-blur-sm border border-zinc-200/80 text-[10px] font-sans font-semibold select-none shadow-inner dark:bg-zinc-900/40 dark:border-zinc-800/80">
-        <button id="lang-id" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold" onclick="setLanguage('id')">ID</button>
-        <button id="lang-en" class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold" onclick="setLanguage('en')">EN</button>
+      <div id="langSwitcherContainer"
+        class="inline-flex p-0.5 rounded-full bg-zinc-200/40 backdrop-blur-sm border border-zinc-200/80 text-[10px] font-sans font-semibold select-none shadow-inner dark:bg-zinc-900/40 dark:border-zinc-800/80">
+        <button id="lang-id"
+          class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold"
+          onclick="setLanguage('id')">ID</button>
+        <button id="lang-en"
+          class="px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold"
+          onclick="setLanguage('en')">EN</button>
       </div>
 
       <!-- Theme Switcher Button -->
-      <button id="themeToggle" onclick="toggleTheme()" class="w-8 h-8 rounded-full border border-zinc-200 hover:bg-zinc-100 text-black flex items-center justify-center cursor-pointer transition-all active:scale-95 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" aria-label="Toggle Theme">
+      <button id="themeToggle" onclick="toggleTheme()"
+        class="w-8 h-8 rounded-full border border-zinc-200 hover:bg-zinc-100 text-black flex items-center justify-center cursor-pointer transition-all active:scale-95 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white"
+        aria-label="Toggle Theme">
         <!-- Sun Icon (shown in dark mode) -->
-        <svg id="themeIconSun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+        <svg id="themeIconSun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z">
+          </path>
+        </svg>
         <!-- Moon Icon (shown in light mode) -->
-        <svg id="themeIconMoon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg id="themeIconMoon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
       </button>
 
-      <a href="https://wa.me/6287797895571" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all select-none shadow-sm dark:bg-white dark:text-black dark:hover:bg-zinc-200">
+      <a href="https://wa.me/6287797895571" target="_blank"
+        class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-black text-white font-sans font-semibold text-[10px] hover:bg-zinc-800 transition-all select-none shadow-sm dark:bg-white dark:text-black dark:hover:bg-zinc-200">
         <span data-lang="id">Hubungi</span>
         <span data-lang="en" class="hidden">Contact Me</span>
       </a>
-      <button class="md:hidden w-8 h-8 border border-zinc-200 hover:bg-zinc-100 rounded-full text-black flex items-center justify-center cursor-pointer transition-all dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" id="menuBtn" aria-label="Toggle Menu">
+      <button
+        class="md:hidden w-8 h-8 border border-zinc-200 hover:bg-zinc-100 rounded-full text-black flex items-center justify-center cursor-pointer transition-all dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white"
+        id="menuBtn" aria-label="Toggle Menu">
         <div class="w-3.5 h-2.5 flex flex-col justify-between relative" id="hamburgerIcon">
-          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left" id="bar1"></span>
+          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left"
+            id="bar1"></span>
           <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300" id="bar2"></span>
-          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left" id="bar3"></span>
+          <span class="w-full h-[1.5px] bg-black dark:bg-white rounded transition-all duration-300 origin-left"
+            id="bar3"></span>
         </div>
       </button>
     </div>
   </header>
 
   <!-- Mobile Navigation Menu Drawer -->
-  <div id="mobileMenu" class="fixed z-40 hidden flex-col px-6 py-6 border border-zinc-200/50 gap-4 dark:border-zinc-800/80">
+  <div id="mobileMenu"
+    class="fixed z-40 hidden flex-col px-6 py-6 border border-zinc-200/50 gap-4 dark:border-zinc-800/80">
     <nav class="flex flex-col gap-4 font-sans font-semibold text-sm text-zinc-500 dark:text-zinc-400 tracking-wide">
       <a href="index.html#home" class="hover:text-black dark:hover:text-white transition-colors">
         <span data-lang="id">Beranda</span>
@@ -154,7 +181,8 @@
         <span data-lang="en" class="hidden">Contact</span>
       </a>
     </nav>
-    <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all dark:bg-white dark:text-black dark:hover:bg-zinc-200">
+    <a href="https://wa.me/6287797895571" target="_blank"
+      class="w-full text-center py-2.5 rounded-full bg-black text-white font-sans font-semibold text-xs hover:bg-zinc-800 transition-all dark:bg-white dark:text-black dark:hover:bg-zinc-200">
       <span data-lang="id">Hubungi</span>
       <span data-lang="en" class="hidden">Contact Me</span>
     </a>
@@ -166,7 +194,8 @@
     <!-- HERO SECTION -->
     <section class="w-full bg-transparent text-black dark:text-zinc-300 pt-32 pb-12 md:pt-40 md:pb-16 px-6">
       <div class="max-w-[900px] mx-auto flex flex-col items-center text-center">
-        <h1 data-aos="fade-up" class="font-sans font-extrabold text-[40px] sm:text-[54px] md:text-[64px] tracking-tight mb-2 text-black dark:text-white bg-gradient-to-r from-black via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-250 dark:to-zinc-550 bg-clip-text text-transparent">
+        <h1 data-aos="fade-up"
+          class="font-sans font-extrabold text-[40px] sm:text-[54px] md:text-[64px] tracking-tight mb-2 text-black dark:text-white bg-gradient-to-r from-black via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-250 dark:to-zinc-550 bg-clip-text text-transparent">
           Blog
         </h1>
         <div class="w-12 h-[3px] bg-black dark:bg-white rounded-full mt-4"></div>
@@ -183,20 +212,24 @@
     </section>
 
     <!-- PORTFOLIO UPDATES SECTION -->
-    <section id="updates" class="w-full bg-transparent text-black dark:text-zinc-300 py-24 px-6 border-t border-zinc-200 dark:border-zinc-800">
+    <section id="updates"
+      class="w-full bg-transparent text-black dark:text-zinc-300 py-24 px-6 border-t border-zinc-200 dark:border-zinc-800">
       <div class="max-w-[900px] mx-auto">
 
         <!-- Section Header -->
         <div class="mb-14" data-aos="fade-up">
-          <span class="block font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-3">Changelog</span>
+          <span
+            class="block font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-3">Changelog</span>
           <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <h2 class="font-sans font-bold text-3xl sm:text-4xl text-black dark:text-white tracking-tight leading-tight">
+            <h2
+              class="font-sans font-bold text-3xl sm:text-4xl text-black dark:text-white tracking-tight leading-tight">
               <span data-lang="id">Catatan Update.</span>
               <span data-lang="en" class="hidden">Portfolio Updates.</span>
             </h2>
             <p class="text-zinc-400 dark:text-zinc-500 text-xs font-medium max-w-[320px] leading-relaxed">
               <span data-lang="id">Riwayat pengembangan, perbaikan, dan pembaruan fitur pada website ini.</span>
-              <span data-lang="en" class="hidden">Development history, fixes, and feature updates on this website.</span>
+              <span data-lang="en" class="hidden">Development history, fixes, and feature updates on this
+                website.</span>
             </p>
           </div>
         </div>
@@ -208,7 +241,8 @@
           <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-6 sm:gap-16 py-10">
             <!-- Left: Date anchor -->
             <div class="sm:w-32 flex-shrink-0 pt-0.5">
-              <span class="font-mono text-[10px] font-bold tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
+              <span
+                class="font-mono text-[10px] font-bold tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
                 <span data-lang="id">Mei 2026</span>
                 <span data-lang="en" class="hidden">May 2026</span>
               </span>
@@ -221,25 +255,31 @@
               </h3>
               <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5 max-w-[560px]">
                 <span data-lang="id">Peningkatan kenyamanan membaca dan interaktivitas website secara menyeluruh.</span>
-                <span data-lang="en" class="hidden">A comprehensive improvement in reading comfort and website interactivity.</span>
+                <span data-lang="en" class="hidden">A comprehensive improvement in reading comfort and website
+                  interactivity.</span>
               </p>
               <!-- Feature pills -->
               <div class="flex flex-wrap gap-2">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
                   <span data-lang="id">Dark Mode</span><span data-lang="en" class="hidden">Dark Mode</span>
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
                   <span data-lang="id">Dwibahasa ID/EN</span><span data-lang="en" class="hidden">Bilingual ID/EN</span>
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
                   <span data-lang="id">Halaman Blog</span><span data-lang="en" class="hidden">Blog Page</span>
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
-                  <span data-lang="id">Kontrol Ukuran Font</span><span data-lang="en" class="hidden">Font Size Control</span>
+                  <span data-lang="id">Kontrol Ukuran Font</span><span data-lang="en" class="hidden">Font Size
+                    Control</span>
                 </span>
               </div>
             </div>
@@ -259,19 +299,24 @@
                 <span data-lang="en" class="hidden">Visual & Performance Optimization</span>
               </h3>
               <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5 max-w-[560px]">
-                <span data-lang="id">Penyempurnaan animasi dan interaksi agar pengalaman menjelajah terasa lebih hidup dan responsif.</span>
-                <span data-lang="en" class="hidden">Refining animations and interactions for a more dynamic and responsive browsing experience.</span>
+                <span data-lang="id">Penyempurnaan animasi dan interaksi agar pengalaman menjelajah terasa lebih hidup
+                  dan responsif.</span>
+                <span data-lang="en" class="hidden">Refining animations and interactions for a more dynamic and
+                  responsive browsing experience.</span>
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
                   Particle Canvas
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
                   Smooth Scroll
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
                   <span data-lang="id">Hover Effects</span><span data-lang="en" class="hidden">Hover Effects</span>
                 </span>
@@ -293,19 +338,24 @@
                 <span data-lang="en" class="hidden">Initial Launch</span>
               </h3>
               <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5 max-w-[560px]">
-                <span data-lang="id">Peluncuran pertama website portofolio satu halaman dengan fitur-fitur dasar yang lengkap.</span>
-                <span data-lang="en" class="hidden">First release of the one-page portfolio with a complete set of core features.</span>
+                <span data-lang="id">Peluncuran pertama website portofolio satu halaman dengan fitur-fitur dasar yang
+                  lengkap.</span>
+                <span data-lang="en" class="hidden">First release of the one-page portfolio with a complete set of core
+                  features.</span>
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
                   <span data-lang="id">Navigasi Melayang</span><span data-lang="en" class="hidden">Floating Nav</span>
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
                   <span data-lang="id">Galeri Proyek</span><span data-lang="en" class="hidden">Project Gallery</span>
                 </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-semibold font-mono text-zinc-600 dark:text-zinc-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
                   <span data-lang="id">Repositori RPL</span><span data-lang="en" class="hidden">RPL Repository</span>
                 </span>
@@ -320,7 +370,8 @@
     <!-- FOOTER -->
     <section class="w-full bg-[#050505] text-white py-12 px-6 border-t border-zinc-900 shadow-2xl relative z-10">
       <div class="max-w-[850px] mx-auto text-center flex flex-col items-center">
-        <footer class="w-full pt-4 text-zinc-500 text-[10px] font-semibold tracking-wide flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+        <footer
+          class="w-full pt-4 text-zinc-500 text-[10px] font-semibold tracking-wide flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
           <span class="font-sans font-semibold text-white">Rafay.dev</span>
           <span>
             <span data-lang="id">© 2026 Rafay Arvino Setiawan. Hak Cipta Dilindungi.</span>
@@ -333,50 +384,74 @@
   </div>
 
   <!-- Interactive Article Overlay Reader Panel -->
-  <div id="articleModal" class="lightbox-modal fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4" onclick="closeArticle()">
+  <div id="articleModal"
+    class="lightbox-modal fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
+    onclick="closeArticle()">
     <!-- Sticky Close Button outside -->
-    <button class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 border border-white/20 bg-white/5 hover:bg-white/10 rounded-full text-white text-lg flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="closeArticle()" aria-label="Close modal">✕</button>
-    
-    <div class="lightbox-content bg-white dark:bg-[#0d0d0f] border border-zinc-200/80 dark:border-zinc-800 max-w-2xl w-full max-h-[90vh] rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden spring-modal flex flex-col" onclick="event.stopPropagation()">
-      
+    <button
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 border border-white/20 bg-white/5 hover:bg-white/10 rounded-full text-white text-lg flex items-center justify-center cursor-pointer transition-all active:scale-95"
+      onclick="closeArticle()" aria-label="Close modal">✕</button>
+
+    <div
+      class="lightbox-content bg-white dark:bg-[#0d0d0f] border border-zinc-200/80 dark:border-zinc-800 max-w-2xl w-full max-h-[90vh] rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden spring-modal flex flex-col"
+      onclick="event.stopPropagation()">
+
       <!-- Top Action Bar (Sticky) -->
-      <div class="border-b border-zinc-150 dark:border-zinc-900 bg-white/90 dark:bg-[#0d0d0f]/90 backdrop-blur-md p-4 flex items-center justify-between gap-4 z-10 select-none">
+      <div
+        class="border-b border-zinc-150 dark:border-zinc-900 bg-white/90 dark:bg-[#0d0d0f]/90 backdrop-blur-md p-4 flex items-center justify-between gap-4 z-10 select-none">
         <!-- Font Size Controls (Minimalist layout) -->
         <div class="flex items-center gap-1.5 text-xs text-zinc-500 font-mono select-none">
-          <button onclick="changeFontSize(-1)" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer font-bold select-none text-[10px]" title="Kecilkan Font (A-)">A-</button>
-          <button onclick="changeFontSize(1)" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer font-bold select-none text-[10px]" title="Besarkan Font (A+)">A+</button>
+          <button onclick="changeFontSize(-1)"
+            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer font-bold select-none text-[10px]"
+            title="Kecilkan Font (A-)">A-</button>
+          <button onclick="changeFontSize(1)"
+            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer font-bold select-none text-[10px]"
+            title="Besarkan Font (A+)">A+</button>
         </div>
-        
+
         <!-- Action Buttons -->
         <div class="flex items-center gap-2">
           <!-- Share Button -->
-          <button onclick="shareArticleFromModal()" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all text-zinc-600 dark:text-zinc-400 cursor-pointer" title="Share / Bagikan">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8.684 10.742l4.636-2.318m0 7.116l-4.636-2.318a3 3 0 110-3.636l4.636 2.318a3 3 0 110 3.636z"></path></svg>
+          <button onclick="shareArticleFromModal()"
+            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all text-zinc-600 dark:text-zinc-400 cursor-pointer"
+            title="Share / Bagikan">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                d="M8.684 10.742l4.636-2.318m0 7.116l-4.636-2.318a3 3 0 110-3.636l4.636 2.318a3 3 0 110 3.636z"></path>
+            </svg>
           </button>
           <!-- Close Button inside top bar -->
-          <button onclick="closeArticle()" class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-650 dark:text-zinc-400 transition-all cursor-pointer font-bold select-none">✕</button>
+          <button onclick="closeArticle()"
+            class="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-650 dark:text-zinc-400 transition-all cursor-pointer font-bold select-none">✕</button>
         </div>
       </div>
 
       <!-- Article Scroll Container -->
       <div id="modalScrollContainer" class="overflow-y-auto p-6 sm:p-8 flex-1 scroll-smooth">
-        <div class="flex flex-wrap items-center gap-4 text-[10px] font-semibold font-mono text-zinc-400 dark:text-zinc-500 mb-4 select-none">
+        <div
+          class="flex flex-wrap items-center gap-4 text-[10px] font-semibold font-mono text-zinc-400 dark:text-zinc-500 mb-4 select-none">
           <span id="modalDate"></span>
           <span class="text-zinc-200 dark:text-zinc-800">|</span>
           <span id="modalTech" class="text-zinc-500 dark:text-zinc-400"></span>
         </div>
-        <h2 id="modalTitle" class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white mb-6 leading-tight"></h2>
-        
+        <h2 id="modalTitle"
+          class="font-sans font-bold text-xl sm:text-2xl text-black dark:text-white mb-6 leading-tight"></h2>
+
         <!-- Main body text -->
-        <div id="modalBody" class="font-sans text-[13px] sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium mb-4"></div>
+        <div id="modalBody"
+          class="font-sans text-[13px] sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium mb-4">
+        </div>
       </div>
-      
+
     </div>
-  </div></div>
+  </div>
+  </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 z-50 transition-all duration-300 pointer-events-none">
-    <div class="px-5 py-3 rounded-full bg-black border border-zinc-800 text-white text-xs font-bold font-sans tracking-wide shadow-xl flex items-center gap-2">
+  <div id="toast"
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 z-50 transition-all duration-300 pointer-events-none">
+    <div
+      class="px-5 py-3 rounded-full bg-black border border-zinc-800 text-white text-xs font-bold font-sans tracking-wide shadow-xl flex items-center gap-2">
       <span class="text-zinc-400">✓</span>
       <span id="toastMessage"></span>
     </div>
@@ -433,10 +508,10 @@
       const btnEn = document.getElementById('lang-en');
       const isDark = document.documentElement.classList.contains('dark');
       if (btnId && btnEn) {
-        const activeClass = isDark 
+        const activeClass = isDark
           ? "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-zinc-800 text-white shadow-sm font-bold"
           : "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 bg-white text-black shadow-sm font-bold";
-        
+
         const inactiveClass = isDark
           ? "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-500 hover:text-zinc-200 font-semibold"
           : "px-2.5 py-0.5 rounded-full transition-all duration-150 active:scale-95 text-zinc-400 hover:text-black font-semibold";
@@ -484,7 +559,7 @@
             mobileMenu.removeEventListener('transitionend', handler);
           }, { once: true });
         }
-        
+
         bar1.classList.toggle('rotate-45');
         bar1.classList.toggle('translate-y-[5px]');
         bar2.classList.toggle('opacity-0');
@@ -611,7 +686,7 @@
     function renderArticles() {
       const recentGrid = document.getElementById('articlesGrid');
       if (!recentGrid) return;
-      
+
       recentGrid.innerHTML = '';
 
       adminArticles.forEach((art, index) => {
@@ -654,7 +729,7 @@
       activeArticleId = id;
       renderModalContent(id);
       if (articleModal) articleModal.classList.add('active');
-      
+
       // Reset reading scroll position
       setTimeout(() => {
         const container = document.getElementById('modalScrollContainer');
@@ -669,7 +744,7 @@
     function renderModalContent(id) {
       const art = adminArticles.find(a => a.id === id);
       if (!art) return;
-      
+
       // Date and details
       const displayDate = currentLang === 'en' ? art.dateEn : art.date;
       const displayTime = currentLang === 'en' ? art.timeEn : art.time;
@@ -682,11 +757,11 @@
       if (modalTech) {
         modalTech.textContent = art.tech;
       }
-      
+
       // Title and contents
       const title = currentLang === 'en' ? art.titleEn : art.title;
       const content = currentLang === 'en' ? art.contentEn : art.content;
-      
+
       const modalTitle = document.getElementById('modalTitle');
       if (modalTitle) {
         modalTitle.textContent = title;
@@ -711,9 +786,9 @@
     // Share Article trigger
     function shareArticleFromModal() {
       if (!activeArticleId) return;
-      
+
       const shareUrl = window.location.origin + window.location.pathname + '?post=' + activeArticleId;
-      
+
       // Use Clipboard API
       navigator.clipboard.writeText(shareUrl).then(() => {
         const msg = currentLang === 'en' ? 'Shareable link copied to clipboard!' : 'Tautan berhasil disalin ke papan klip!';
@@ -751,7 +826,7 @@
 
     // Initialize Page on Load
     renderArticles();
-    
+
     // Set active language from localStorage or default
     const savedLang = localStorage.getItem('portfolio-lang') || 'id';
     setLanguage(savedLang);
@@ -812,7 +887,7 @@
 
       reset() {
         this.centerX = particleCanvas.width / 2;
-        this.centerY = particleCanvas.height / 3; 
+        this.centerY = particleCanvas.height / 3;
         this.orbitRadiusX = Math.random() * (particleCanvas.width * 0.45) + 120;
         this.orbitRadiusY = Math.random() * (particleCanvas.height * 0.35) + 90;
         this.angularSpeed = (Math.random() * 0.001 + 0.0003) * (Math.random() > 0.5 ? 1 : -1);
@@ -826,7 +901,7 @@
 
       update() {
         this.centerX = particleCanvas.width / 2;
-        this.centerY = Math.min(particleCanvas.height / 2.3, 380); 
+        this.centerY = Math.min(particleCanvas.height / 2.3, 380);
         this.angle += this.angularSpeed;
 
         const targetX = this.centerX + Math.cos(this.angle) * this.orbitRadiusX;
@@ -919,4 +994,5 @@
     });
   </script>
 </body>
+
 </html>

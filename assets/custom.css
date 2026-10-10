@@ -7,27 +7,35 @@
 
 /* Base resets & Lenis Smooth Scroll Configuration */
 html {
-  scroll-behavior: initial; /* Required for Lenis smooth scrolling */
+  scroll-behavior: initial;
+  /* Required for Lenis smooth scrolling */
   overflow-x: hidden;
   width: 100%;
 }
+
 @media (hover: none) {
   html {
-    scroll-behavior: smooth; /* Native smooth scroll for mobile touch devices */
+    scroll-behavior: smooth;
+    /* Native smooth scroll for mobile touch devices */
   }
 }
+
 html.lenis {
   height: auto;
 }
+
 .lenis-smooth {
   scroll-behavior: auto !important;
 }
+
 .lenis-smooth [data-aos] {
   will-change: transform, opacity;
 }
+
 body {
-  background-color: #f7f6f3; /* Soft warm alabaster tone */
-  background-image: 
+  background-color: #f7f6f3;
+  /* Soft warm alabaster tone */
+  background-image:
     linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
   background-size: 32px 32px;
@@ -55,13 +63,16 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f7f6f3;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 99px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.3);
 }
@@ -70,6 +81,7 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -110,9 +122,17 @@ body {
   border-right: 2px solid #000000;
   animation: blink-caret 0.75s step-end infinite;
 }
+
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #000000 }
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #000000
+  }
 }
 
 /* AOS-like Scroll Animations (Smooth momentum fades & slides) */
@@ -123,21 +143,27 @@ body {
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
+
 [data-aos="fade-up"] {
   transform: translateY(60px);
 }
+
 [data-aos="fade-down"] {
   transform: translateY(-60px);
 }
+
 [data-aos="fade-left"] {
   transform: translateX(60px);
 }
+
 [data-aos="fade-right"] {
   transform: translateX(-60px);
 }
+
 [data-aos="zoom-in"] {
   transform: scale(0.9);
 }
+
 [data-aos="flip-up"] {
   transform: perspective(1000px) rotateX(-15deg) translateY(60px);
 }
@@ -153,9 +179,11 @@ body {
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
+
 .project-image-container img {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .project-image-container:hover img {
   transform: scale(1.03);
 }
@@ -164,6 +192,7 @@ body {
 .color-glow-card {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .color-glow-card:hover {
   transform: translateY(-6px);
 }
@@ -174,14 +203,17 @@ body {
   pointer-events: none;
   transition: opacity 0.25s ease-out;
 }
+
 .lightbox-modal.active {
   opacity: 1;
   pointer-events: auto;
 }
+
 .lightbox-content {
   transform: scale(0.97) translateY(5px);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .lightbox-modal.active .lightbox-content {
   transform: scale(1) translateY(0);
 }
@@ -200,6 +232,7 @@ body {
   left: 16px;
   top: 76px;
 }
+
 #mobileMenu.show {
   transform: translateY(0);
   opacity: 1;
@@ -209,6 +242,7 @@ body {
 .skill-badge {
   transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
+
 .skill-badge:hover {
   transform: translateY(-2px);
 }
@@ -219,6 +253,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
+
 .repo-card {
   background: #09090b;
   border: 1px solid #18181b;
@@ -230,6 +265,7 @@ body {
   min-height: 180px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .repo-card:hover {
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.4);
@@ -241,6 +277,7 @@ body {
   font-size: 12px !important;
   line-height: 1.6 !important;
 }
+
 @media (min-width: 640px) {
   .repo-card p {
     font-size: 13px !important;
@@ -250,7 +287,7 @@ body {
 /* Dark Mode Overrides */
 html.dark body {
   background-color: #0b0b0c;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   color: #f4f4f5;
@@ -259,9 +296,11 @@ html.dark body {
 html.dark ::-webkit-scrollbar-track {
   background: #0b0b0c;
 }
+
 html.dark ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
 }
+
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
@@ -279,7 +318,19 @@ html.dark #mobileMenu {
 }
 
 /* Smooth transition for theme switching */
-body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h3, h4 {
+body,
+.floating-nav,
+#mobileMenu,
+header,
+section,
+button,
+a,
+span,
+p,
+h1,
+h2,
+h3,
+h4 {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-duration: 350ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -289,9 +340,17 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
 .float-slow {
   animation: floatSlow 6s ease-in-out infinite;
 }
+
 @keyframes floatSlow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Dynamic Card Hover Glow effects based on categories */
@@ -300,21 +359,26 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .blog-card:hover {
   transform: translateY(-8px);
 }
+
 .blog-card[data-category="web"]:hover {
   border-color: rgba(99, 102, 241, 0.6) !important;
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
 }
+
 .blog-card[data-category="ui"]:hover {
   border-color: rgba(244, 63, 94, 0.6) !important;
   box-shadow: 0 10px 30px rgba(244, 63, 94, 0.15);
 }
+
 .blog-card[data-category="game"]:hover {
   border-color: rgba(16, 185, 129, 0.6) !important;
   box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
 }
+
 .blog-card[data-category="random"]:hover {
   border-color: rgba(245, 158, 11, 0.6) !important;
   box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
@@ -324,10 +388,19 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
 .like-pulse {
   animation: likePulse 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 @keyframes likePulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.4); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Spring melenting transition for Modals */
@@ -345,6 +418,7 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
   height: 12px;
   width: 16px;
 }
+
 .audio-wave-bar {
   width: 2px;
   height: 2px;
@@ -352,17 +426,25 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
   border-radius: 99px;
   animation: bounceWave 0.6s ease-in-out infinite alternate;
 }
+
 .audio-wave-bar:nth-child(2) {
   animation-delay: 0.15s;
   animation-duration: 0.4s;
 }
+
 .audio-wave-bar:nth-child(3) {
   animation-delay: 0.3s;
   animation-duration: 0.7s;
 }
+
 @keyframes bounceWave {
-  from { height: 2px; }
-  to { height: 12px; }
+  from {
+    height: 2px;
+  }
+
+  to {
+    height: 12px;
+  }
 }
 
 /* Floating heart particles */
@@ -374,11 +456,13 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
   animation: heartFly 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
   z-index: 100;
 }
+
 @keyframes heartFly {
   0% {
     transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translate(var(--tx), var(--ty)) scale(1.3) rotate(var(--rot));
     opacity: 0;
@@ -402,23 +486,28 @@ body, .floating-nav, #mobileMenu, header, section, button, a, span, p, h1, h2, h
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 html.dark .changelog-card {
   background: rgba(18, 18, 20, 0.35);
   border: 1px solid rgba(39, 39, 42, 0.4);
 }
+
 .changelog-card:hover {
   transform: translateY(-2px);
   border-color: rgba(99, 102, 241, 0.3);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
+
 html.dark .changelog-card:hover {
   border-color: rgba(99, 102, 241, 0.4);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
+
 .changelog-card.active-version {
   border-color: rgba(99, 102, 241, 0.3);
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.04);
 }
+
 html.dark .changelog-card.active-version {
   border-color: rgba(99, 102, 241, 0.4);
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
@@ -428,11 +517,13 @@ html.dark .changelog-card.active-version {
 .featured-card {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .featured-card:hover {
   transform: translateY(-6px);
   border-color: rgba(99, 102, 241, 0.5) !important;
   box-shadow: 0 20px 40px rgba(99, 102, 241, 0.08);
 }
+
 html.dark .featured-card:hover {
   box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12);
 }
@@ -443,6 +534,7 @@ html.dark .featured-card:hover {
   border: 1px solid rgba(228, 228, 231, 0.6);
   backdrop-filter: blur(10px);
 }
+
 html.dark .stat-pill {
   background: rgba(18, 18, 20, 0.4);
   border: 1px solid rgba(39, 39, 42, 0.6);
