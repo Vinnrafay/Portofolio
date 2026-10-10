@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Lenis Smooth Scroll CDN (Khusus Desktop) -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -55,8 +58,16 @@
   </script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
+    /* Smooth Scroll: Aktif di PC (Pointer Fine), Nonaktif di Mobile/Touch */
+    @media (min-width: 768px) and (pointer: fine) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+    @media (max-width: 767px), (pointer: coarse) {
+      html {
+        scroll-behavior: auto !important;
+      }
     }
 
     /* Pola grid latar belakang monokrom halus */
@@ -70,7 +81,7 @@
                         linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     }
 
-        /* Animasi Transisi Halus Kartu Repositori */
+    /* Animasi Transisi Halus Kartu Repositori */
     @keyframes repoCascadeIn {
       from {
         opacity: 0;
@@ -149,14 +160,14 @@
     }
 
     @keyframes waveMotion {
-  0%, 100% { transform: rotate(0deg); }
-  20%, 60% { transform: rotate(14deg); }
-  40%, 80% { transform: rotate(-10deg); }
-}
+      0%, 100% { transform: rotate(0deg); }
+      20%, 60% { transform: rotate(14deg); }
+      40%, 80% { transform: rotate(-10deg); }
+    }
 
-.wave-hand {
-  animation: waveMotion 2.4s ease-in-out infinite;
-}
+    .wave-hand {
+      animation: waveMotion 2.4s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -321,12 +332,6 @@
         <span data-lang="id">Web &amp; Game Developer.</span>
         <span data-lang="en" class="hidden">Web &amp; Game Developer.</span>
       </h1>
-
-      <!-- Deskripsi Natural & Nggak Kaku -->
-      <!-- <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-10">
-        <span data-lang="id">Siswa RPL di SMK Pesat yang hobi ngerancang antarmuka bersih, nulis backend terstruktur, dan bikin proyek interaktif yang enteng dijalankan.</span>
-        <span data-lang="en" class="hidden">Software Engineering student at SMK Pesat into clean interface design, structured web apps, and lightweight interactive games.</span>
-      </p> -->
 
       <!-- Action Buttons (Modern Rounded-XL, Bukan Kapsul/Pill) -->
       <div class="flex flex-wrap items-center justify-center gap-3.5 mb-16">
@@ -599,7 +604,7 @@
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-snug">
       <span class="block">“There are always things to learn and improve on. It never stops.”</span>
       
- <!-- Baris Penulis & Nomor 81 Presisi di Tengah (Lebih Besar & Jelas) -->
+<!-- Baris Penulis & Nomor 81 Presisi di Tengah (Lebih Besar & Jelas) -->
       <span class="inline-flex items-center justify-center align-middle gap-2.5 sm:gap-3 mt-4 sm:mt-5 text-lg sm:text-xl md:text-2xl font-bold text-zinc-700 dark:text-zinc-300">
         <span>- Oscar Piastri</span>
         <span class="inline-flex items-center align-middle -translate-y-0.5">
@@ -675,10 +680,6 @@
       <!-- Section Header -->
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
-          <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            <span data-lang="id">Karya Terpilih</span>
-            <span data-lang="en" class="hidden">Case Studies</span>
-          </span> -->
           <h2 class="text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
             <span data-lang="id">Proyek Pilihan.</span>
             <span data-lang="en" class="hidden">Selected Projects.</span>
@@ -793,7 +794,7 @@
               <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Thumbnail.png', 'OPTION Gameplay Snapshot', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
                 <img src="assets/Thumbnail.png" alt="Detail 3" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
               </button>
-                   <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/NewGameThumbnail2.png', 'New Game Thumbnail 2', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/NewGameThumbnail2.png', 'New Game Thumbnail 2', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
                 <img src="assets/NewGameThumbnail2.png" alt="Detail 4" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
               </button>
             </div>
@@ -821,7 +822,6 @@
       <div id="reposGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
         <!-- 1. StudentVoiceBE -->
-       <!-- 1. StudentVoiceBE -->
         <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Laravel Backend</span>
@@ -940,7 +940,7 @@
 
           <!-- Panah Diagonal -->
           <svg class="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M7 17L17 7M17 7H9M17 7V15" />
+            <path d="M7 17L17 7H9M17 7V15" />
           </svg>
         </a>
       </div>
@@ -950,13 +950,9 @@
     <!-- PROYEK TESTING MANDIRI (3 SANDBOX REPOS) -->
     <section class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
       <div class="mb-6">
-        <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-          <span data-lang="id">Testing &amp; Stuff</span>
-          <span data-lang="en" class="hidden">Sandbox</span> -->
-        </span>
-          <h2 class="text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
-            Open-Source Projects.
-          </h2>
+        <h2 class="text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
+          Open-Source Projects.
+        </h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -1189,12 +1185,12 @@
         <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Instagram</span>
-            <button onclick="copyToClipboard('@rafay.jose', 'Username Instagram')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Username">
+            <button onclick="copyToClipboard('@r_fayy', 'Username Instagram')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Username">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
-          <a href="https://www.instagram.com/rafay.jose/" target="_blank" rel="noopener noreferrer" class="block">
-            <span class="text-base font-bold text-zinc-950 dark:text-white group-hover:underline block truncate">@rafay.jose</span>
+          <a href="https://www.instagram.com/r_afayy/" target="_blank" rel="noopener noreferrer" class="block">
+            <span class="text-base font-bold text-zinc-950 dark:text-white group-hover:underline block truncate">@r_afayy</span>
             <span class="text-xs text-zinc-500 mt-1 flex items-center gap-1 font-medium">Buka Profil ↗</span>
           </a>
         </div>
@@ -1203,13 +1199,13 @@
         <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Email</span>
-            <button onclick="copyToClipboard('rafay.setiawan@gmail.com', 'Alamat Email')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Email">
+            <button onclick="copyToClipboard('rafayarvino.xpro@gmail.com', 'Alamat Email')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Email">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
-          <a href="mailto:rafay.setiawan@gmail.com" class="block">
+          <a href="mailto:rafayarvino.xpro@gmail.com" class="block">
             <span class="text-base font-bold text-zinc-950 dark:text-white group-hover:underline block truncate">Kirim Pesan</span>
-            <span class="text-xs text-zinc-500 mt-1 flex items-center gap-1 font-medium truncate">rafay.setiawan@gmail.com ↗</span>
+            <span class="text-xs text-zinc-500 mt-1 flex items-center gap-1 font-medium truncate">rafayarvino.xpro@gmail.com ↗</span>
           </a>
         </div>
 
@@ -1239,8 +1235,32 @@
   <script>
 
     // ==========================================
-// INTERAKSI THUMBNAIL KE FOTO UTAMA PROYEK
-// ==========================================
+    // SMOOTH SCROLLING (KHUSUS PC, MATI DI MOBILE)
+    // ==========================================
+    if (typeof Lenis !== 'undefined' && window.matchMedia('(min-width: 768px) and (pointer: fine)').matches && !('ontouchstart' in window)) {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        touchMultiplier: 0,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Hubungkan ke Scroll Progress Bar
+      lenis.on('scroll', () => {
+        const winScroll = window.scrollY || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progress = document.getElementById('scrollProgress');
+        if (progress) progress.style.width = scrolled + '%';
+      });
+    }
+
 // ==========================================
 // CONTROLLER PREVIEW: HERO COVER VS NORMAL UI
 // ==========================================
@@ -1255,8 +1275,8 @@ function swapProjectImage(targetImgId, newSrc, newCaption, clickedThumb, mode = 
     mainImg.src = newSrc;
     mainImg.setAttribute('data-caption', newCaption);
 
-    // Mode 'cover' = Full-bleed Hero Mockup (Screenshot 1)
-    // Mode 'contain' = Tampilan Normal UI Tanpa Crop (Screenshot 2)
+    // Mode 'cover' = Full-bleed Hero Mockup
+    // Mode 'contain' = Tampilan Normal UI Tanpa Crop
     if (mode === 'contain') {
       mainImg.className = 'w-full h-full object-contain p-2 sm:p-4 select-none group-hover:scale-[1.01] transition-all duration-300';
     } else {
@@ -1310,14 +1330,6 @@ function filterProjects(category) {
   });
 }
 
-// Buka Lightbox untuk gambar utama yang sedang aktif
-function openCurrentProjectImage(imgId) {
-  const mainImg = document.getElementById(imgId);
-  if (!mainImg) return;
-  const currentSrc = mainImg.src;
-  const currentCaption = mainImg.getAttribute('data-caption') || mainImg.alt;
-  openLightbox(currentSrc, currentCaption);
-}
     // 1. Pengalih Tema (Dark / Light)
     function toggleTheme() {
       const isDark = document.documentElement.classList.toggle('dark');
@@ -1390,31 +1402,6 @@ function openCurrentProjectImage(imgId) {
     }
     setLanguage(currentLang);
 
-    // 3. Filter Kategori Proyek
-    function filterProjects(category) {
-      const cards = document.querySelectorAll('.project-featured-card');
-      const categories = ['all', 'ui', 'web', 'game'];
-
-      categories.forEach(cat => {
-        const btn = document.getElementById(`filter-${cat}`);
-        if (!btn) return;
-        if (cat === category) {
-          btn.className = "px-4 py-1.5 text-xs font-semibold rounded-full bg-zinc-950 text-white dark:bg-zinc-100 dark:text-zinc-950 transition-all whitespace-nowrap";
-        } else {
-          btn.className = "px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap";
-        }
-      });
-
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
-        if (category === 'all' || cardCat === category) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
     // 4. Modal Lightbox
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -1475,7 +1462,7 @@ function openCurrentProjectImage(imgId) {
       }
     }
 
-    // 6. Scroll Progress
+    // 6. Scroll Progress Fallback (Mobile / Non-Lenis)
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1497,34 +1484,32 @@ function openCurrentProjectImage(imgId) {
       mobileMenu.classList.remove('flex');
     }
 
-    // Rotasi Gambar Nomor Oscar Piastri (40 Detik)
-(function () {
-  const piastriImg = document.getElementById('piastriNumber');
-  if (!piastriImg) return;
+    // Rotasi Gambar Nomor Oscar Piastri (tiap 10 Detik)
+    (function () {
+      const piastriImg = document.getElementById('piastriNumber');
+      if (!piastriImg) return;
 
-  const numbers = [
-    'assets/OP81.png',
-    'assets/OP81 (2).png'
-  ];
-  let currentIdx = 0;
+      const numbers = [
+        'assets/OP81.png',
+        'assets/OP81 (2).png'
+      ];
+      let currentIdx = 0;
 
-  // Preload kedua gambar ke cache browser
-  numbers.forEach((src) => {
-    const preloader = new Image();
-    preloader.src = src;
-  });
+      numbers.forEach((src) => {
+        const preloader = new Image();
+        preloader.src = src;
+      });
 
-  // Loop pergantian tiap 40 detik (40000 ms)
-  setInterval(() => {
-    piastriImg.classList.add('opacity-0');
+      setInterval(() => {
+        piastriImg.classList.add('opacity-0');
 
-    setTimeout(() => {
-      currentIdx = (currentIdx + 1) % numbers.length;
-      piastriImg.src = numbers[currentIdx];
-      piastriImg.classList.remove('opacity-0');
-    }, 500); // Waktu jeda fade-out sebelum fade-in kembali
-  }, 10000);
-})();
+        setTimeout(() => {
+          currentIdx = (currentIdx + 1) % numbers.length;
+          piastriImg.src = numbers[currentIdx];
+          piastriImg.classList.remove('opacity-0');
+        }, 500);
+      }, 10000);
+    })();
   </script>
 
 </body>
