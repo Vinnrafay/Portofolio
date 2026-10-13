@@ -700,17 +700,108 @@
 
       <!-- PROJECTS LIST -->
       <div class="space-y-20" id="projectsContainer">
+
+      <!-- PROJECT: Pandu -->
+      <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center pb-16 border-b border-zinc-200/80 dark:border-zinc-800/80" data-category="web" data-aos="fade-up">
         
-        <!-- PROJECT 1: DiceSides -->
+        <!-- Kiri: Detail Teks, Tech Stack & Action Links -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center">
+          <div class="flex items-center gap-2 mb-2">
+            <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500">Website</span> -->
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">Pandu</h3>
+          
+          
+          <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
+            <span data-lang="id">Sistem operasi harian berbasis satu layar untuk produktivitas terfokus. Menggunakan metodologi Rule-of-3 prioritas berwaktu, pemantauan batas belanja dengan deteksi real-time, serta pelacakan habit harian dengan prinsip konsistensi.</span>
+            <span data-lang="en" class="hidden">A distraction-free, single-screen daily operating system designed for focus. Features time-targeted Rule-of-3 priorities, deficit-aware daily spending limits, and habit tracking.</span>
+          </p>
+
+          <!-- Tech Stack Badges -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <img src="https://skills.syvixor.com/api/icons?i=react" class="w-4 h-4 rounded" alt="React" />
+              <span>React</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <img src="https://skills.syvixor.com/api/icons?i=ts" class="w-4 h-4 rounded" alt="TypeScript" />
+              <span>TypeScript</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <img src="https://skills.syvixor.com/api/icons?i=tailwind" class="w-4 h-4 rounded" alt="Tailwind CSS" />
+              <span>Tailwind CSS</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <img src="https://skills.syvixor.com/api/icons?i=laravel" class="w-4 h-4 rounded" alt="Laravel" />
+              <span>Laravel</span>
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <img src="https://skills.syvixor.com/api/icons?i=postgresql" class="w-4 h-4 rounded" alt="PostgreSQL" />
+              <span>PostgreSQL</span>
+            </span>
+          </div>
+
+          <!-- Tombol Kunjungi Website / Demo -->
+          <div class="flex items-center gap-3">
+            <a 
+              href="https://halopandu.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 text-xs font-bold shadow-xs hover:opacity-90 active:scale-95 transition-all group"
+            >
+              <span data-lang="id">Kunjungi Website</span>
+              <span data-lang="en" class="hidden">Visit Website</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+
+            <a 
+              href="https://github.com/Vinnrafay/Pandu" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-800/80 active:scale-95 transition-all"
+            >
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>Repository</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kanan: Showcase Preview Image -->
+        <div class="w-full md:w-1/2 flex flex-col gap-3.5">
+          <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('PanduMainImg')">
+            <img 
+              id="PanduMainImg" 
+              src="assets/Banner (7).png" 
+              data-caption="Pandu" 
+              alt="Pandu Dashboard Preview" 
+              class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
+              onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=Pandu+Dashboard+Preview'" 
+            />
+          </div>
+        </div>
+
+      </article>
+        
+        <!-- PROJECT 2: DiceSides -->
         <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center pb-16 border-b border-zinc-200/80 dark:border-zinc-800/80" data-category="ui" data-aos="fade-up">
           
           <!-- Kiri: Detail Teks & Badges Asli -->
           <div class="w-full md:w-1/2 flex flex-col justify-center">
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Sports Media</span>
+            <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Sports Media</span> -->
             <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">DiceSides</h3>
             <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
               <span data-lang="id">Desain media olahraga modern untuk F1 dan Sepak bola. Mengusung gaya visual infografis data yang tajam, terstruktur, dan komunikatif. Tetapi ini sudah berpindah untuk Game Studio.</span>
-              <span data-lang="en" class="hidden">Modern sports media design for F1 and Football, focusing on sharp, structured visual infographics.</span>
+              <span data-lang="en" class="hidden">Modern sports media design for F1 and Football, focusing on sharp, structured visual infographics. But this project is discontinued and move to Game Studio.</span>
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
@@ -726,7 +817,7 @@
               <img 
                 id="dicesidesMainImg" 
                 src="assets/Banner (3).png" 
-                data-caption="DiceSides · Cover Mockup Showcase" 
+                data-caption="DiceSides Main Logo" 
                 alt="DiceSides Preview" 
                 class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
                 onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=DiceSides+Preview'" 
@@ -735,13 +826,13 @@
 
             <!-- Thumbnail Sub-Foto -->
             <div class="flex items-center gap-2.5">
-              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (3).png', 'DiceSides · Cover Mockup', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
+              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (3).png', 'DiceSides Logo', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
                 <img src="assets/Banner (3).png" alt="Cover" class="w-full h-full object-cover" />
               </button>
-              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (4).png', 'DiceSides · Layout Infografis', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (4).png', 'DiceSides Design', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
                 <img src="assets/Banner (4).png" alt="Detail 2" class="w-full h-full object-cover" onerror="this.src='assets/dicesides.png'" />
               </button>
-              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (6).png', 'DiceSides · Tipografi Card', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (6).png', 'DiceSides Design', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
                 <img src="assets/Banner (6).png" alt="Detail 3" class="w-full h-full object-cover" onerror="this.src='assets/dicesides.png'" />
               </button>
             </div>
@@ -749,200 +840,247 @@
 
         </article>
 
-        <!-- PROJECT 3: DiceSides Studio -->
-        <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center" data-category="game" data-aos="fade-up">
-          
-          <!-- Kiri: Detail Teks & Badges Asli -->
-          <div class="w-full md:w-1/2 flex flex-col justify-center">
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Game Studio</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">DiceSides Studio</h3>
-            <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
-              <span data-lang="id">Game Studio di platform Roblox. Telah merilis proyek seperti OPTION dan sedang mengembangkan berbagai eksperimen gameplay baru.</span>
-              <span data-lang="en" class="hidden">Game Studio on Roblox, having released OPTION with more interactive experiments in development.</span>
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-                <img src="https://skills.syvixor.com/api/icons?i=lua" class="w-4 h-4 rounded" alt="Luau" />
-                <span>Luau</span>
-              </span>
-            </div>
+  <!-- PROJECT 3: DiceSides Studio -->
+      <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center" data-category="game" data-aos="fade-up">
+        
+        <!-- Kiri: Detail Teks, Badges, & Tombol Aksi Alert Dialog -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center">
+          <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Game Studio</span> -->
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">DiceSides Studio</h3>
+          <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-5">
+            <span data-lang="id">Game Studio di platform Roblox. Telah merilis proyek seperti OPTION dan sedang mengembangkan game pada saat ini.</span>
+            <span data-lang="en" class="hidden">Game Studio on Roblox, having released OPTION and also working on a game as of right now.</span>
+          </p>
+
+          <!-- Badges Teknologi -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <img src="https://skills.syvixor.com/api/icons?i=lua" class="w-4 h-4 rounded" alt="Luau" />
+              <span>Luau</span>
+            </span>
           </div>
 
-          <!-- Kanan: Showcase Preview -->
-          <div class="w-full md:w-1/2 flex flex-col gap-3.5">
-            <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('studioMainImg')">
-              <img 
-                id="studioMainImg" 
-                src="assets/Banner (1).png" 
-                data-caption="DiceSides Studio · Cover Showcase" 
-                alt="DiceSides Studio Preview" 
-                class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
-                onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=DiceSides+Studio+Preview'" 
-              />
-            </div>
+ <!-- Tombol Link Studio & Game (Bisa Diatur Teks & Penjelasannya) -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            
+            <!-- Tombol 1: Menuju Roblox Group -->
+            <button 
+              type="button" 
+              onclick="openLinkDialog({
+                url: 'https://www.roblox.com/communities/403281622/Dicesides',
+                title: 'Kunjungi DiceSides?',
+                description: 'Kamu akan diarahkan ke halaman komunitas DiceSides. Untuk saat ini sedang dalam pengembangan untuk gamenya yaitu <b>OPTION 2</b>. Tetapi ini adalah tempat dimana saya akan merilis proyek game saya.',
+                confirmText: 'Buka Roblox',
+                cancelText: 'Kembali'
+              })" 
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 text-xs sm:text-sm font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all active:scale-95 shadow-xs"
+            >
+              <span>Roblox Group</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+            </button>
 
-            <div class="flex items-center gap-2.5">
-              <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Banner (1).png', 'DiceSides Studio · Cover Mockup', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
-                <img src="assets/Banner (1).png" alt="Cover" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Banner (2).png', 'Avery\'s Home Screenshot', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-                <img src="assets/Banner (2).png" alt="Detail 2" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
-              </button>
-              <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Thumbnail.png', 'OPTION Gameplay Snapshot', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-                <img src="assets/Thumbnail.png" alt="Detail 3" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
-              </button>
-              <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/NewGameThumbnail2.png', 'New Game Thumbnail 2', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-                <img src="assets/NewGameThumbnail2.png" alt="Detail 4" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
-              </button>
-            </div>
-          </div>
+            <!-- Tombol 2: Menuju Game OPTION -->
+            <button 
+              type="button" 
+              onclick="openLinkDialog({
+                url: 'https://www.roblox.com/games/OPTION',
+                title: 'Buka halaman OPTION?',
+                description: 'Game ini di develop di 2024, dengan konsep untuk <b>tugas sekolah</b>. Game ini sangat unoptimized dan juga banyak bugnya sehingga tidak ada kelanjutkan development atau sudah di Discontinued. Tetapi kalau ingin Memainkannya silahkan <i>join</i> Averys Home. Karena dibatasi untuk yang join grupnya saja.',
+                confirmText: 'Mainkan Game',
+                cancelText: 'Nanti Dulu'
+              })" 
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm font-semibold hover:border-zinc-400 dark:hover:border-zinc-700 transition-all active:scale-95 shadow-xs"
+            >
+              <span>Play OPTION</span>
+              <svg class="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
 
-        </article>
-
-      </div>
-    </section>
-
-    <!-- PROYEK SEKOLAH & GITHUB (6 REPO UTAMA + VIEW MORE KE GITHUB) -->
-    <section id="repos" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
-      
-      <!-- Section Header -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-        <div>
-          <h2 class="text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
-            <span data-lang="id">Proyek Sekolah &amp; GitHub.</span>
-            <span data-lang="en" class="hidden">School &amp; GitHub Projects.</span>
-          </h2>
+          </div>  
         </div>
-      </div>
 
-      <!-- Grid Repositori Unggulan (Top 6) -->
-      <div id="reposGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-        <!-- 1. StudentVoiceBE -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Laravel Backend</span>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/StudentVoiceBE" target="_blank" rel="noopener noreferrer">StudentVoiceBE ↗</a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">REST API Backend berbasis Laravel untuk platform StudentVoice, mengelola database aspirasi dan autentikasi.</span>
-              <span data-lang="en" class="hidden">Laravel-based REST API backend for StudentVoice platform, handling aspiration database and authentication.</span>
-            </p>
+        <!-- Kanan: Showcase Preview -->
+        <div class="w-full md:w-1/2 flex flex-col gap-3.5">
+          <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('studioMainImg')">
+            <img 
+              id="studioMainImg" 
+              src="assets/Banner (1).png" 
+              data-caption="DiceSides Studio Main Logo" 
+              alt="DiceSides Studio Preview" 
+              class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
+              onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=DiceSides+Studio+Preview'" 
+            />
           </div>
-          <div class="text-xs font-semibold text-zinc-400 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4">PHP / Laravel</div>
-        </article>
 
-        <!-- 2. StudentVoice -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Fullstack Client</span>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/StudentVoice" target="_blank" rel="noopener noreferrer">StudentVoice ↗</a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">Aplikasi aspirasi dan pengaduan siswa untuk menjembatani komunikasi interaktif dengan pihak sekolah.</span>
-              <span data-lang="en" class="hidden">Student aspiration and complaint app designed to bridge interactive communication with school administration.</span>
-            </p>
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Banner (1).png', 'DiceSides Studio Main Logo', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
+              <img src="assets/Banner (1).png" alt="Cover" class="w-full h-full object-cover" />
+            </button>
+            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Banner (2).png', 'Game Icon (Release/Update)', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <img src="assets/Banner (2).png" alt="Detail 2" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
+            </button>
+            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Thumbnail.png', 'OPTION Thumbnail', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <img src="assets/Thumbnail.png" alt="Detail 3" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
+            </button>
+            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/NewGameThumbnail2.png', 'OPTION Thumbnail 2', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <img src="assets/NewGameThumbnail2.png" alt="Detail 4" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
+            </button>
           </div>
-          <div class="text-xs font-semibold text-zinc-400 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4">TypeScript / React</div>
-        </article>
+        </div>
 
-        <!-- 3. MoraFE -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">React Native</span>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/MoraFE" target="_blank" rel="noopener noreferrer">MoraFE ↗</a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">Aplikasi mobile berbasis Expo untuk mencatat, melacak, dan memantau poin kedisiplinan serta prestasi siswa.</span>
-              <span data-lang="en" class="hidden">Expo-based mobile app for tracking and monitoring student disciplinary points and achievements.</span>
-            </p>
-          </div>
-          <div class="text-xs font-semibold text-zinc-400 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4">React Native / Expo</div>
-        </article>
-
-        <!-- 4. MoraBE -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Laravel Backend</span>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/MoraBE" target="_blank" rel="noopener noreferrer">MoraBE ↗</a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">RESTful API backend untuk aplikasi Mora berbasis Laravel dengan sistem otentikasi Sanctum dan manajemen poin.</span>
-              <span data-lang="en" class="hidden">RESTful API backend for Mora built with Laravel, featuring Sanctum authentication and point management.</span>
-            </p>
-          </div>
-          <div class="text-xs font-semibold text-zinc-400 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4">PHP / Laravel</div>
-        </article>
-
-        <!-- 5. AyoNyuciApp -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">React Native</span>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/AyoNyuciApp" target="_blank" rel="noopener noreferrer">AyoNyuciApp ↗</a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">Aplikasi mobile client laundry AyoNyuci untuk mempermudah pemesanan jasa dan pelacakan status cucian.</span>
-              <span data-lang="en" class="hidden">Mobile client app for AyoNyuci laundry service to simplify order placement and laundry status tracking.</span>
-            </p>
-          </div>
-          <div class="text-xs font-semibold text-zinc-400 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4">React Native / Expo</div>
-        </article>
-
-        <!-- 6. OnlyCars -->
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-                <span data-lang="id">Komunitas Mobil</span>
-                <span data-lang="en" class="hidden">Car Community</span>
-              </span>
-              <button onclick="openLightbox('assets/onltycars.png', 'OnlyCars · Komunitas Mobil')" class="text-xs font-semibold underline hover:text-zinc-950 dark:hover:text-white">
-                <span data-lang="id">Lihat Foto ↗</span>
-                <span data-lang="en" class="hidden">View Photo ↗</span>
-              </button>
-            </div>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/OnlyCars" target="_blank" rel="noopener noreferrer">OnlyCars ↗</a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">Website komunitas pencinta mobil dengan tema minimalis gelap berbasis Laravel.</span>
-              <span data-lang="en" class="hidden">Car enthusiast community website featuring a dark minimalist aesthetic built with Laravel.</span>
-            </p>
-          </div>
-          <div class="text-xs font-semibold text-zinc-400 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4">Laravel / CSS</div>
-        </article>
+      </article>
 
       </div>
-
-      <!-- Action Button: View More on GitHub (Dengan Icon Folder Roundy) -->
-      <div class="flex justify-center mt-12" data-aos="fade-up">
-        <a 
-          href="https://github.com/Vinnrafay?tab=repositories" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 text-sm font-semibold hover:border-zinc-500 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-850 transition-all active:scale-95 shadow-xs"
-        >
-          <!-- Icon Folder (Roundy & Clean) -->
-          <svg class="w-4 h-4 text-zinc-700 dark:text-zinc-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
-          </svg>
-
-          <span data-lang="id">Lihat Repositori Lainnya</span>
-          <span data-lang="en" class="hidden">View More Repositories</span>
-
-          <!-- Panah Diagonal -->
-          <svg class="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M7 17L17 7H9M17 7V15" />
-          </svg>
-        </a>
-      </div>
-
     </section>
+
+<!-- PROYEK SEKOLAH & GITHUB (3 REPO UTAMA + LIVE DEMO & SKILL ICONS) -->
+<section id="repos" class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
+  
+  <!-- Section Header -->
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <div>
+      <h2 class="text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
+        <span data-lang="id">Proyek Sekolah &amp; GitHub.</span>
+        <span data-lang="en" class="hidden">School &amp; GitHub Projects.</span>
+      </h2>
+    </div>
+  </div>
+
+  <!-- Grid Repositori Unggulan (Top 3) -->
+  <div id="reposGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 sm:gap-5">
+
+    <!-- 1. StudentVoiceBE -->
+    <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group" data-aos="fade-up">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-2">
+            <a href="https://studentvoice-api.pesat.sch.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors" title="Kunjungi Website / API">
+            </a>
+          </div>
+        </div>
+
+        <h3 class="text-base font-bold text-zinc-950 dark:text-white mb-2 group-hover:underline">
+          <a href="https://github.com/Vinnrafay/StudentVoiceBE" target="_blank" rel="noopener noreferrer">StudentVoiceBE ↗</a>
+        </h3>
+
+        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="id">REST API arsitektur modular untuk manajemen aduan dan aspirasi siswa secara real-time, dilengkapi autentikasi Sanctum dan manajemen hak akses role.</span>
+          <span data-lang="en" class="hidden">Modular REST API backend powering real-time student aspirations and reports, built with Sanctum authentication and role authorization.</span>
+        </p>
+      </div>
+
+      <div class="pt-3.5 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4 flex items-center justify-between">
+        <div class="flex items-center gap-1.5">
+          <!-- <img src="https://skills.syvixor.com/api/icons?i=php" class="w-4 h-4 rounded object-contain" alt="PHP" title="PHP" />
+          <img src="https://skills.syvixor.com/api/icons?i=laravel" class="w-4 h-4 rounded object-contain" alt="Laravel" title="Laravel" />
+          <img src="https://skills.syvixor.com/api/icons?i=mysql" class="w-4 h-4 rounded object-contain" alt="MySQL" title="MySQL" />
+        </div> -->
+        <span class="text-[11px] font-medium text-zinc-400">PHP, Laravel, MySQL</span>
+      </div>
+    </article>
+
+    <!-- 2. StudentVoice (Frontend Client) -->
+    <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group" data-aos="fade-up">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-2">
+            <a href="https://studentvoice.pesat.sch.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors" title="Kunjungi Website">
+            </a>
+          </div>
+        </div>
+
+        <h3 class="text-base font-bold text-zinc-950 dark:text-white mb-2 group-hover:underline">
+          <a href="https://github.com/Vinnrafay/StudentVoice" target="_blank" rel="noopener noreferrer">StudentVoice ↗</a>
+        </h3>
+
+        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="id">Platform portal interaktif tempat siswa menyampaikan feedback dan pengaduan sekolah dengan antarmuka dinamis, filter status, dan form terintegrasi.</span>
+          <span data-lang="en" class="hidden">Interactive portal enabling students to submit feedback and complaints to school administration with dynamic UI and real-time status tracking.</span>
+        </p>
+      </div>
+
+      <div class="pt-3.5 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4 flex items-center justify-between">
+        <!-- <div class="flex items-center gap-1.5">
+          <img src="https://skills.syvixor.com/api/icons?i=ts" class="w-4 h-4 rounded object-contain" alt="TypeScript" title="TypeScript" />
+          <img src="https://skills.syvixor.com/api/icons?i=react" class="w-4 h-4 rounded object-contain" alt="React" title="React" />
+          <img src="https://skills.syvixor.com/api/icons?i=tailwind" class="w-4 h-4 rounded object-contain" alt="Tailwind CSS" title="Tailwind CSS" />
+        </div> -->
+        <span class="text-[11px] font-medium text-zinc-400">TypeScript, React, Tailwind</span>
+      </div>
+    </article>
+
+    <!-- 3. MoraFE -->
+    <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group" data-aos="fade-up">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Mobile Client</span> -->
+          <div class="flex items-center gap-2">
+            <a href="https://mora-app.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors" title="Kunjungi Web Demo / Preview">
+            </a>
+          </div>
+        </div>
+
+        <h3 class="text-base font-bold text-zinc-950 dark:text-white mb-2 group-hover:underline">
+          <a href="https://github.com/Vinnrafay/MoraFE" target="_blank" rel="noopener noreferrer">MoraFE ↗</a>
+        </h3>
+
+        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <span data-lang="id">Aplikasi mobile pelacak poin kedisiplinan dan rekap prestasi siswa SMK Pesat secara real-time dengan pengalaman navigasi native yang mulus.</span>
+          <span data-lang="en" class="hidden">Mobile app for tracking student disciplinary records and achievement points in real time, featuring fluid native navigation and breakdowns.</span>
+        </p>
+      </div>
+
+      <div class="pt-3.5 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4 flex items-center justify-between">
+        <!-- <div class="flex items-center gap-1.5">
+          <img src="https://skills.syvixor.com/api/icons?i=react" class="w-4 h-4 rounded object-contain" alt="React Native" title="React Native" />
+          <img src="https://skills.syvixor.com/api/icons?i=ts" class="w-4 h-4 rounded object-contain" alt="TypeScript" title="TypeScript" />
+        </div> -->
+        <span class="text-[11px] font-medium text-zinc-400">React Native, Expo</span>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Callout & Action Button: View More on GitHub -->
+  <div class="mt-14 pt-4 flex flex-col items-center text-center space-y-4" data-aos="fade-up">
+    <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed">
+      <span data-lang="id">
+        Karena banyak sekali proyeknya, Untuk melihat lebih lanjut bisa melalui 
+        <a href="https://github.com/Vinnrafay" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-zinc-900 dark:text-white underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-900 dark:hover:decoration-white transition-all">
+          <svg class="w-4 h-4 fill-current inline-block align-text-bottom" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Github
+        </a>, Terimakasih!
+      </span>
+      <span data-lang="en" class="hidden">
+        Due to the large number of projects, feel free to explore more via 
+        <a href="https://github.com/Vinnrafay" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-zinc-900 dark:text-white underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-900 dark:hover:decoration-white transition-all">
+          <svg class="w-4 h-4 fill-current inline-block align-text-bottom" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Github
+        </a>, Thank you!
+      </span>
+    </p>
+
+    <a 
+      href="https://github.com/Vinnrafay?tab=repositories" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 text-sm font-semibold hover:border-zinc-500 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all active:scale-95 shadow-xs"
+    >
+      <svg class="w-4 h-4 text-zinc-700 dark:text-zinc-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+      </svg>
+      <span data-lang="id">Lihat Repositori Lainnya</span>
+      <span data-lang="en" class="hidden">View More Repositories</span>
+      <svg class="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M7 17L17 7M17 7H9M17 7V15" />
+      </svg>
+    </a>
+  </div>
+
+</section>
 
     <!-- PROYEK TESTING MANDIRI (3 SANDBOX REPOS) -->
     <section class="mb-28 pt-10 border-t border-zinc-200 dark:border-zinc-800/80" data-aos="fade-up">
@@ -957,11 +1095,11 @@
         <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-              <span data-lang="id">Next.js Eksperimen</span>
-              <span data-lang="en" class="hidden">Next.js Experiment</span>
+              <span data-lang="id">Dummy</span>
+              <span data-lang="en" class="hidden">Dummy</span>
             </span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/NexoraDProject" target="_blank" rel="noopener noreferrer">NexoraDProject ↗</a>
+              <a href="https://github.com/Vinnrafay/NexoraDProject" target="_blank" rel="noopener noreferrer">Nexoral ↗</a>
             </h3>
             <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               <span data-lang="id">Website dummy minimalis yang dirancang menyerupai gaya antarmuka Vercel.</span>
@@ -975,11 +1113,11 @@
         <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-              <span data-lang="id">Testing Sandbox</span>
-              <span data-lang="en" class="hidden">Testing Sandbox</span>
+              <span data-lang="id">TOEIC Website Dummy</span>
+              <span data-lang="en" class="hidden">TOEIC Website Dummy</span>
             </span>
             <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/EnglishPractice" target="_blank" rel="noopener noreferrer">EnglishPractice ↗</a>
+              <a href="https://github.com/Vinnrafay/EnglishPractice" target="_blank" rel="noopener noreferrer">English Practice ↗</a>
             </h3>
             <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               <span data-lang="id">Aplikasi simulasi tes TOEIC untuk latihan logika form dan penghitungan skor.</span>
@@ -989,7 +1127,7 @@
           <span class="text-xs font-semibold text-zinc-400 mt-4">PHP / Blade</span>
         </article>
 
-        <!-- Template Edukasi -->
+        <!-- Template Edukasi
         <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
           <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
@@ -1008,7 +1146,7 @@
             </p>
           </div>
           <span class="text-xs font-semibold text-zinc-400 mt-4">HTML / CSS</span>
-        </article>
+        </article> -->
       </div>
     </section>
 
@@ -1217,6 +1355,45 @@
     <div class="max-w-4xl max-h-[85vh] flex flex-col items-center gap-3" onclick="event.stopPropagation()">
       <img id="lightboxImg" src="" alt="Pratinjau" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10" />
       <span id="lightboxCaption" class="text-white text-xs font-medium tracking-wide text-center"></span>
+    </div>
+  </div>
+
+  <!-- ALERT DIALOG MODAL (KONFIRMASI MENUJU TAUTAN EKSTERNAL) -->
+<div id="alertDialogModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden items-center justify-center p-4 transition-all duration-200 select-none" onclick="closeLinkDialog()">
+    <div class="w-full max-w-[440px] rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-2xl overflow-hidden transition-all duration-200 animate-in fade-in zoom-in-95" onclick="event.stopPropagation()">
+      
+      <!-- Bagian Atas: Judul & Penjelasan Bebas Diubah -->
+      <div class="p-6">
+        <h3 id="alertTitle" class="text-base sm:text-lg font-semibold tracking-tight text-zinc-950 dark:text-white">
+          Are you absolutely sure?
+        </h3>
+        <div id="alertMessage" class="text-sm text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
+          This action cannot be undone.
+        </div>
+      </div>
+
+      <!-- Bagian Bawah: Divider & Tombol Cancel/Continue -->
+      <div class="px-6 py-4 bg-zinc-50/70 dark:bg-zinc-900/40 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-end gap-2.5">
+        <button 
+          type="button" 
+          id="alertCancelBtn"
+          onclick="closeLinkDialog()" 
+          class="px-4 py-2 rounded-xl text-sm font-medium border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-95 shadow-xs"
+        >
+          Cancel
+        </button>
+        <a 
+          id="alertConfirmBtn" 
+          href="#" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          onclick="closeLinkDialog()" 
+          class="px-4 py-2 rounded-xl text-sm font-medium bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all active:scale-95 shadow-xs"
+        >
+          Continue
+        </a>
+      </div>
+
     </div>
   </div>
 
@@ -1468,6 +1645,44 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeLightbox();
     });
+
+  // ==========================================
+    // ALERT DIALOG CONTROLLER (FLEXIBLE TEXT)
+    // ==========================================
+    function openLinkDialog(params) {
+      const modal = document.getElementById('alertDialogModal');
+      const titleEl = document.getElementById('alertTitle');
+      const msgEl = document.getElementById('alertMessage');
+      const confirmBtn = document.getElementById('alertConfirmBtn');
+      const cancelBtn = document.getElementById('alertCancelBtn');
+
+      if (!modal || !confirmBtn) return;
+
+      // Mendukung input objek: { url, title, description, confirmText, cancelText }
+      const url = typeof params === 'object' ? params.url : params;
+      const title = typeof params === 'object' ? params.title : arguments[1];
+      const desc = typeof params === 'object' ? params.description : arguments[2];
+      const confirmText = (typeof params === 'object' && params.confirmText) ? params.confirmText : 'Continue';
+      const cancelText = (typeof params === 'object' && params.cancelText) ? params.cancelText : 'Cancel';
+
+      if (titleEl) titleEl.textContent = title || 'Are you absolutely sure?';
+      if (msgEl) msgEl.innerHTML = desc || 'This action will take you to an external destination.';
+      if (confirmBtn) {
+        confirmBtn.href = url || '#';
+        confirmBtn.textContent = confirmText;
+      }
+      if (cancelBtn) cancelBtn.textContent = cancelText;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLinkDialog() {
+      const modal = document.getElementById('alertDialogModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
 
     // 5. Toast Salin Teks
     const toast = document.getElementById('toast');
