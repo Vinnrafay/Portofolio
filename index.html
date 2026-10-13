@@ -701,17 +701,13 @@
       <!-- PROJECTS LIST -->
       <div class="space-y-20" id="projectsContainer">
 
-      <!-- PROJECT: Pandu -->
+<!-- PROJECT: Pandu -->
       <article class="project-featured-card flex flex-col md:flex-row gap-8 lg:gap-14 items-center pb-16 border-b border-zinc-200/80 dark:border-zinc-800/80" data-category="web" data-aos="fade-up">
         
         <!-- Kiri: Detail Teks, Tech Stack & Action Links -->
         <div class="w-full md:w-1/2 flex flex-col justify-center">
-          <div class="flex items-center gap-2 mb-2">
-            <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500">Website</span> -->
-          </div>
-
+          <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Daily OS &amp; Productivity</span>
           <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">Pandu</h3>
-          
           
           <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
             <span data-lang="id">Sistem operasi harian berbasis satu layar untuk produktivitas terfokus. Menggunakan metodologi Rule-of-3 prioritas berwaktu, pemantauan batas belanja dengan deteksi real-time, serta pelacakan habit harian dengan prinsip konsistensi.</span>
@@ -746,13 +742,20 @@
             </span>
           </div>
 
-          <!-- Tombol Kunjungi Website / Demo -->
+          <!-- Tombol Aksi: Kunjungi Website (Alert Dialog) & Repository -->
           <div class="flex items-center gap-3">
-            <a 
-              href="https://halopandu.vercel.app" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 text-xs font-bold shadow-xs hover:opacity-90 active:scale-95 transition-all group"
+            
+            <!-- Tombol 1: Memicu Alert Dialog -->
+            <button 
+              type="button" 
+              onclick="openLinkDialog({
+                url: 'https://halopandu.vercel.app',
+                title: 'Buka HaloPandu?',
+                description: 'Kamu akan diarahkan ke website demo Pandu. Semua ini masih dalam testing dan akan dilanjutkan nanti. Apakah kamu yakin ingin melanjutkan?',
+                confirmText: 'Buka Website',
+                cancelText: 'Batal'
+              })" 
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 text-xs font-bold shadow-xs hover:opacity-90 active:scale-95 transition-all group cursor-pointer"
             >
               <span data-lang="id">Kunjungi Website</span>
               <span data-lang="en" class="hidden">Visit Website</span>
@@ -760,8 +763,9 @@
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
-            </a>
+            </button>
 
+            <!-- Tombol 2: Repository GitHub -->
             <a 
               href="https://github.com/Vinnrafay/Pandu" 
               target="_blank" 
@@ -773,16 +777,17 @@
               </svg>
               <span>Repository</span>
             </a>
+
           </div>
         </div>
 
         <!-- Kanan: Showcase Preview Image -->
         <div class="w-full md:w-1/2 flex flex-col gap-3.5">
-          <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('PanduMainImg')">
+          <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('PanduMainImg')">
             <img 
               id="PanduMainImg" 
               src="assets/Banner (7).png" 
-              data-caption="Pandu" 
+              data-caption="Pandu · Single-Screen Daily OS" 
               alt="Pandu Dashboard Preview" 
               class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
               onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=Pandu+Dashboard+Preview'" 
@@ -883,7 +888,7 @@
             <button 
               type="button" 
               onclick="openLinkDialog({
-                url: 'https://www.roblox.com/games/OPTION',
+                url: 'https://www.roblox.com/games/83096157775144/OPTION',
                 title: 'Buka halaman OPTION?',
                 description: 'Game ini di develop di 2024, dengan konsep untuk <b>tugas sekolah</b>. Game ini sangat unoptimized dan juga banyak bugnya sehingga tidak ada kelanjutkan development atau sudah di Discontinued. Tetapi kalau ingin Memainkannya silahkan <i>join</i> Averys Home. Karena dibatasi untuk yang join grupnya saja.',
                 confirmText: 'Mainkan Game',
