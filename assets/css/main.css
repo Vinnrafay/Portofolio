@@ -1,0 +1,103 @@
+/* main.css - extracted from index.html (Fase 2.1, visual-identical) */
+
+/* Smooth Scroll: Aktif di PC (Pointer Fine), Nonaktif di Mobile/Touch */
+@media (min-width: 768px) and (pointer: fine) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+@media (max-width: 767px), (pointer: coarse) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Pola grid latar belakang monokrom halus */
+.bg-grid-subtle {
+  background-size: 36px 36px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+.dark .bg-grid-subtle {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Animasi Transisi Halus Kartu Repositori */
+@keyframes repoCascadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.repo-card-animate {
+  animation: repoCascadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animasi Looping Marquee */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Animasi Baris 2: Jalan ke Kanan (Reverse) */
+@keyframes marqueeScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.marquee-wrapper {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track-forward {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollReverse 30s linear infinite;
+}
+
+.marquee-track-forward:hover,
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes waveMotion {
+  0%, 100% { transform: rotate(0deg); }
+  20%, 60% { transform: rotate(14deg); }
+  40%, 80% { transform: rotate(-10deg); }
+}
+
+.wave-hand {
+  animation: waveMotion 2.4s ease-in-out infinite;
+}
+
+/* Fokus keyboard yang jelas (Fase 4.3) */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 6px;
+}

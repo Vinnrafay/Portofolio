@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rafay.dev</title>
   <link rel="icon" type="image/png" href="assets/logs.png" />
+  <link rel="apple-touch-icon" href="assets/logs.png" />
 
   <!-- SEO Metadata -->
   <meta name="description" content="Portofolio Rafay Arvino Setiawan, siswa Rekayasa Perangkat Lunak SMK Informatika Pesat Bogor. Berfokus pada backend Laravel, aplikasi web, dan perancangan UI bersih." />
@@ -16,40 +17,44 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Rafay.dev" />
   <meta property="og:description" content="Siswa RPL yang berfokus pada arsitektur web fungsional, Laravel, dan antarmuka bersih." />
-  <meta property="og:image" content="assets/logs.jpeg" />
+  <meta property="og:image" content="assets/logs.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rafay.dev" />
+  <meta name="twitter:description" content="Siswa RPL yang berfokus pada arsitektur web fungsional, Laravel, dan antarmuka bersih." />
+  <meta name="twitter:image" content="assets/logs.png" />
+  <meta name="theme-color" content="#09090b" />
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rafay Arvino Setiawan",
+    "jobTitle": "Web & Game Developer",
+    "description": "Siswa Rekayasa Perangkat Lunak SMK Informatika Pesat Bogor. Berfokus pada backend Laravel, aplikasi web, dan perancangan UI bersih.",
+    "knowsAbout": ["Laravel", "PHP", "JavaScript", "TypeScript", "React", "Tailwind CSS", "UI/UX Design", "Luau"],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "SMK Informatika Pesat Bogor"
+    },
+    "sameAs": ["https://github.com/Vinnrafay"]
+  }
+  </script>
 
   <!-- Fonts: Inter Standard (Sans-Serif Bersih) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- AOS (Animate On Scroll) CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- AOS (Animate On Scroll) CSS (lokal, Fase 3 follow-up) -->
+  <link rel="stylesheet" href="assets/vendor/aos.css" />
 
-  <!-- Lenis Smooth Scroll CDN (Khusus Desktop) -->
-  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <!-- Lenis Smooth Scroll (lokal, khusus Desktop) -->
+  <script src="assets/vendor/lenis.min.js" defer></script>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS (Fase 3.1: static build, pengganti CDN) -->
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-          },
-          colors: {
-            surface: {
-              light: '#f5f5f7',
-              dark: '#09090b',
-            },
-            iosblue: '#007aff',
-          }
-        }
-      }
-    };
-
     (function () {
       const savedTheme = localStorage.getItem('portfolio-theme');
       if (savedTheme === 'light') {
@@ -60,121 +65,16 @@
     })();
   </script>
 
-  <style>
-    /* Smooth Scroll: Aktif di PC (Pointer Fine), Nonaktif di Mobile/Touch */
-    @media (min-width: 768px) and (pointer: fine) {
-      html {
-        scroll-behavior: smooth;
-      }
-    }
-    @media (max-width: 767px), (pointer: coarse) {
-      html {
-        scroll-behavior: auto !important;
-      }
-    }
-
-    /* Pola grid latar belakang monokrom halus */
-    .bg-grid-subtle {
-      background-size: 36px 36px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-    }
-    .dark .bg-grid-subtle {
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    }
-
-    /* Animasi Transisi Halus Kartu Repositori */
-    @keyframes repoCascadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(16px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .repo-card-animate {
-      animation: repoCascadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    /* Animasi Looping Marquee */
-    @keyframes marqueeScroll {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 24s linear infinite;
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    .marquee-wrapper {
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    }
-
-    /* Animasi Baris 1: Jalan ke Kiri */
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Animasi Baris 2: Jalan ke Kanan (Reverse) */
-    @keyframes marqueeScrollReverse {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0%); }
-    }
-
-    .marquee-track-forward {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 28s linear infinite;
-    }
-
-    .marquee-track-reverse {
-      display: flex;
-      width: max-content;
-      animation: marqueeScrollReverse 30s linear infinite;
-    }
-
-    .marquee-track-forward:hover,
-    .marquee-track-reverse:hover {
-      animation-play-state: paused;
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    @keyframes waveMotion {
-      0%, 100% { transform: rotate(0deg); }
-      20%, 60% { transform: rotate(14deg); }
-      40%, 80% { transform: rotate(-10deg); }
-    }
-
-    .wave-hand {
-      animation: waveMotion 2.4s ease-in-out infinite;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
 <body class="bg-surface-light dark:bg-surface-dark text-zinc-900 dark:text-zinc-100 font-sans antialiased bg-grid-subtle min-h-screen selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950 transition-colors duration-200">
+
+  <!-- Skip Link (Fase 4.3) -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-xl focus:bg-zinc-950 focus:text-white dark:focus:bg-white dark:focus:text-zinc-950 focus:text-xs focus:font-semibold">
+    <span data-lang="id">Lewati ke konten</span>
+    <span data-lang="en" class="hidden">Skip to content</span>
+  </a>
 
   <!-- Scroll Progress Indicator -->
   <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-zinc-950 dark:bg-white z-50 transition-all duration-75"></div>
@@ -221,15 +121,15 @@
         
         <!-- Language Switcher Bersih -->
         <div class="inline-flex p-0.5 rounded-full bg-zinc-100/90 dark:bg-zinc-900/90 text-[11px] font-medium select-none">
-          <button id="lang-id" onclick="setLanguage('id')" class="px-2.5 py-1 rounded-full font-bold transition-all bg-white text-zinc-950 dark:bg-zinc-800 dark:text-white shadow-xs">ID</button>
-          <button id="lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-full text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all">EN</button>
+          <button id="lang-id" data-action="set-lang" data-lang="id" aria-label="Bahasa Indonesia" aria-pressed="true" class="px-2.5 py-1 rounded-full font-bold transition-all bg-white text-zinc-950 dark:bg-zinc-800 dark:text-white shadow-xs">ID</button>
+          <button id="lang-en" data-action="set-lang" data-lang="en" aria-label="English" aria-pressed="false" class="px-2.5 py-1 rounded-full text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all">EN</button>
         </div>
 
         <!-- Garis Pemisah Halus -->
         <span class="w-[1px] h-3.5 bg-zinc-200 dark:border-zinc-800 mx-0.5 opacity-60"></span>
 
         <!-- Theme Toggle (Ikon Bulat / Roundy & Soft) -->
-        <button onclick="toggleTheme()" class="w-8 h-8 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 flex items-center justify-center text-zinc-600 dark:text-zinc-300 transition-all active:scale-90" aria-label="Toggle Theme">
+        <button data-action="toggle-theme" class="w-8 h-8 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 flex items-center justify-center text-zinc-600 dark:text-zinc-300 transition-all active:scale-90" aria-label="Toggle Theme">
           <!-- Sun Icon: Lingkaran Soft dengan Ujung Membulat -->
           <svg id="themeIconSun" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="4.2" fill="currentColor" fill-opacity="0.12"></circle>
@@ -274,12 +174,12 @@
         
         <!-- Language Switcher Mobile -->
         <div class="inline-flex p-0.5 rounded-full border border-zinc-200/80 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-[10px] font-medium">
-          <button id="lang-id-m" onclick="setLanguage('id')" class="px-2 py-0.5 rounded-full font-bold transition-all bg-white text-zinc-950 dark:bg-zinc-800 dark:text-white shadow-sm">ID</button>
-          <button id="lang-en-m" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-full text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all">EN</button>
+          <button id="lang-id-m" data-action="set-lang" data-lang="id" aria-label="Bahasa Indonesia" aria-pressed="true" class="px-2 py-0.5 rounded-full font-bold transition-all bg-white text-zinc-950 dark:bg-zinc-800 dark:text-white shadow-sm">ID</button>
+          <button id="lang-en-m" data-action="set-lang" data-lang="en" aria-label="English" aria-pressed="false" class="px-2 py-0.5 rounded-full text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all">EN</button>
         </div>
 
         <!-- Theme Toggle Mobile -->
-        <button onclick="toggleTheme()" class="w-8 h-8 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 flex items-center justify-center text-zinc-700 dark:text-zinc-300 transition-all active:scale-95" aria-label="Toggle Theme">
+        <button data-action="toggle-theme" class="w-8 h-8 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 flex items-center justify-center text-zinc-700 dark:text-zinc-300 transition-all active:scale-95" aria-label="Toggle Theme">
           <svg id="themeIconSunM" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="4.5"></circle>
             <path d="M12 2v2"></path>
@@ -297,7 +197,7 @@
         </button>
 
         <!-- Hamburger Button Mobile -->
-        <button id="mobileMenuBtn" class="w-8 h-8 rounded-full border border-zinc-200/80 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 flex items-center justify-center text-zinc-700 dark:text-zinc-300 transition-all active:scale-95" aria-label="Menu Mobile">
+        <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu" class="w-8 h-8 rounded-full border border-zinc-200/80 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 flex items-center justify-center text-zinc-700 dark:text-zinc-300 transition-all active:scale-95" aria-label="Menu Mobile">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
             <path d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
@@ -310,16 +210,16 @@
 
   <!-- Mobile Drawer Menu -->
   <div id="mobileMenu" class="fixed top-20 left-4 right-4 z-30 hidden flex-col p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl shadow-2xl gap-3 text-sm font-medium">
-    <a href="#about" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" onclick="closeMobileMenu()">Tentang</a>
-    <a href="#projects" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" onclick="closeMobileMenu()">Proyek Utama</a>
-    <a href="#repos" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" onclick="closeMobileMenu()">Repositori</a>
-    <a href="#certs" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" onclick="closeMobileMenu()">Sertifikat</a>
-    <a href="#contact" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" onclick="closeMobileMenu()">Kontak</a>
+    <a href="#about" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" data-action="close-menu">Tentang</a>
+    <a href="#projects" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" data-action="close-menu">Proyek Utama</a>
+    <a href="#repos" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" data-action="close-menu">Repositori</a>
+    <a href="#certs" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" data-action="close-menu">Sertifikat</a>
+    <a href="#contact" class="px-3 py-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900" data-action="close-menu">Kontak</a>
     <a href="https://wa.me/6287797895571" target="_blank" class="w-full text-center py-2.5 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-xs">Let's Talk ↗</a>
   </div>
 
   <!-- KONTEN UTAMA -->
-  <main class="max-w-5xl mx-auto px-5 pt-32 sm:pt-40 pb-24">
+  <main id="main" class="max-w-5xl mx-auto px-5 pt-32 sm:pt-40 pb-24">
 
     <!-- HERO SECTION -->
     <section id="home" class="mb-20 flex flex-col items-center text-center" data-aos="fade-up">
@@ -378,201 +278,9 @@
           <div class="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-surface-light dark:from-surface-dark to-transparent z-10"></div>
           <div class="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-surface-light dark:from-surface-dark to-transparent z-10"></div>
 
-          <!-- BARIS 1: BAHASA & FRAMEWORK -->
-          <div class="marquee-track-forward flex items-center gap-3 select-none">
-            <div class="flex items-center gap-3 shrink-0">
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=html" alt="HTML5" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">HTML5</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=css" alt="CSS3" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">CSS3</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=js" alt="JavaScript" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">JavaScript</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=ts" alt="TypeScript" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">TypeScript</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=php" alt="PHP" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">PHP</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=laravel" alt="Laravel" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Laravel</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=react" alt="React" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">React</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=nextjs" alt="Next.js" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Next.js</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=tailwind" alt="Tailwind" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Tailwind</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=mysql" alt="MySQL" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">MySQL</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=lua" alt="Luau" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Luau</span>
-              </div>
-            </div>
-
-            <!-- SET 1 DUPLIKAT -->
-            <div class="flex items-center gap-3 shrink-0" aria-hidden="true">
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=html" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">HTML5</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=css" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">CSS3</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=js" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">JavaScript</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=ts" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">TypeScript</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=php" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">PHP</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=laravel" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Laravel</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=react" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">React</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=nextjs" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Next.js</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=tailwind" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Tailwind</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=mysql" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">MySQL</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=lua" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Luau</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- BARIS 2: TOOLS & WORKFLOW -->
-          <div class="marquee-track-reverse flex items-center gap-3 select-none">
-            <div class="flex items-center gap-3 shrink-0">
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=figma" alt="Figma" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Figma</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=git" alt="Git" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Git</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=github" alt="GitHub" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">GitHub</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=vscode" alt="VS Code" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">VS Code</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=npm" alt="npm" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">npm</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=vite" alt="Vite" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Vite</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=vercel" alt="Vercel" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Vercel</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=postman" alt="Postman" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Postman</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=supabase" alt="Supabase" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Supabase</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=bootstrap" alt="Bootstrap" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Bootstrap</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=nodejs" alt="Node.js" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Node.js</span>
-              </div>
-            </div>
-
-            <!-- SET 2 DUPLIKAT -->
-            <div class="flex items-center gap-3 shrink-0" aria-hidden="true">
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=figma" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Figma</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=git" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Git</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=github" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">GitHub</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=vscode" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">VS Code</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=npm" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">npm</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=vite" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Vite</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=vercel" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Vercel</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=postman" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Postman</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=supabase" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Supabase</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=bootstrap" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Bootstrap</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 shadow-sm hover:border-zinc-400 dark:hover:border-zinc-600 hover:-translate-y-0.5 transition-all duration-150">
-                <img src="https://skills.syvixor.com/api/icons?i=nodejs" alt="" class="w-6 h-6 rounded-md object-contain" loading="lazy" />
-                <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Node.js</span>
-              </div>
-            </div>
-          </div>
+          <!-- BARIS 1+2: dirender via home.js (Fase 2.4, visual-identical) -->
+          <div id="marqueeRow1" class="marquee-track-forward flex items-center gap-3 select-none"></div>
+          <div id="marqueeRow2" class="marquee-track-reverse flex items-center gap-3 select-none"></div>
 
         </div>
       </section>
@@ -613,10 +321,10 @@
             <span class="inline-flex items-center align-middle -translate-y-0.5">
               <img 
                 id="piastriNumber" 
-                src="assets/OP81.png" 
+                src="assets/OP81.webp" 
                 alt="Oscar Piastri 81" 
                 class="h-[1.35em] w-auto object-contain transition-opacity duration-500 ease-in-out opacity-100 select-none drop-shadow-xs" 
-                loading="eager"
+                loading="lazy" decoding="async"
               />
             </span>
           </span>
@@ -629,7 +337,7 @@
         <!-- Foto Asli Profil Pengguna (Kiri - 4 Kolom) -->
         <div class="lg:col-span-4 flex justify-center lg:justify-start" data-aos="fade-up">
           <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-md">
-            <img src="assets/179663690.jpeg" alt="Rafay Arvino Setiawan" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/18181b/ffffff?text=Rafay'" />
+            <img src="assets/179663690.jpeg" alt="Rafay Arvino Setiawan" class="w-full h-full object-cover" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400/18181b/ffffff?text=Rafay'" />
           </div>
         </div>
 
@@ -664,10 +372,10 @@
               <span>- Max Verstappen</span>
               <span class="inline-flex items-center align-middle -translate-y-0.5">
                 <img 
-                  src="assets/MV3.png" 
+                  src="assets/MV3.webp" 
                   alt="Max Verstappen 3" 
                   class="h-[1.35em] w-auto object-contain transition-opacity duration-500 ease-in-out opacity-100 select-none drop-shadow-xs" 
-                  loading="eager"
+                  loading="lazy" decoding="async"
                 />
               </span>
             </span>
@@ -692,10 +400,10 @@
 
       <!-- Filter Kategori Tabs (Pills Tetap Utuh) -->
       <div class="flex items-center gap-2 overflow-x-auto pb-2 mb-12 no-scrollbar">
-        <button id="filter-all" onclick="filterProjects('all')" class="px-4 py-1.5 text-xs font-semibold rounded-full bg-zinc-950 text-white dark:bg-zinc-100 dark:text-zinc-950 transition-all whitespace-nowrap">Semua</button>
-        <button id="filter-ui" onclick="filterProjects('ui')" class="px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap">Design</button>
-        <button id="filter-web" onclick="filterProjects('web')" class="px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap">Web Dev</button>
-        <button id="filter-game" onclick="filterProjects('game')" class="px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap">Game</button>
+        <button id="filter-all" data-action="filter" data-filter="all" aria-pressed="true" class="px-4 py-1.5 text-xs font-semibold rounded-full bg-zinc-950 text-white dark:bg-zinc-100 dark:text-zinc-950 transition-all whitespace-nowrap">Semua</button>
+        <button id="filter-ui" data-action="filter" data-filter="ui" aria-pressed="false" class="px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap">Design</button>
+        <button id="filter-web" data-action="filter" data-filter="web" aria-pressed="false" class="px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap">Web Dev</button>
+        <button id="filter-game" data-action="filter" data-filter="game" aria-pressed="false" class="px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap">Game</button>
       </div>
 
       <!-- PROJECTS LIST -->
@@ -717,27 +425,27 @@
           <!-- Tech Stack Badges -->
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-              <img src="https://skills.syvixor.com/api/icons?i=react" class="w-4 h-4 rounded" alt="React" />
+              <img src="assets/icons/react.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="React" />
               <span>React</span>
             </span>
 
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-              <img src="https://skills.syvixor.com/api/icons?i=ts" class="w-4 h-4 rounded" alt="TypeScript" />
+              <img src="assets/icons/ts.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="TypeScript" />
               <span>TypeScript</span>
             </span>
 
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-              <img src="https://skills.syvixor.com/api/icons?i=tailwind" class="w-4 h-4 rounded" alt="Tailwind CSS" />
+              <img src="assets/icons/tailwind.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="Tailwind CSS" />
               <span>Tailwind CSS</span>
             </span>
 
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-              <img src="https://skills.syvixor.com/api/icons?i=laravel" class="w-4 h-4 rounded" alt="Laravel" />
+              <img src="assets/icons/laravel.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="Laravel" />
               <span>Laravel</span>
             </span>
 
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-              <img src="https://skills.syvixor.com/api/icons?i=postgresql" class="w-4 h-4 rounded" alt="PostgreSQL" />
+              <img src="assets/icons/postgresql.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="PostgreSQL" />
               <span>PostgreSQL</span>
             </span>
           </div>
@@ -748,13 +456,7 @@
             <!-- Tombol 1: Memicu Alert Dialog -->
             <button 
               type="button" 
-              onclick="openLinkDialog({
-                url: 'https://halopandu.vercel.app',
-                title: 'Buka HaloPandu?',
-                description: 'Kamu akan diarahkan ke website demo Pandu. Semua ini masih dalam testing dan akan dilanjutkan nanti. Apakah kamu yakin ingin melanjutkan?',
-                confirmText: 'Buka Website',
-                cancelText: 'Batal'
-              })" 
+              data-action="open-dialog" data-dialog="pandu"
               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 text-xs font-bold shadow-xs hover:opacity-90 active:scale-95 transition-all group cursor-pointer"
             >
               <span data-lang="id">Kunjungi Website</span>
@@ -783,13 +485,14 @@
 
         <!-- Kanan: Showcase Preview Image -->
         <div class="w-full md:w-1/2 flex flex-col gap-3.5">
-          <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('PanduMainImg')">
+          <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" data-action="open-project-img" data-img="PanduMainImg">
             <img 
               id="PanduMainImg" 
-              src="assets/Banner (7).png" 
-              data-caption="Pandu · Single-Screen Daily OS" 
+              src="assets/banner-7.webp" 
+              data-caption="Pandu" 
               alt="Pandu Dashboard Preview" 
               class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
+              loading="lazy" decoding="async"
               onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=Pandu+Dashboard+Preview'" 
             />
           </div>
@@ -802,7 +505,6 @@
           
           <!-- Kiri: Detail Teks & Badges Asli -->
           <div class="w-full md:w-1/2 flex flex-col justify-center">
-            <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Sports Media</span> -->
             <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">DiceSides</h3>
             <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6">
               <span data-lang="id">Desain media olahraga modern untuk F1 dan Sepak bola. Mengusung gaya visual infografis data yang tajam, terstruktur, dan komunikatif. Tetapi ini sudah berpindah untuk Game Studio.</span>
@@ -810,7 +512,7 @@
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-                <img src="https://skills.syvixor.com/api/icons?i=figma" class="w-4 h-4 rounded" alt="Figma" />
+                <img src="assets/icons/figma.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="Figma" />
                 <span>Figma</span>
               </span>
             </div>
@@ -818,27 +520,28 @@
 
           <!-- Kanan: Showcase Preview (Hero Penuh / Detail UI) -->
           <div class="w-full md:w-1/2 flex flex-col gap-3.5">
-            <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('dicesidesMainImg')">
+            <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" data-action="open-project-img" data-img="dicesidesMainImg">
               <img 
                 id="dicesidesMainImg" 
-                src="assets/Banner (3).png" 
+                src="assets/banner-3.webp" 
                 data-caption="DiceSides Main Logo" 
                 alt="DiceSides Preview" 
                 class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
+                loading="lazy" decoding="async"
                 onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=DiceSides+Preview'" 
               />
             </div>
 
             <!-- Thumbnail Sub-Foto -->
             <div class="flex items-center gap-2.5">
-              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (3).png', 'DiceSides Logo', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
-                <img src="assets/Banner (3).png" alt="Cover" class="w-full h-full object-cover" />
+              <button type="button" data-action="swap-img" data-target="dicesidesMainImg" data-src="assets/banner-3.webp" data-caption="DiceSides Logo" data-mode="cover" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
+                <img src="assets/banner-3.webp" alt="Cover" class="w-full h-full object-cover" loading="lazy" decoding="async" />
               </button>
-              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (4).png', 'DiceSides Design', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-                <img src="assets/Banner (4).png" alt="Detail 2" class="w-full h-full object-cover" onerror="this.src='assets/dicesides.png'" />
+              <button type="button" data-action="swap-img" data-target="dicesidesMainImg" data-src="assets/banner-4.webp" data-caption="DiceSides Design" data-mode="contain" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+                <img src="assets/banner-4.webp" alt="Detail 2" class="w-full h-full object-cover" loading="lazy" decoding="async" onerror="this.src='assets/dicesides.png'" />
               </button>
-              <button type="button" onclick="swapProjectImage('dicesidesMainImg', 'assets/Banner (6).png', 'DiceSides Design', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-                <img src="assets/Banner (6).png" alt="Detail 3" class="w-full h-full object-cover" onerror="this.src='assets/dicesides.png'" />
+              <button type="button" data-action="swap-img" data-target="dicesidesMainImg" data-src="assets/banner-6.webp" data-caption="DiceSides Design" data-mode="contain" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+                <img src="assets/banner-6.webp" alt="Detail 3" class="w-full h-full object-cover" loading="lazy" decoding="async" onerror="this.src='assets/dicesides.png'" />
               </button>
             </div>
           </div>
@@ -850,7 +553,6 @@
         
         <!-- Kiri: Detail Teks, Badges, & Tombol Aksi Alert Dialog -->
         <div class="w-full md:w-1/2 flex flex-col justify-center">
-          <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Game Studio</span> -->
           <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white mb-3">DiceSides Studio</h3>
           <p class="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-5">
             <span data-lang="id">Game Studio di platform Roblox. Telah merilis proyek seperti OPTION dan sedang mengembangkan game pada saat ini.</span>
@@ -860,7 +562,7 @@
           <!-- Badges Teknologi -->
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-xs">
-              <img src="https://skills.syvixor.com/api/icons?i=lua" class="w-4 h-4 rounded" alt="Luau" />
+              <img src="assets/icons/lua.svg" class="w-4 h-4 rounded" loading="lazy" decoding="async" width="16" height="16" alt="Luau" />
               <span>Luau</span>
             </span>
           </div>
@@ -871,13 +573,7 @@
             <!-- Tombol 1: Menuju Roblox Group -->
             <button 
               type="button" 
-              onclick="openLinkDialog({
-                url: 'https://www.roblox.com/communities/403281622/Dicesides',
-                title: 'Kunjungi DiceSides?',
-                description: 'Kamu akan diarahkan ke halaman komunitas DiceSides. Untuk saat ini sedang dalam pengembangan untuk gamenya yaitu <b>OPTION 2</b>. Tetapi ini adalah tempat dimana saya akan merilis proyek game saya.',
-                confirmText: 'Buka Roblox',
-                cancelText: 'Kembali'
-              })" 
+              data-action="open-dialog" data-dialog="roblox"
               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 text-xs sm:text-sm font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all active:scale-95 shadow-xs"
             >
               <span>Roblox Group</span>
@@ -887,13 +583,7 @@
             <!-- Tombol 2: Menuju Game OPTION -->
             <button 
               type="button" 
-              onclick="openLinkDialog({
-                url: 'https://www.roblox.com/games/83096157775144/OPTION',
-                title: 'Buka halaman OPTION?',
-                description: 'Game ini di develop di 2024, dengan konsep untuk <b>tugas sekolah</b>. Game ini sangat unoptimized dan juga banyak bugnya sehingga tidak ada kelanjutkan development atau sudah di Discontinued. Tetapi kalau ingin Memainkannya silahkan <i>join</i> Averys Home. Karena dibatasi untuk yang join grupnya saja.',
-                confirmText: 'Mainkan Game',
-                cancelText: 'Nanti Dulu'
-              })" 
+              data-action="open-dialog" data-dialog="option"
               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm font-semibold hover:border-zinc-400 dark:hover:border-zinc-700 transition-all active:scale-95 shadow-xs"
             >
               <span>Play OPTION</span>
@@ -905,29 +595,30 @@
 
         <!-- Kanan: Showcase Preview -->
         <div class="w-full md:w-1/2 flex flex-col gap-3.5">
-          <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" onclick="openCurrentProjectImage('studioMainImg')">
+          <div class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer group flex items-center justify-center transition-all" data-action="open-project-img" data-img="studioMainImg">
             <img 
               id="studioMainImg" 
-              src="assets/Banner (1).png" 
+              src="assets/banner-1.webp" 
               data-caption="DiceSides Studio Main Logo" 
               alt="DiceSides Studio Preview" 
               class="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300" 
+              loading="lazy" decoding="async"
               onerror="this.src='https://placehold.co/800x500/18181b/ffffff?text=DiceSides+Studio+Preview'" 
             />
           </div>
 
           <div class="flex items-center gap-2.5">
-            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Banner (1).png', 'DiceSides Studio Main Logo', this, 'cover')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
-              <img src="assets/Banner (1).png" alt="Cover" class="w-full h-full object-cover" />
+            <button type="button" data-action="swap-img" data-target="studioMainImg" data-src="assets/banner-1.webp" data-caption="DiceSides Studio Main Logo" data-mode="cover" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white shrink-0 transition-all active:scale-95 shadow-xs">
+              <img src="assets/banner-1.webp" alt="Cover" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </button>
-            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Banner (2).png', 'Game Icon (Release/Update)', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-              <img src="assets/Banner (2).png" alt="Detail 2" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
+            <button type="button" data-action="swap-img" data-target="studioMainImg" data-src="assets/banner-2.webp" data-caption="Game Icon (Release/Update)" data-mode="contain" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <img src="assets/banner-2.webp" alt="Detail 2" class="w-full h-full object-cover" loading="lazy" decoding="async" onerror="this.src='assets/DiceSidesStudio.png'" />
             </button>
-            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/Thumbnail.png', 'OPTION Thumbnail', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-              <img src="assets/Thumbnail.png" alt="Detail 3" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
+            <button type="button" data-action="swap-img" data-target="studioMainImg" data-src="assets/Thumbnail.webp" data-caption="OPTION Thumbnail" data-mode="contain" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <img src="assets/Thumbnail.webp" alt="Detail 3" class="w-full h-full object-cover" loading="lazy" decoding="async" onerror="this.src='assets/DiceSidesStudio.png'" />
             </button>
-            <button type="button" onclick="swapProjectImage('studioMainImg', 'assets/NewGameThumbnail2.png', 'OPTION Thumbnail 2', this, 'contain')" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
-              <img src="assets/NewGameThumbnail2.png" alt="Detail 4" class="w-full h-full object-cover" onerror="this.src='assets/DiceSidesStudio.png'" />
+            <button type="button" data-action="swap-img" data-target="studioMainImg" data-src="assets/NewGameThumbnail2.webp" data-caption="OPTION Thumbnail 2" data-mode="contain" class="thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95">
+              <img src="assets/NewGameThumbnail2.webp" alt="Detail 4" class="w-full h-full object-cover" loading="lazy" decoding="async" onerror="this.src='assets/DiceSidesStudio.png'" />
             </button>
           </div>
         </div>
@@ -951,7 +642,7 @@
   </div>
 
   <!-- Grid Repositori Unggulan (Top 3) -->
-  <div id="reposGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 sm:gap-5">
+  <div id="reposGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
 
     <!-- 1. StudentVoiceBE -->
     <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group" data-aos="fade-up">
@@ -974,11 +665,6 @@
       </div>
 
       <div class="pt-3.5 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4 flex items-center justify-between">
-        <div class="flex items-center gap-1.5">
-          <!-- <img src="https://skills.syvixor.com/api/icons?i=php" class="w-4 h-4 rounded object-contain" alt="PHP" title="PHP" />
-          <img src="https://skills.syvixor.com/api/icons?i=laravel" class="w-4 h-4 rounded object-contain" alt="Laravel" title="Laravel" />
-          <img src="https://skills.syvixor.com/api/icons?i=mysql" class="w-4 h-4 rounded object-contain" alt="MySQL" title="MySQL" />
-        </div> -->
         <span class="text-[11px] font-medium text-zinc-400">PHP, Laravel, MySQL</span>
       </div>
     </article>
@@ -1004,11 +690,6 @@
       </div>
 
       <div class="pt-3.5 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4 flex items-center justify-between">
-        <!-- <div class="flex items-center gap-1.5">
-          <img src="https://skills.syvixor.com/api/icons?i=ts" class="w-4 h-4 rounded object-contain" alt="TypeScript" title="TypeScript" />
-          <img src="https://skills.syvixor.com/api/icons?i=react" class="w-4 h-4 rounded object-contain" alt="React" title="React" />
-          <img src="https://skills.syvixor.com/api/icons?i=tailwind" class="w-4 h-4 rounded object-contain" alt="Tailwind CSS" title="Tailwind CSS" />
-        </div> -->
         <span class="text-[11px] font-medium text-zinc-400">TypeScript, React, Tailwind</span>
       </div>
     </article>
@@ -1017,7 +698,6 @@
     <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group" data-aos="fade-up">
       <div>
         <div class="flex items-center justify-between gap-2 mb-2">
-          <!-- <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Mobile Client</span> -->
           <div class="flex items-center gap-2">
             <a href="https://mora-app.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors" title="Kunjungi Web Demo / Preview">
             </a>
@@ -1035,10 +715,6 @@
       </div>
 
       <div class="pt-3.5 border-t border-zinc-200/60 dark:border-zinc-800/60 mt-4 flex items-center justify-between">
-        <!-- <div class="flex items-center gap-1.5">
-          <img src="https://skills.syvixor.com/api/icons?i=react" class="w-4 h-4 rounded object-contain" alt="React Native" title="React Native" />
-          <img src="https://skills.syvixor.com/api/icons?i=ts" class="w-4 h-4 rounded object-contain" alt="TypeScript" title="TypeScript" />
-        </div> -->
         <span class="text-[11px] font-medium text-zinc-400">React Native, Expo</span>
       </div>
     </article>
@@ -1132,26 +808,6 @@
           <span class="text-xs font-semibold text-zinc-400 mt-4">PHP / Blade</span>
         </article>
 
-        <!-- Template Edukasi
-        <article class="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-              <span data-lang="id">Open Source</span>
-              <span data-lang="en" class="hidden">Open Source</span>
-            </span>
-            <h3 class="text-base font-bold text-zinc-950 dark:text-white mt-1.5 mb-2 hover:underline">
-              <a href="https://github.com/Vinnrafay/Template-Website-Edukasi" target="_blank" rel="noopener noreferrer">
-                <span data-lang="id">Template Edukasi ↗</span>
-                <span data-lang="en" class="hidden">Education Template ↗</span>
-              </a>
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span data-lang="id">Template website edukasi dengan formulir login, registrasi, dan halaman 404 kustom.</span>
-              <span data-lang="en" class="hidden">Educational website template featuring login, registration forms, and custom 404 pages.</span>
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-zinc-400 mt-4">HTML / CSS</span>
-        </article> -->
       </div>
     </section>
 
@@ -1169,13 +825,13 @@
       </div>
 
       <!-- Grid 6 Kartu Showcase Bersih -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 sm:gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
 
         <!-- Cert 1: Sertikom Sem 1 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/sertikom1.jpg', 'Sertifikat Kompetensi Semester 1 · SMK Informatika Pesat')" data-aos="fade-up">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" data-action="open-lightbox" data-src="assets/sertikom1.webp" data-caption="Sertifikat Kompetensi Semester 1 · SMK Informatika Pesat" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
-              <img src="assets/sertikom1.jpg" alt="Sertikom 1" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+1'" />
+              <img src="assets/sertikom1.webp" alt="Sertikom 1" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+1'" />
             </div>
             <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors leading-snug">
               <span data-lang="id">Sertifikat Kompetensi (Semester 1)</span>
@@ -1189,10 +845,10 @@
         </article>
 
         <!-- Cert 2: Sertikom Sem 2 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/sertikom 2.jpg', 'Sertifikat Kompetensi Semester 2 · SMK Informatika Pesat')" data-aos="fade-up">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" data-action="open-lightbox" data-src="assets/sertikom-2.webp" data-caption="Sertifikat Kompetensi Semester 2 · SMK Informatika Pesat" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
-              <img src="assets/sertikom 2.jpg" alt="Sertikom 2" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+2'" />
+              <img src="assets/sertikom-2.webp" alt="Sertikom 2" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+2'" />
             </div>
             <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors leading-snug">
               <span data-lang="id">Sertifikat Kompetensi (Semester 2)</span>
@@ -1206,10 +862,10 @@
         </article>
 
         <!-- Cert 3: Sertikom Sem 3 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/certificate3.jpeg', 'Sertifikat Kompetensi Semester 3 · SMK Informatika Pesat')" data-aos="fade-up">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" data-action="open-lightbox" data-src="assets/certificate3.webp" data-caption="Sertifikat Kompetensi Semester 3 · SMK Informatika Pesat" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
-              <img src="assets/certificate3.jpeg" alt="Sertikom 3" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+3'" />
+              <img src="assets/certificate3.webp" alt="Sertikom 3" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+3'" />
             </div>
             <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors leading-snug">
               <span data-lang="id">Sertifikat Kompetensi (Semester 3)</span>
@@ -1223,10 +879,10 @@
         </article>
 
         <!-- Cert 4: Sertikom Sem 4 -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/certificate4.jpeg', 'Sertifikat Kompetensi Semester 4 · SMK Informatika Pesat')" data-aos="fade-up">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" data-action="open-lightbox" data-src="assets/certificate4.webp" data-caption="Sertifikat Kompetensi Semester 4 · SMK Informatika Pesat" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
-              <img src="assets/certificate4.jpeg" alt="Sertikom 4" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+4'" />
+              <img src="assets/certificate4.webp" alt="Sertikom 4" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Sertikom+4'" />
             </div>
             <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors leading-snug">
               <span data-lang="id">Sertifikat Kompetensi (Semester 4)</span>
@@ -1240,10 +896,10 @@
         </article>
 
         <!-- Cert 5: Juara 1 UI/UX IDN -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/lomba1.jpeg', 'Juara 1 UI/UX Design · IDN Boarding School')" data-aos="fade-up">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" data-action="open-lightbox" data-src="assets/lomba1.webp" data-caption="Juara 1 UI/UX Design · IDN Boarding School" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
-              <img src="assets/lomba1.jpeg" alt="Juara 1 UI/UX" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Juara+1+UI/UX'" />
+              <img src="assets/lomba1.webp" alt="Juara 1 UI/UX" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Juara+1+UI/UX'" />
             </div>
             <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors leading-snug">
               <span data-lang="id">Juara 1 UI/UX Design</span>
@@ -1257,10 +913,10 @@
         </article>
 
         <!-- Cert 6: Juara 3 Primakara Bali -->
-        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" onclick="openLightbox('assets/lomba2.jpeg', 'Juara 3 UI Design · Universitas Primakara Bali')" data-aos="fade-up">
+        <article class="p-3.5 sm:p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between group cursor-pointer shadow-xs" data-action="open-lightbox" data-src="assets/lomba2.webp" data-caption="Juara 3 UI Design · Universitas Primakara Bali" data-aos="fade-up">
           <div>
             <div class="relative overflow-hidden aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 rounded-xl mb-3.5 border border-zinc-200/70 dark:border-zinc-800/70">
-              <img src="assets/lomba2.jpeg" alt="Juara 3 UI Design" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Juara+3+UI'" />
+              <img src="assets/lomba2.webp" alt="Juara 3 UI Design" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/600x375/18181b/ffffff?text=Juara+3+UI'" />
             </div>
             <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors leading-snug">
               <span data-lang="id">Juara 3 UI Design</span>
@@ -1297,7 +953,7 @@
         <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">WhatsApp</span>
-            <button onclick="copyToClipboard('+6287797895571', 'Nomor WhatsApp')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Nomor">
+            <button data-action="copy" data-text="+6287797895571" data-label="Nomor WhatsApp" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Nomor">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
@@ -1311,7 +967,7 @@
         <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">GitHub</span>
-            <button onclick="copyToClipboard('https://github.com/Vinnrafay', 'GitHub URL')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Tautan">
+            <button data-action="copy" data-text="https://github.com/Vinnrafay" data-label="GitHub URL" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Tautan">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
@@ -1325,7 +981,7 @@
         <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Instagram</span>
-            <button onclick="copyToClipboard('@r_afayy', 'Username Instagram')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Username">
+            <button data-action="copy" data-text="@r_afayy" data-label="Username Instagram" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Username">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
@@ -1339,7 +995,7 @@
         <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-sm flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group" data-aos="fade-up">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Email</span>
-            <button onclick="copyToClipboard('rafayarvino.xpro@gmail.com', 'Alamat Email')" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Email">
+            <button data-action="copy" data-text="rafayarvino.xpro@gmail.com" data-label="Alamat Email" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-all active:scale-95" title="Salin Email">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
             </button>
           </div>
@@ -1355,17 +1011,17 @@
   </main>
 
   <!-- LIGHTBOX MODAL -->
-  <div id="lightboxModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
-    <button class="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer active:scale-95" onclick="closeLightbox()" aria-label="Tutup">✕</button>
-    <div class="max-w-4xl max-h-[85vh] flex flex-col items-center gap-3" onclick="event.stopPropagation()">
+  <div id="lightboxModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" data-action="close-lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau gambar">
+    <button id="lightboxCloseBtn" class="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer active:scale-95" data-action="close-lightbox" aria-label="Tutup">✕</button>
+    <div class="max-w-4xl max-h-[85vh] flex flex-col items-center gap-3" data-action="stop-prop">
       <img id="lightboxImg" src="" alt="Pratinjau" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10" />
       <span id="lightboxCaption" class="text-white text-xs font-medium tracking-wide text-center"></span>
     </div>
   </div>
 
   <!-- ALERT DIALOG MODAL (KONFIRMASI MENUJU TAUTAN EKSTERNAL) -->
-<div id="alertDialogModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden items-center justify-center p-4 transition-all duration-200 select-none" onclick="closeLinkDialog()">
-    <div class="w-full max-w-[440px] rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-2xl overflow-hidden transition-all duration-200 animate-in fade-in zoom-in-95" onclick="event.stopPropagation()">
+<div id="alertDialogModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden items-center justify-center p-4 transition-all duration-200 select-none" data-action="close-dialog" role="dialog" aria-modal="true" aria-labelledby="alertTitle" aria-describedby="alertMessage">
+    <div class="w-full max-w-[440px] rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-2xl overflow-hidden transition-all duration-200 animate-in fade-in zoom-in-95" data-action="stop-prop">
       
       <!-- Bagian Atas: Judul & Penjelasan Bebas Diubah -->
       <div class="p-6">
@@ -1382,7 +1038,7 @@
         <button 
           type="button" 
           id="alertCancelBtn"
-          onclick="closeLinkDialog()" 
+          data-action="close-dialog" 
           class="px-4 py-2 rounded-xl text-sm font-medium border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-95 shadow-xs"
         >
           Cancel
@@ -1392,7 +1048,7 @@
           href="#" 
           target="_blank" 
           rel="noopener noreferrer" 
-          onclick="closeLinkDialog()" 
+          data-action="close-dialog" 
           class="px-4 py-2 rounded-xl text-sm font-medium bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all active:scale-95 shadow-xs"
         >
           Continue
@@ -1403,381 +1059,19 @@
   </div>
 
   <!-- TOAST NOTIFICATION -->
-  <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 z-50 transition-all duration-200 pointer-events-none">
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 z-50 transition-all duration-200 pointer-events-none">
     <div class="px-5 py-2.5 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 text-xs font-semibold shadow-2xl flex items-center gap-2">
       <span>✓</span>
       <span id="toastMessage"></span>
     </div>
   </div>
 
-  <!-- AOS (Animate On Scroll) JS -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- AOS (Animate On Scroll) JS (lokal) -->
+  <script src="assets/vendor/aos.js" defer></script>
 
-  <!-- SCRIPTS -->
-  <script>
-
-    // ==========================================
-    // SMOOTH SCROLLING (KHUSUS PC, MATI DI MOBILE)
-    // ==========================================
-    let lenisInstance = null;
-    if (typeof Lenis !== 'undefined' && window.matchMedia('(min-width: 768px) and (pointer: fine)').matches && !('ontouchstart' in window)) {
-      lenisInstance = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        touchMultiplier: 0,
-      });
-      window.lenis = lenisInstance;
-
-      function raf(time) {
-        lenisInstance.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      // Hubungkan ke Scroll Progress Bar & Sinkronkan dengan AOS
-      lenisInstance.on('scroll', () => {
-        const winScroll = window.scrollY || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const progress = document.getElementById('scrollProgress');
-        if (progress) progress.style.width = scrolled + '%';
-
-        if (typeof AOS !== 'undefined') {
-          AOS.refresh();
-        }
-      });
-    }
-
-    // ==========================================
-    // INISIALISASI AOS ANIMATION
-    // ==========================================
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof AOS !== 'undefined') {
-        AOS.init({
-          once: true,
-          duration: 700,
-          easing: 'ease-out-cubic',
-          offset: 80,
-        });
-      }
-    });
-
-    // ==========================================
-    // SMOOTH SCROLLING NAVBAR / ANCHOR CLICKS
-    // ==========================================
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-        const targetEl = document.querySelector(targetId);
-        if (!targetEl) return;
-
-        e.preventDefault();
-
-        // Jika PC dan Lenis aktif
-        if (window.lenis) {
-          window.lenis.scrollTo(targetEl, { offset: -40, duration: 1.2 });
-        } else {
-          // Fallback / Mobile: Smooth scroll terarah dengan offset navbar floating
-          const navOffset = 64;
-          const elementPosition = targetEl.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // ==========================================
-    // CONTROLLER PREVIEW: HERO COVER VS NORMAL UI
-    // ==========================================
-    function swapProjectImage(targetImgId, newSrc, newCaption, clickedThumb, mode = 'cover') {
-      const mainImg = document.getElementById(targetImgId);
-      if (!mainImg) return;
-
-      mainImg.style.opacity = '0.35';
-      
-      setTimeout(() => {
-        mainImg.src = newSrc;
-        mainImg.setAttribute('data-caption', newCaption);
-
-        if (mode === 'contain') {
-          mainImg.className = 'w-full h-full object-contain p-2 sm:p-4 select-none group-hover:scale-[1.01] transition-all duration-300';
-        } else {
-          mainImg.className = 'w-full h-full object-cover select-none group-hover:scale-[1.02] transition-all duration-300';
-        }
-
-        mainImg.style.opacity = '1';
-      }, 100);
-
-      const container = clickedThumb.parentElement;
-      if (container) {
-        container.querySelectorAll('.thumb-btn').forEach((btn) => {
-          btn.className = 'thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 opacity-40 hover:opacity-90 shrink-0 transition-all active:scale-95';
-        });
-        clickedThumb.className = 'thumb-btn w-16 h-11 sm:w-20 sm:h-12 rounded-xl overflow-hidden border-2 border-zinc-950 dark:border-white opacity-100 shrink-0 transition-all active:scale-95 shadow-xs';
-      }
-    }
-
-    // Buka Lightbox Gambar yang Sedang Aktif
-    function openCurrentProjectImage(imgId) {
-      const imgEl = document.getElementById(imgId);
-      if (!imgEl) return;
-      const src = imgEl.src;
-      const caption = imgEl.getAttribute('data-caption') || imgEl.alt;
-      if (typeof openLightbox === 'function') {
-        openLightbox(src, caption);
-      }
-    }
-
-    // Filter Tab Pills Kategori
-    function filterProjects(category) {
-      const cards = document.querySelectorAll('.project-featured-card');
-      cards.forEach((card) => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-
-      const buttons = ['all', 'ui', 'web', 'game'];
-      buttons.forEach((btn) => {
-        const el = document.getElementById(`filter-${btn}`);
-        if (!el) return;
-        if (btn === category) {
-          el.className = 'px-4 py-1.5 text-xs font-semibold rounded-full bg-zinc-950 text-white dark:bg-zinc-100 dark:text-zinc-950 transition-all whitespace-nowrap shadow-xs';
-        } else {
-          el.className = 'px-4 py-1.5 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all whitespace-nowrap';
-        }
-      });
-
-      if (typeof AOS !== 'undefined') {
-        setTimeout(() => AOS.refresh(), 50);
-      }
-    }
-
-    // 1. Pengalih Tema (Dark / Light)
-    function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
-      updateThemeIcons(isDark);
-      setLanguage(currentLang);
-    }
-
-    function updateThemeIcons(isDark) {
-      const sun = document.getElementById('themeIconSun');
-      const moon = document.getElementById('themeIconMoon');
-      const sunM = document.getElementById('themeIconSunM');
-      const moonM = document.getElementById('themeIconMoonM');
-
-      [ [sun, moon], [sunM, moonM] ].forEach(([s, m]) => {
-        if (!s || !m) return;
-        if (isDark) {
-          s.classList.remove('hidden');
-          m.classList.add('hidden');
-        } else {
-          s.classList.add('hidden');
-          m.classList.remove('hidden');
-        }
-      });
-    }
-    updateThemeIcons(document.documentElement.classList.contains('dark'));
-
-    // 2. Sistem Terjemahan Bahasa (ID / EN)
-    let currentLang = localStorage.getItem('portfolio-lang') || 'id';
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('portfolio-lang', lang);
-      document.documentElement.setAttribute('lang', lang);
-
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-          el.classList.remove('hidden');
-        } else {
-          el.classList.add('hidden');
-        }
-      });
-
-      const pairs = [
-        ['lang-id', 'lang-en'],
-        ['lang-id-m', 'lang-en-m']
-      ];
-
-      pairs.forEach(([idBtn, enBtn]) => {
-        const bId = document.getElementById(idBtn);
-        const bEn = document.getElementById(enBtn);
-        if (!bId || !bEn) return;
-
-        const isDark = document.documentElement.classList.contains('dark');
-        const activeClass = isDark
-          ? "px-2.5 py-1 rounded-full font-bold transition-all bg-zinc-800 text-white shadow-sm"
-          : "px-2.5 py-1 rounded-full font-bold transition-all bg-white text-zinc-950 shadow-sm";
-        const inactiveClass = "px-2.5 py-1 rounded-full text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all font-semibold";
-
-        if (lang === 'id') {
-          bId.className = activeClass;
-          bEn.className = inactiveClass;
-        } else {
-          bId.className = inactiveClass;
-          bEn.className = activeClass;
-        }
-      });
-    }
-    setLanguage(currentLang);
-
-    // 4. Modal Lightbox
-    const lightboxModal = document.getElementById('lightboxModal');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-
-    function openLightbox(src, caption) {
-      lightboxImg.src = src;
-      lightboxCaption.textContent = caption;
-      lightboxModal.classList.remove('hidden');
-      lightboxModal.classList.add('flex');
-    }
-
-    function closeLightbox() {
-      lightboxModal.classList.add('hidden');
-      lightboxModal.classList.remove('flex');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-  // ==========================================
-    // ALERT DIALOG CONTROLLER (FLEXIBLE TEXT)
-    // ==========================================
-    function openLinkDialog(params) {
-      const modal = document.getElementById('alertDialogModal');
-      const titleEl = document.getElementById('alertTitle');
-      const msgEl = document.getElementById('alertMessage');
-      const confirmBtn = document.getElementById('alertConfirmBtn');
-      const cancelBtn = document.getElementById('alertCancelBtn');
-
-      if (!modal || !confirmBtn) return;
-
-      // Mendukung input objek: { url, title, description, confirmText, cancelText }
-      const url = typeof params === 'object' ? params.url : params;
-      const title = typeof params === 'object' ? params.title : arguments[1];
-      const desc = typeof params === 'object' ? params.description : arguments[2];
-      const confirmText = (typeof params === 'object' && params.confirmText) ? params.confirmText : 'Continue';
-      const cancelText = (typeof params === 'object' && params.cancelText) ? params.cancelText : 'Cancel';
-
-      if (titleEl) titleEl.textContent = title || 'Are you absolutely sure?';
-      if (msgEl) msgEl.innerHTML = desc || 'This action will take you to an external destination.';
-      if (confirmBtn) {
-        confirmBtn.href = url || '#';
-        confirmBtn.textContent = confirmText;
-      }
-      if (cancelBtn) cancelBtn.textContent = cancelText;
-
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeLinkDialog() {
-      const modal = document.getElementById('alertDialogModal');
-      if (!modal) return;
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    // 5. Toast Salin Teks
-    const toast = document.getElementById('toast');
-    const toastMessage = document.getElementById('toastMessage');
-    let toastTimeout;
-
-    function showToast(msg) {
-      clearTimeout(toastTimeout);
-      toastMessage.textContent = msg;
-      toast.classList.remove('translate-y-20', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
-
-      toastTimeout = setTimeout(() => {
-        toast.classList.remove('translate-y-0', 'opacity-100');
-        toast.classList.add('translate-y-20', 'opacity-0');
-      }, 2500);
-    }
-
-    function copyToClipboard(text, label) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast(`Berhasil menyalin ${label}!`);
-        }).catch(() => {
-          showToast(`Gagal menyalin ${label}.`);
-        });
-      } else {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        try {
-          document.execCommand('copy');
-          showToast(`Berhasil menyalin ${label}!`);
-        } catch {
-          showToast(`Gagal menyalin ${label}.`);
-        }
-        document.body.removeChild(textarea);
-      }
-    }
-
-    // 6. Scroll Progress Fallback (Mobile / Non-Lenis)
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      const progress = document.getElementById('scrollProgress');
-      if (progress) progress.style.width = scrolled + '%';
-    });
-
-    // 7. Menu Mobile
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-    });
-
-    function closeMobileMenu() {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-    }
-
-    // Rotasi Gambar Nomor Oscar Piastri (tiap 10 Detik)
-    (function () {
-      const piastriImg = document.getElementById('piastriNumber');
-      if (!piastriImg) return;
-
-      const numbers = [
-        'assets/OP81.png',
-        'assets/OP81 (2).png'
-      ];
-      let currentIdx = 0;
-
-      numbers.forEach((src) => {
-        const preloader = new Image();
-        preloader.src = src;
-      });
-
-      setInterval(() => {
-        piastriImg.classList.add('opacity-0');
-
-        setTimeout(() => {
-          currentIdx = (currentIdx + 1) % numbers.length;
-          piastriImg.src = numbers[currentIdx];
-          piastriImg.classList.remove('opacity-0');
-        }, 500);
-      }, 10000);
-    })();
-  </script>
+  <!-- SCRIPTS (Fase 2.2: extracted, visual-identical) -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/home.js" defer></script>
 
 </body>
 </html>
